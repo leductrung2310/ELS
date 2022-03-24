@@ -18,11 +18,18 @@
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_start.xml" value="0.2" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_games.xml" value="0.12512664640324214" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_home.xml" value="0.176" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/drawable/ic_hands_phone.xml" value="0.131" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/drawable/ic_notifications.xml" value="0.131" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout-v28/fragment_home.xml" value="0.12318840579710146" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/activity_main.xml" value="0.11278195488721804" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/activity_start.xml" value="0.11278195488721804" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
