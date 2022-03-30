@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">ELS</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="english_learning_simple">English Learning Simple</string>
+    <string name="learning_by_n_playing">Learning by \n playing</string>
+    <string name="listening">Listening</string>
+    <string name="reading">Reading</string>
+    <string name="speaking">Speaking</string>
+    <string name="writing">Writing</string>
+    <string name="heading_on_boarding_1">Hundred self-learn courses for 4 skills</string>
+    <string name="heading_on_boarding_2">Speaking practice with friends from all over the world</string>
+    <string name="heading_on_boarding_3">Practice English by playing games</string>
 </resources>
