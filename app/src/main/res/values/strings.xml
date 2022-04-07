@@ -10,4 +10,7 @@
     <string name="heading_on_boarding_1">Hundred self-learn courses for 4 skills</string>
     <string name="heading_on_boarding_2">Speaking practice with friends from all over the world</string>
     <string name="heading_on_boarding_3">Practice English by playing games</string>
+
+<!--    personal-->
+    <string name="personal">My profile</string>
 </resources>
