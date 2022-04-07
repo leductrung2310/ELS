@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="smallPadding">@dimen/_8sdp</dimen>
+    <dimen name="mediumPadding">@dimen/_13sdp</dimen>
+    <dimen name="largePadding">@dimen/_16sdp</dimen>
+
+    <dimen name="smallIconSize">@dimen/_10sdp</dimen>
+    <dimen name="mediumIconSize">@dimen/_20sdp</dimen>
+    <dimen name="largeIconSize">@dimen/_32sdp</dimen>
+    <dimen name="extraLargeIconSize">@dimen/_42sdp</dimen>
+
+    <dimen name="bodyText1">@dimen/_14sdp</dimen>
+    <dimen name="bodyText2">@dimen/_12sdp</dimen>
+    <dimen name="captionText">@dimen/_10sdp</dimen>
+
+    <dimen name="header1">@dimen/_26sdp</dimen>
+    <dimen name="header2">@dimen/_20sdp</dimen>
+    <dimen name="header3">@dimen/_16sdp</dimen>
+
+    <dimen name="buttonSize">@dimen/_32sdp</dimen>
+
+    <dimen name="cardElevation">@dimen/_6sdp</dimen>
+    <dimen name="mediumCardCornerRadius">@dimen/_20sdp</dimen>
+    <dimen name="smallCardCornerRadius">@dimen/_10sdp</dimen>
+</resources>
