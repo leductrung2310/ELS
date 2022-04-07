@@ -42,6 +42,12 @@ public class PersonalFragment extends Fragment {
         //return inflater.inflate(R.layout.fragment_personal, container, false);
 
         binding = FragmentPersonalBinding.inflate(getLayoutInflater());
+        binding.personalTabSetting1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("D","CLick1");
+            }
+        });
 
         Log.d("D","CLick1");
 

@@ -3,7 +3,7 @@
     <style name="Theme.ELS" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorPrimaryVariant">@color/p_light</item>
+        <item name="colorPrimaryVariant">@color/primary_color</item>
         <item name="colorOnPrimary">@color/text_on_p</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_color</item>
