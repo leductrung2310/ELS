@@ -48,7 +48,7 @@
     <style name="Personal_card_tab" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/dark</item>
         <item name="android:textSize">@dimen/bodyText1</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
 
     </style>
 

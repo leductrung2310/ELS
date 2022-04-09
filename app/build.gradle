@@ -58,4 +58,5 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.tbuonomo:dotsindicator:4.2'
     implementation 'info.androidhive:fontawesome:0.0.5'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

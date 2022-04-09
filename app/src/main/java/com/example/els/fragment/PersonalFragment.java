@@ -1,5 +1,6 @@
 package com.example.els.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.els.InformationActivity;
 import com.example.els.R;
 import com.example.els.databinding.FragmentPersonalBinding;
 
@@ -26,10 +28,12 @@ public class PersonalFragment extends Fragment {
 
     }
 
+
     public static PersonalFragment newInstance(String param1, String param2) {
         PersonalFragment fragment = new PersonalFragment();
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,8 @@ public class PersonalFragment extends Fragment {
         binding.personalTabSetting1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("D","CLick1");
+                Intent intent = new Intent(getContext(), InformationActivity.class);
+                startActivity(intent);
             }
         });
 

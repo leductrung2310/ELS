@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@color/white_2" />
     <corners
-        android:topLeftRadius="@dimen/smallCardCornerRadius"
-        android:topRightRadius="@dimen/smallCardCornerRadius"/>
+        android:topLeftRadius="@dimen/mediumCardCornerRadius"
+        android:topRightRadius="@dimen/mediumCardCornerRadius"/>
 
 </shape>
