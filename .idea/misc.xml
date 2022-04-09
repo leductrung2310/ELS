@@ -10,12 +10,20 @@
         <entry key="..\:/University/ThirdYear/ELS/app/src/main/res/layout/fragment_meeting.xml" value="0.1337386018237082" />
         <entry key="..\:/University/ThirdYear/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.1337386018237082" />
         <entry key="..\:/University/ThirdYear/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.27076923076923076" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/background_primary.xml" value="0.191" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/bottom_navigation_background.xml" value="0.191" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/bottom_navigation_color_selector.xml" value="0.191" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/exam_button.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/gradient1.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2495" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/ic_phone.xml" value="0.118" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/font-v26/roboto.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/font/roboto.xml" value="0.29010416666666666" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_main.xml" value="0.24909420289855072" />
-        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_start.xml" value="0.2" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_signup.xml" value="0.3175213675213675" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_start.xml" value="0.16802536231884058" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_verify.xml" value="0.33" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_games.xml" value="0.12512664640324214" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_home.xml" value="0.176" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/drawable/ic_hands_phone.xml" value="0.131" />

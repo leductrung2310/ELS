@@ -2,8 +2,6 @@ package com.example.els;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.els.databinding.ActivityMainBinding;
 import com.example.els.databinding.ActivityOnBoardingBinding;
 
 public class OnboardingActivity extends AppCompatActivity {
@@ -45,7 +42,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 if (getItem(0) <= 1)
                     activityOnBoardingBinding.slideViewPager.setCurrentItem(getItem(1), true);
                 else {
-                    Intent i = new Intent(OnboardingActivity.this, StartActivity.class);
+                    Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
                     startActivity(i);
                     finish();
                 }
@@ -55,7 +52,7 @@ public class OnboardingActivity extends AppCompatActivity {
         activityOnBoardingBinding.tvSkipOb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(OnboardingActivity.this, StartActivity.class);
+                Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
                 startActivity(i);
                 finish();
 
