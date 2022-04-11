@@ -13,11 +13,6 @@ import android.view.ViewGroup;
 
 import com.example.els.databinding.FragmentHomeBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment} factory method to
- * create an instance of this fragment.
- */
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
 
