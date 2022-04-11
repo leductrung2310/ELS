@@ -2,17 +2,19 @@ package com.example.els;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.els.databinding.ActivityMainBinding;
-import com.example.els.fragment.GamesFragment;
-import com.example.els.fragment.HomeFragment;
-import com.example.els.fragment.MeetingFragment;
-import com.example.els.fragment.PersonalFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,35 +27,22 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        replaceFragment(new HomeFragment());
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.main_nav_host_fragment);
+        assert navHostFragment != null;
+        NavController navController = navHostFragment.getNavController();
+        BottomNavigationView bottomNav = binding.bottomNavigation;
+        NavigationUI.setupWithNavController(bottomNav, navController);
 
-        binding.bottomNavigation.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                case R.id.home:
-                    replaceFragment(new HomeFragment());
-                    break;
-                case R.id.meetings:
-                    replaceFragment(new MeetingFragment());
-                    break;
-                case R.id.games:
-                    replaceFragment(new GamesFragment());
-                    break;
-                case R.id.personal:
-                    replaceFragment(new PersonalFragment());
-                    break;
-
-                default:
-                    new HomeFragment();
-                    break;
+        // Set visibility for bottom navigation
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                if(navDestination.getId() == R.id.skillsFragment) {
+                    bottomNav.setVisibility(View.GONE);
+                } else {
+                    bottomNav.setVisibility(View.VISIBLE);
+                }
             }
-            return true;
         });
-    }
-
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout,fragment);
-        fragmentTransaction.commit();
     }
 }
