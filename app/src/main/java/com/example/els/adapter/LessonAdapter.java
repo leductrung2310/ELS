@@ -1,7 +1,6 @@
 package com.example.els.adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.els.ListeningActivity;
 import com.example.els.R;
 import com.example.els.models.Lesson;
 
