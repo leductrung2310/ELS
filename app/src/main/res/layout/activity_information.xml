@@ -81,136 +81,349 @@
 
         </FrameLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/mediumPadding"
-            android:layout_marginVertical="@dimen/smallPadding"
-            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"
-            app:boxStrokeColor="@color/primary_color"
-            app:endIconMode="clear_text"
-            app:hintTextColor="@color/primary_color">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
-                android:drawableStart="@drawable/ic_personal_name"
-                android:drawablePadding="10sp"
-                android:fontFamily="@font/roboto_medium"
-                android:hint="Name"
-                android:lines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/mediumPadding"
-            android:layout_marginVertical="@dimen/smallPadding"
-            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"
-            app:boxStrokeColor="@color/primary_color"
-            app:endIconMode="clear_text"
-            app:hintTextColor="@color/primary_color">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
-                android:drawableStart="@drawable/ic_personal_email"
-                android:drawablePadding="10sp"
-                android:fontFamily="@font/roboto_medium"
-                android:hint="Email"
-                android:lines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/mediumPadding"
-            android:layout_marginVertical="@dimen/smallPadding"
-            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"
-            app:boxStrokeColor="@color/primary_color"
-            app:endIconMode="clear_text"
-            app:hintTextColor="@color/primary_color">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
-                android:drawableStart="@drawable/ic_personal_phone"
-                android:drawablePadding="10sp"
-                android:fontFamily="@font/roboto_medium"
-                android:hint="Phone"
-                android:lines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/mediumPadding"
-            android:layout_marginVertical="@dimen/smallPadding"
-            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"
-            app:boxStrokeColor="@color/primary_color"
-            app:endIconMode="clear_text"
-            app:hintTextColor="@color/primary_color">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
-                android:drawableStart="@drawable/ic_personal_password"
-                android:drawablePadding="10sp"
-                android:fontFamily="@font/roboto_medium"
-                android:hint="Password"
-                android:lines="1"
-                android:drawableEnd="@drawable/personal_password_check_visible_1"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/mediumPadding"
-            android:layout_marginVertical="@dimen/smallPadding"
-            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"
-            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"
-            app:boxStrokeColor="@color/primary_color"
-            app:hintTextColor="@color/primary_color">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
-                android:drawableStart="@drawable/ic_personal_password"
-                android:drawablePadding="10sp"
-                android:fontFamily="@font/roboto_medium"
-                android:hint="Repeat Password"
-                android:lines="1"
-                android:drawableEnd="@drawable/personal_password_check_visible_2"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/personal_info_name_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
-            android:layout_marginHorizontal="@dimen/mediumPadding"
-            android:text="@string/submit"
-            android:textAllCaps="false"
-            android:textSize="@dimen/header3"
-            android:textStyle="bold"
-            app:cornerRadius="@dimen/smallCardCornerRadius"
-            android:layout_gravity="center"/>
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/Personal_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/largePadding"
+                android:text="Name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/personal_info_name"
+                style="@style/Personal_info_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/mediumPadding"
+                android:text="Nguyen Duc Thanh Phat"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/personal_info_name_end"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/personal_info_name_end"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/largePadding"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_personal_back_primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_minus1sdp"
+            app:dividerColor="@color/ripple_color"
+            app:dividerInsetEnd="@dimen/largePadding"
+            app:dividerInsetStart="@dimen/largePadding" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/personal_info_gender_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/Personal_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/largePadding"
+                android:text="Gender"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/personal_info_gender"
+                style="@style/Personal_info_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/mediumPadding"
+                android:text="Other"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/personal_info_gender_end"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/personal_info_gender_end"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/largePadding"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_personal_back_primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_minus1sdp"
+            app:dividerColor="@color/ripple_color"
+            app:dividerInsetEnd="@dimen/largePadding"
+            app:dividerInsetStart="@dimen/largePadding" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/personal_info_age_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/Personal_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/largePadding"
+                android:text="Age"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/personal_info_age"
+                style="@style/Personal_info_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/mediumPadding"
+                android:text="18-24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/personal_info_age_end"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/personal_info_age_end"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/largePadding"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_personal_back_primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_minus1sdp"
+            app:dividerColor="@color/ripple_color"
+            app:dividerInsetEnd="@dimen/largePadding"
+            app:dividerInsetStart="@dimen/largePadding" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/personal_info_position_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/Personal_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/largePadding"
+                android:text="Position"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/personal_info_position"
+                style="@style/Personal_info_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/mediumPadding"
+                android:text="Student"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/personal_info_position_end"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/personal_info_position_end"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/largePadding"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_personal_back_primary_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_minus1sdp"
+            app:dividerColor="@color/ripple_color"
+            app:dividerInsetEnd="@dimen/largePadding"
+            app:dividerInsetStart="@dimen/largePadding" />
+
+
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/mediumPadding"-->
+<!--            android:layout_marginVertical="@dimen/smallPadding"-->
+<!--            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxStrokeColor="@color/primary_color"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:hintTextColor="@color/primary_color">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_50sdp"-->
+<!--                android:drawableStart="@drawable/ic_personal_name"-->
+<!--                android:drawablePadding="10sp"-->
+<!--                android:fontFamily="@font/roboto_medium"-->
+<!--                android:hint="Name"-->
+<!--                android:lines="1" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/mediumPadding"-->
+<!--            android:layout_marginVertical="@dimen/smallPadding"-->
+<!--            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxStrokeColor="@color/primary_color"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:hintTextColor="@color/primary_color">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_50sdp"-->
+<!--                android:drawableStart="@drawable/ic_personal_email"-->
+<!--                android:drawablePadding="10sp"-->
+<!--                android:fontFamily="@font/roboto_medium"-->
+<!--                android:hint="Email"-->
+<!--                android:lines="1" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/mediumPadding"-->
+<!--            android:layout_marginVertical="@dimen/smallPadding"-->
+<!--            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxStrokeColor="@color/primary_color"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:hintTextColor="@color/primary_color">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_50sdp"-->
+<!--                android:drawableStart="@drawable/ic_personal_phone"-->
+<!--                android:drawablePadding="10sp"-->
+<!--                android:fontFamily="@font/roboto_medium"-->
+<!--                android:hint="Phone"-->
+<!--                android:lines="1" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/mediumPadding"-->
+<!--            android:layout_marginVertical="@dimen/smallPadding"-->
+<!--            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxStrokeColor="@color/primary_color"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:hintTextColor="@color/primary_color">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_50sdp"-->
+<!--                android:drawableStart="@drawable/ic_personal_password"-->
+<!--                android:drawablePadding="10sp"-->
+<!--                android:fontFamily="@font/roboto_medium"-->
+<!--                android:hint="Password"-->
+<!--                android:lines="1"-->
+<!--                android:drawableEnd="@drawable/personal_password_check_visible_1"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/mediumPadding"-->
+<!--            android:layout_marginVertical="@dimen/smallPadding"-->
+<!--            app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"-->
+<!--            app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"-->
+<!--            app:boxStrokeColor="@color/primary_color"-->
+<!--            app:hintTextColor="@color/primary_color">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_50sdp"-->
+<!--                android:drawableStart="@drawable/ic_personal_password"-->
+<!--                android:drawablePadding="10sp"-->
+<!--                android:fontFamily="@font/roboto_medium"-->
+<!--                android:hint="Repeat Password"-->
+<!--                android:lines="1"-->
+<!--                android:drawableEnd="@drawable/personal_password_check_visible_2"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_50sdp"-->
+<!--            android:layout_marginHorizontal="@dimen/mediumPadding"-->
+<!--            android:text="@string/submit"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textSize="@dimen/header3"-->
+<!--            android:textStyle="bold"-->
+<!--            app:cornerRadius="@dimen/smallCardCornerRadius"-->
+<!--            android:layout_gravity="center"/>-->
     </LinearLayout>
 </LinearLayout>

@@ -64,4 +64,21 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Personal_info_title" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/bodyText1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Personal_info_content" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textSize">@dimen/bodyText2</item>
+    </style>
+
+    <style name="Personal_setting_title" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/header3</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 import com.example.els.InformationActivity;
 import com.example.els.R;
+import com.example.els.SettingActivity;
 import com.example.els.databinding.FragmentPersonalBinding;
 
 /**
@@ -54,7 +55,13 @@ public class PersonalFragment extends Fragment {
             }
         });
 
-        Log.d("D","CLick1");
+        binding.personalSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return binding.getRoot();
     }
@@ -62,6 +69,5 @@ public class PersonalFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.bSearch.setOnClickListener(view1 -> Log.d("D","CLick"));
     }
 }

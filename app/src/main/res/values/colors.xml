@@ -28,4 +28,5 @@
     <color name="gray">#DFE0E7</color>
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#7D73C3</color>
+    <color name="ripple_color">#cfd8dc</color>
 </resources>

@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/bSearch"
+            android:id="@+id/personal_setting"
             style="@style/Widget.MaterialComponents.TimePicker.ImageButton"
             android:layout_width="@dimen/mediumIconSize"
             android:layout_height="@dimen/mediumIconSize"

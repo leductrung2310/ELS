@@ -19,4 +19,7 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="edit_info">Edit Info.</string>
     <string name="submit">Submit</string>
+    <string name="achievement">Achievement</string>
+    <string name="setting">Setting</string>
+    <string name="account">Account</string>
 </resources>
