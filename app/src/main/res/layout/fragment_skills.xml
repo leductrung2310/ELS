@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.SkillsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/home_background"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.6">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CustomCardViewStyleBottomRadius"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:backgroundTint="@color/primary_color">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/back_btn"
+                    android:layout_width="@dimen/buttonSize"
+                    android:layout_height="@dimen/buttonSize"
+                    android:backgroundTint="@color/s_light"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    app:cornerRadius="@dimen/_10sdp"
+                    app:icon="@drawable/ic_arrow_back"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="@dimen/_20sdp"
+                    app:iconTint="@color/primary_color" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/action_btn"
+                    android:layout_width="@dimen/buttonSize"
+                    android:layout_height="@dimen/buttonSize"
+                    android:layout_gravity="end"
+                    android:backgroundTint="@color/s_light"
+                    android:insetLeft="0dp"
+                    android:insetTop="0dp"
+                    android:insetRight="0dp"
+                    android:insetBottom="0dp"
+                    app:cornerRadius="15dp"
+                    app:icon="@drawable/ic_question_mark"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="24dp"
+                    app:iconTint="@color/primary_color" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_260sdp"
+                android:layout_height="@dimen/_95sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:backgroundTint="@color/white"
+                android:elevation="6dp"
+                app:cardCornerRadius="@dimen/mediumCardCornerRadius">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mediumPadding"
+                    android:layout_marginTop="40dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/s_dark"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/total_hours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:textColor="@color/s_dark"
+                        android:textStyle="bold"
+                        tools:text="72 hours" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:src="@drawable/ic_book"
+                        app:tint="@color/s_dark"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/total_lessons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:textColor="@color/s_dark"
+                        android:textStyle="bold"
+                        tools:text="20 lessons" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/skillName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/mediumPadding"
+                    android:layout_marginTop="@dimen/mediumPadding"
+                    tools:text="SkillName"
+                    android:textColor="@color/text_on_s"
+                    android:textSize="@dimen/header2"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/largePadding"
+                    android:layout_marginEnd="@dimen/largePadding"
+                    android:layout_marginBottom="@dimen/largePadding">
+
+                    <ProgressBar
+                        android:id="@+id/circle_progress_indicator"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center"
+                        android:indeterminateOnly="false"
+                        android:progressDrawable="@drawable/circle_progress_indicator"
+                        tools:progress="60" />
+
+                    <TextView
+                        android:id="@+id/percentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/primary_color"
+                        android:textSize="@dimen/bodyText1"
+                        android:textStyle="bold"
+                        tools:text="60%" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/extraLargeIconSize"
+                android:layout_height="@dimen/extraLargeIconSize"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="70dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/primary"
+                app:cardCornerRadius="@dimen/smallCardCornerRadius">
+
+                <ImageView
+                    android:id="@+id/skillIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    tools:src="@drawable/ic_headphone"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/smallPadding"
+                android:layout_marginBottom="@dimen/mediumPadding"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:paddingStart="@dimen/largePadding"
+                    android:paddingTop="@dimen/smallPadding"
+                    android:paddingEnd="@dimen/largePadding"
+                    android:paddingBottom="@dimen/smallPadding"
+                    android:text="@string/done"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/header3"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/mediumCardCornerRadius" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="140dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/home_background"
+                    android:paddingStart="@dimen/largePadding"
+                    android:paddingTop="@dimen/smallPadding"
+                    android:paddingEnd="@dimen/largePadding"
+                    android:paddingBottom="@dimen/smallPadding"
+                    android:text="@string/undone"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary_color"
+                    android:textSize="@dimen/header3"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/mediumCardCornerRadius" />
+
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CustomCardViewStyleTopRadius"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="6"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="NestedWeights">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lesson_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/smallPadding" />
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
