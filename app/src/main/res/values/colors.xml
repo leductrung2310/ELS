@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="primary_color">#7D73C3</color>
     <color name="p_light">#5b58cb</color>
     <color name="p_dark">#000b6a</color>
@@ -12,4 +12,22 @@
     <color name="white">#ffffff</color>
     <color name="primary">#7D73C3</color>
     <color name="home_background">#E6E6E6</color>
+
+
+    <color name="background_personal">#CFCAF6</color>
+    <color name="secondary_color_1">#20E5AA</color>
+    <color name="secondary_color_2">#4F56D7</color>
+    <color name="secondary_color_3">#DB4756</color>
+    <color name="secondary_color_4">#7D73C3</color>
+
+    <color name="secondary_color_1_1">#A1F6D3</color>
+    <color name="secondary_color_2_1">#779FEC</color>
+    <color name="secondary_color_3_1">#F49E9E</color>
+    <color name="secondary_color_4_1">#CFCAF6</color>
+
+    <color name="white_2">#fcfcfc</color>
+    <color name="gray">#DFE0E7</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#7D73C3</color>
+    <color name="ripple_color">#cfd8dc</color>
 </resources>

@@ -12,4 +12,14 @@
     <string name="heading_on_boarding_3">Practice English by playing games</string>
     <string name="undone">Undone</string>
     <string name="done">Done</string>
+
+    <!--    personal-->
+    <string name="personal">My profile</string>
+    <string name="university">University</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="edit_info">Edit Info.</string>
+    <string name="submit">Submit</string>
+    <string name="achievement">Achievement</string>
+    <string name="setting">Setting</string>
+    <string name="account">Account</string>
 </resources>
