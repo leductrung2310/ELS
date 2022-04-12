@@ -50,11 +50,96 @@
         android:id="@+id/personalFragment"
         android:name="com.example.els.fragment.PersonalFragment"
         android:label="fragment_personal"
-        tools:layout="@layout/fragment_personal" />
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personalFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_achievementFragment"
+            app:destination="@id/achievementFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_newspaperFragment"
+            app:destination="@id/newspaperFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/meetingFragment"
         android:name="com.example.els.fragment.MeetingFragment"
         android:label="fragment_meeting"
         tools:layout="@layout/fragment_meeting" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.els.fragment.personal.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationNameFragment"
+            app:destination="@id/informationNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/achievementFragment"
+        android:name="com.example.els.fragment.personal.AchievementFragment"
+        android:label="fragment_achievement"
+        tools:layout="@layout/fragment_achievement" >
+        <action
+            android:id="@+id/action_achievementFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationNameFragment"
+        android:name="com.example.els.fragment.personal.InformationNameFragment"
+        android:label="fragment_information_name"
+        tools:layout="@layout/fragment_information_name" >
+        <action
+            android:id="@+id/action_informationNameFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/newspaperFragment"
+        android:name="com.example.els.fragment.personal.NewspaperFragment"
+        android:label="fragment_newspaper"
+        tools:layout="@layout/fragment_newspaper" >
+        <action
+            android:id="@+id/action_newspaperFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.els.fragment.personal.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_settingFragment_to_settingAccountFragment"
+            app:destination="@id/settingAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingAccountFragment"
+        android:name="com.example.els.fragment.personal.SettingAccountFragment"
+        android:label="fragment_setting_account"
+        tools:layout="@layout/fragment_setting_account" >
+        <action
+            android:id="@+id/action_settingAccountFragment_to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:popUpTo="@id/settingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
