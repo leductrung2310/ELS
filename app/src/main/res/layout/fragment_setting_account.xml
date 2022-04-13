@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/mediumPadding"
-                    android:text="Nguyen Duc Thanh Phat"
+                    android:text="1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/personal_setting_account_id_end"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -197,6 +197,58 @@
 
                 <ImageView
                     android:id="@+id/personal_setting_account_phone_number_layout_end"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/largePadding"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_personal_back_primary_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_minus1sdp"
+                app:dividerColor="@color/ripple_color"
+                app:dividerInsetEnd="@dimen/largePadding"
+                app:dividerInsetStart="@dimen/largePadding" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/personal_setting_account_password_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Personal_info_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:text="Password"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/personal_setting_account_password"
+                    style="@style/Personal_info_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/mediumPadding"
+                    android:text="*************"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/personal_setting_account_password_layout_end"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/personal_setting_account_password_layout_end"
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
                     android:layout_gravity="center"

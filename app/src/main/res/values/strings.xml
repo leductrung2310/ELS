@@ -22,4 +22,22 @@
     <string name="achievement">Achievement</string>
     <string name="setting">Setting</string>
     <string name="account">Account</string>
+    <string name="could_you_tell_me_what_your_name_is">Could you tell me what your name is?</string>
+    <string name="save">Save</string>
+    <string name="choose_your_gender">Choose your gender</string>
+    <string name="choose_your_age">Choose your age</string>
+    <string name="_18"><![CDATA[< 18]]></string>
+    <string name="_18_24">18 - 24</string>
+    <string name="_25_34">25 - 34</string>
+    <string name="_34_44">34 - 44</string>
+    <string name="_45_54">45 - 54</string>
+    <string name="_55"><![CDATA[>= 55]]></string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="choose_your_career">Choose your career</string>
+    <string name="worker">Worker</string>
+    <string name="college_student">College student</string>
+    <string name="student">Student</string>
+    <string name="freelancer">Freelancer</string>
 </resources>

@@ -83,6 +83,15 @@
         <action
             android:id="@+id/action_informationFragment_to_informationNameFragment"
             app:destination="@id/informationNameFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationGenderFragment"
+            app:destination="@id/informationGenderFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationPositionFragment"
+            app:destination="@id/informationPositionFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationAgeFragment"
+            app:destination="@id/informationAgeFragment" />
     </fragment>
     <fragment
         android:id="@+id/achievementFragment"
@@ -140,6 +149,52 @@
             android:id="@+id/action_settingAccountFragment_to_settingFragment"
             app:destination="@id/settingFragment"
             app:popUpTo="@id/settingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_settingAccountFragment_to_settingAccountPasswordFragment"
+            app:destination="@id/settingAccountPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationGenderFragment"
+        android:name="com.example.els.fragment.personal.InformationGenderFragment"
+        android:label="fragment_information_gender"
+        tools:layout="@layout/fragment_information_gender" >
+        <action
+            android:id="@+id/action_informationGenderFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationAgeFragment"
+        android:name="com.example.els.fragment.personal.InformationAgeFragment"
+        android:label="fragment_information_age"
+        tools:layout="@layout/fragment_information_age" >
+        <action
+            android:id="@+id/action_informationAgeFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationPositionFragment"
+        android:name="com.example.els.fragment.personal.InformationPositionFragment"
+        android:label="fragment_information_position"
+        tools:layout="@layout/fragment_information_position" >
+        <action
+            android:id="@+id/action_informationPositionFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingAccountPasswordFragment"
+        android:name="com.example.els.fragment.personal.SettingAccountPasswordFragment"
+        android:label="fragment_setting_account_password"
+        tools:layout="@layout/fragment_setting_account_password" >
+        <action
+            android:id="@+id/action_settingAccountPasswordFragment_to_settingAccountFragment"
+            app:destination="@id/settingAccountFragment"
+            app:popUpTo="@id/settingAccountFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

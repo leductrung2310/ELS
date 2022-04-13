@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.els.R;
-import com.example.els.databinding.FragmentSettingAccountBinding;
+import com.example.els.databinding.FragmentInformationAgeBinding;
 
-public class SettingAccountFragment extends Fragment {
-    private FragmentSettingAccountBinding binding;
+public class InformationAgeFragment extends Fragment {
+    private FragmentInformationAgeBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +24,7 @@ public class SettingAccountFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentSettingAccountBinding.inflate(getLayoutInflater());
+        binding = FragmentInformationAgeBinding.inflate(getLayoutInflater());
         return binding.getRoot();
     }
 
@@ -32,17 +32,10 @@ public class SettingAccountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.personalSettingAccountBack.setOnClickListener(new View.OnClickListener() {
+        binding.personalEditInfoAgeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_settingAccountFragment_to_settingFragment);
-            }
-        });
-
-        binding.personalSettingAccountPasswordLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(SettingAccountFragmentDirections.actionSettingAccountFragmentToSettingAccountPasswordFragment());
+                Navigation.findNavController(view).navigate(R.id.action_informationAgeFragment_to_informationFragment);
             }
         });
     }

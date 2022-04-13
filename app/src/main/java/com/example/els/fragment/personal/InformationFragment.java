@@ -43,5 +43,26 @@ public class InformationFragment extends Fragment {
                 Navigation.findNavController(view).navigate(InformationFragmentDirections.actionInformationFragmentToInformationNameFragment());
             }
         });
+
+        binding.personalInfoGenderLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(InformationFragmentDirections.actionInformationFragmentToInformationGenderFragment());
+            }
+        });
+        binding.personalInfoAgeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(InformationFragmentDirections.actionInformationFragmentToInformationAgeFragment());
+            }
+        });
+
+        binding.personalInfoPositionLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(InformationFragmentDirections.actionInformationFragmentToInformationPositionFragment());
+            }
+        });
+
     }
 }

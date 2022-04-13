@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_color"
-    tools:context=".fragment.personal.InformationNameFragment">
+    tools:context=".fragment.personal.InformationPositionFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/personal_edit_info_back"
+                android:id="@+id/personal_edit_info_career_back"
                 android:layout_width="@dimen/buttonSize"
                 android:layout_height="@dimen/buttonSize"
                 android:layout_margin="@dimen/smallPadding"
@@ -53,7 +53,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/personal_background"
@@ -62,47 +62,49 @@
             android:paddingTop="@dimen/largePadding">
 
             <TextView
+                android:id="@+id/personal_edit_info_gender_choose_your_career"
                 style="@style/Personal_edit_info_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/largePadding"
-                android:text="@string/could_you_tell_me_what_your_name_is">
+                android:text="@string/choose_your_career">
 
 
             </TextView>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <RadioGroup
+                android:id="@+id/personal_edit_info_gender_radio_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxCornerRadiusBottomEnd="@dimen/smallCardCornerRadius"
-                app:boxCornerRadiusBottomStart="@dimen/smallCardCornerRadius"
-                app:boxCornerRadiusTopEnd="@dimen/smallCardCornerRadius"
-                app:boxCornerRadiusTopStart="@dimen/smallCardCornerRadius"
-                app:boxStrokeColor="@color/primary_color"
-                app:boxStrokeWidth="1dp"
-                app:boxStrokeWidthFocused="@dimen/_2sdp"
-                app:endIconMode="clear_text"
-                app:helperText="Under 50 character"
-                app:helperTextTextColor="@color/dark"
-                app:hintTextColor="@color/primary_color">
+                android:layout_below="@id/personal_edit_info_gender_choose_your_career"
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_45sdp"
-                    android:drawablePadding="10sp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:lines="1"
-                    android:maxLength="50"
-                    style="@style/Personal_edit_info_content"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:text="@string/worker"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:text="@string/college_student" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:text="@string/student"/>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:text="@string/freelancer"/>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:text="@string/other"/>
+            </RadioGroup>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/back_btn"
                 style="@style/Personal_save_button"
+                android:layout_alignParentBottom="true"
                 android:layout_marginVertical="@dimen/mediumPadding"
                 android:text="@string/save" />
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>
