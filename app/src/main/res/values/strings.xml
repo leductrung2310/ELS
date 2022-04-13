@@ -10,6 +10,18 @@
     <string name="heading_on_boarding_1">Hundred self-learn courses for 4 skills</string>
     <string name="heading_on_boarding_2">Speaking practice with friends from all over the world</string>
     <string name="heading_on_boarding_3">Practice English by playing games</string>
+    <string name="undone">Undone</string>
+    <string name="done">Done</string>
+
+    <!--    personal-->
+    <string name="personal">My profile</string>
+    <string name="university">University</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="edit_info">Edit Info.</string>
+    <string name="submit">Submit</string>
+    <string name="achievement">Achievement</string>
+    <string name="setting">Setting</string>
+    <string name="account">Account</string>
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="_84">+84 -</string>
     <string name="otp_verification">OTP Verification</string>

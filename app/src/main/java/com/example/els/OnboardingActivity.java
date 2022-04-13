@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.els.adapter.ViewPagerAdapter;
 import com.example.els.databinding.ActivityOnBoardingBinding;
 
 public class OnboardingActivity extends AppCompatActivity {
