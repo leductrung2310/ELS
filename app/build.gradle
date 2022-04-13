@@ -69,4 +69,6 @@ dependencies {
     implementation 'info.androidhive:fontawesome:0.0.5'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //library for using gif
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
 }

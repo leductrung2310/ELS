@@ -43,7 +43,7 @@ public class OnboardingActivity extends AppCompatActivity {
                 if (getItem(0) <= 1)
                     activityOnBoardingBinding.slideViewPager.setCurrentItem(getItem(1), true);
                 else {
-                    Intent i = new Intent(OnboardingActivity.this, MainActivity.class);
+                    Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
                     startActivity(i);
                     finish();
                 }
@@ -53,7 +53,7 @@ public class OnboardingActivity extends AppCompatActivity {
         activityOnBoardingBinding.tvSkipOb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(OnboardingActivity.this, MainActivity.class);
+                Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
                 startActivity(i);
                 finish();
 
