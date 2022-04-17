@@ -1,4 +1,4 @@
-package com.example.els.fragment;
+package com.example.els.view;
 
 import android.os.Bundle;
 
@@ -10,9 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.example.els.R;
 import com.example.els.databinding.FragmentPersonalBinding;
 
 /**

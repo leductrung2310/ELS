@@ -1,4 +1,4 @@
-package com.example.els.fragment;
+package com.example.els.view;
 
 import android.os.Bundle;
 

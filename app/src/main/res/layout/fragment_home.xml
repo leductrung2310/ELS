@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/text_on_p"
-    tools:context=".fragment.HomeFragment">
+    tools:context=".view.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -124,6 +124,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/learning_by_playing_cardView">
 
+            <ImageView
+                android:id="@+id/listening_complete_ic"
+                android:layout_width="@dimen/largeIconSize"
+                android:layout_height="@dimen/largeIconSize"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/tinyPadding"
+                android:src="@drawable/ic_complete"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -172,6 +182,16 @@
             app:cardElevation="@dimen/cardElevation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/learning_by_playing_cardView">
+
+            <ImageView
+                android:id="@+id/reading_complete_ic"
+                android:layout_width="@dimen/largeIconSize"
+                android:layout_height="@dimen/largeIconSize"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/tinyPadding"
+                android:src="@drawable/ic_complete"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -223,6 +243,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/listening_card_view">
 
+            <ImageView
+                android:id="@+id/speaking_complete_ic"
+                android:layout_width="@dimen/largeIconSize"
+                android:layout_height="@dimen/largeIconSize"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/tinyPadding"
+                android:src="@drawable/ic_complete"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -272,6 +302,16 @@
             app:cardElevation="@dimen/cardElevation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/listening_card_view">
+
+            <ImageView
+                android:id="@+id/writing_complete_ic"
+                android:layout_width="@dimen/largeIconSize"
+                android:layout_height="@dimen/largeIconSize"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/tinyPadding"
+                android:src="@drawable/ic_complete"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"

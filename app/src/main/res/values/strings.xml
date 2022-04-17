@@ -12,4 +12,12 @@
     <string name="heading_on_boarding_3">Practice English by playing games</string>
     <string name="undone">Undone</string>
     <string name="done">Done</string>
+    <string name="totalDuration">%d minutes</string>
+    <string name="totalLesson">%d lessons</string>
+    <string name="percentage">%d%%</string>
+    <string name="opps_there_is_nothing_here">Opps! There is nothing here</string>
+    <string name="yeah_you_have_completed_this_course_n_pick_up_another">Yeah! Course is completed</string>
+    <string name="course_under_maintenance">Course under maintenance!</string>
+    <string name="notification">Notification</string>
+    <string name="no_notification_yet">No notification yet</string>
 </resources>
