@@ -65,4 +65,7 @@ dependencies {
     // navigation controller for java
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    // add to use gif file
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 }

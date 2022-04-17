@@ -2,7 +2,7 @@
     <string name="app_name">ELS</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="english_learning_simple">English Learning Simple</string>
-    <string name="learning_by_n_playing">Learning by \n playing</string>
+    <string name="learning_by_n_playing">Learning by \nplaying</string>
     <string name="listening">Listening</string>
     <string name="reading">Reading</string>
     <string name="speaking">Speaking</string>
@@ -20,4 +20,8 @@
     <string name="course_under_maintenance">Course under maintenance!</string>
     <string name="notification">Notification</string>
     <string name="no_notification_yet">No notification yet</string>
+    <string name="lessons">Lessons</string>
+    <string name="meetings">Meetings</string>
+    <string name="games">Games</string>
+    <string name="personal">Account</string>
 </resources>
