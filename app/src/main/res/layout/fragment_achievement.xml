@@ -58,6 +58,51 @@
             android:layout_height="match_parent"
             android:background="@drawable/personal_background"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/largePadding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 out of 100 "
+                        style="@style/Personal_edit_info_title"
+/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_personal_tab_achievement"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Achievement"
+                        style="@style/Personal_edit_info_title" />
+                </LinearLayout>
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:progress="50"
+                    android:layout_marginVertical="@dimen/smallPadding"
+                    android:progressDrawable="@drawable/personal_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"/>
+                <GridView
+                    android:id="@+id/idGVcourses"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:horizontalSpacing="@dimen/_6sdp"
+                    android:numColumns="2"
+                    android:verticalSpacing="@dimen/_6sdp"
+                    android:background="@color/white"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

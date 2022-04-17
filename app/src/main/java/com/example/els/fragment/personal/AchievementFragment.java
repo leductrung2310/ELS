@@ -12,8 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.els.R;
+import com.example.els.adapter.AchievementAdapter;
 import com.example.els.databinding.FragmentAchievementBinding;
 import com.example.els.databinding.FragmentInformationBinding;
+
+import java.util.ArrayList;
 
 public class AchievementFragment extends Fragment {
     private FragmentAchievementBinding binding;
@@ -27,6 +30,20 @@ public class AchievementFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAchievementBinding.inflate(getLayoutInflater());
+
+        ArrayList<Integer> courseModelArrayList = new ArrayList<Integer>();
+        courseModelArrayList.add(R.drawable.gamipress_icon_add);
+        courseModelArrayList.add(R.drawable.gamipress_icon_comment);
+        courseModelArrayList.add(R.drawable.gamipress_icon_heart);
+        courseModelArrayList.add(R.drawable.gamipress_icon_minus);
+        courseModelArrayList.add(R.drawable.gamipress_icon_pencil);
+        courseModelArrayList.add(R.drawable.gamipress_icon_quest);
+        courseModelArrayList.add(R.drawable.gamipress_icon_search);
+        courseModelArrayList.add(R.drawable.gamipress_icon_star);
+        AchievementAdapter achievementAdapter = new AchievementAdapter(requireContext(),0,courseModelArrayList);
+
+        binding.idGVcourses.setAdapter(achievementAdapter);
+
         return binding.getRoot();
     }
 

@@ -153,4 +153,26 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Personal_achievement" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/bodyText1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Personal_newspaper" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/bodyText1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Personal_newspaper_content" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/bodyText2</item>
+    </style>
+
+    <style name="Meeting_room_title" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark</item>
+        <item name="android:textSize">@dimen/header2</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

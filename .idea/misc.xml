@@ -23,7 +23,9 @@
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/ic_personal_tab_setting_baseline_info_24.xml" value="0.1405" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/ic_personal_visibility.xml" value="0.2075" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/ic_personal_visibility_off.xml" value="0.2075" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/meeting_main.xml" value="0.1995" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/on_boarding_background_button_press.xml" value="0.1405" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/personal_achievement_hexagon.xml" value="0.1995" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/personal_background.xml" value="0.215" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/personal_icon_card_background.xml" value="0.215" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/drawable/personal_icon_card_background_1.xml" value="0.215" />
@@ -47,20 +49,23 @@
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/activity_setting.xml" value="0.18931159420289856" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/activity_setting_account.xml" value="0.18931159420289856" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/activity_start.xml" value="0.29743589743589743" />
-        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_achievement.xml" value="0.1905982905982906" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_achievement.xml" value="0.2" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_home.xml" value="0.20512820512820512" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_information.xml" value="0.20512820512820512" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_information_age.xml" value="0.264" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_information_gender.xml" value="0.264" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_information_name.xml" value="0.264" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_information_position.xml" value="0.1905982905982906" />
-        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_newspaper.xml" value="0.1905982905982906" />
-        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.22" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_meeting.xml" value="0.2" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_newspaper.xml" value="0.264" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.176" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_setting.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_setting_account.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_setting_account_password.xml" value="0.2829059829059829" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_skills.xml" value="0.20512820512820512" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/meeting_room.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/on_boarding_view_pager.xml" value="0.14536340852130325" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/personal_achievement_item.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1905982905982906" />
         <entry key="..\:/University/ThirdYear/ELS/app/src/main/res/drawable/bottom_navigation_background.xml" value="0.24537037037037038" />
         <entry key="..\:/University/ThirdYear/ELS/app/src/main/res/layout/activity_main.xml" value="0.1337386018237082" />

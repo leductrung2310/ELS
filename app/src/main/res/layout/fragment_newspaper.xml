@@ -57,7 +57,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/personal_background"
-            android:orientation="vertical">
+            android:backgroundTint="@color/white_2"
+            android:orientation="vertical"
+            android:padding="@dimen/largePadding">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white_3"
+                android:background="@android:color/transparent"
+                app:cardCornerRadius="@dimen/mediumCardCornerRadius"
+                android:clickable="true"
+                android:focusable="true"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Title, secondary and supporting text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Grammer"
+                        style="@style/Personal_newspaper"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Grammer in use"
+                        style="@style/Personal_newspaper_content"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </LinearLayout>
 

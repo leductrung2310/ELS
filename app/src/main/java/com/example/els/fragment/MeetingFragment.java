@@ -9,58 +9,41 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.els.R;
+import com.example.els.adapter.AchievementAdapter;
+import com.example.els.adapter.MeetingRoomAdapter;
+import com.example.els.databinding.FragmentMeetingBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MeetingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class MeetingFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public MeetingFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MeetingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MeetingFragment newInstance(String param1, String param2) {
-        MeetingFragment fragment = new MeetingFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private FragmentMeetingBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_meeting, container, false);
+        binding = FragmentMeetingBinding.inflate(getLayoutInflater());
+
+        ArrayList<String> nameRoom = new ArrayList<String>();
+        nameRoom.add("Room 1");
+        nameRoom.add("Room 2");
+        nameRoom.add("Room 3");
+        nameRoom.add("Room 4");
+        nameRoom.add("Room 5");
+        nameRoom.add("Room 6");
+        nameRoom.add("Room 7");
+        nameRoom.add("Room 8");
+        nameRoom.add("Room 9");
+        nameRoom.add("Room 10");
+
+        MeetingRoomAdapter meetingRoomAdapter = new MeetingRoomAdapter(requireContext(),0,nameRoom);
+
+        binding.meetingGridRoom.setAdapter(meetingRoomAdapter);
+
+        return binding.getRoot();
     }
 }
