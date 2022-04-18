@@ -2,7 +2,6 @@ package com.example.els;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -44,5 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //get data from sign up activity
+        getDataIntent();
+    }
+
+    private void getDataIntent() {
+        String phoneNumber = getIntent().getStringExtra("phone_number");
     }
 }

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.authentication.PhoneLoginFragment">
+
+    <data>
+        <variable
+            name="PhoneLoginViewmodel"
+            type="com.example.els.viewmodel.authentication.PhoneLoginViewmodel" />
+    </data>
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/white">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/back_button_phone_login"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            app:icon="@drawable/ic_arrow_back"
+            app:iconSize="@dimen/_24sdp"
+            app:iconTint="@color/dark" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_height="@dimen/_150sdp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/gif_sending_otp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/enter_phone_number"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/_22sdp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/sign_up_text"
+            android:textColor="@color/s_dark"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="normal" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/_50sdp"
+            android:paddingRight="@dimen/_50sdp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_84"
+                android:textColor="@color/dark"
+                android:textAlignment="center"
+                android:textSize="@dimen/_20sdp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/space"
+                android:textColor="@color/dark"
+                android:textAlignment="center"
+                android:textSize="@dimen/_20sdp"
+                android:background="@color/white"/>
+
+            <EditText
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="@={PhoneLoginViewmodel.phoneNumber}"
+                android:textColor="@color/dark"
+                android:textAlignment="center"
+                android:textSize="@dimen/_20sdp"
+                android:maxLength="10"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="1dp"
+            android:background="@color/dark"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:visibility="gone"
+            android:text="@{PhoneLoginViewmodel.messageInvalidPhoneNumber}"
+            android:textColor="@color/secondary_color_3"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="normal" />
+
+        <Button
+            android:id="@+id/requestBtn"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:background="@drawable/background_primary"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/request_otp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            android:onClick="@{ () -> PhoneLoginViewmodel.OnClickPhoneRequest()}"/>
+    </LinearLayout>
+
+</layout>
