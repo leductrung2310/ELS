@@ -43,12 +43,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        //get data from sign up activity
-        getDataIntent();
-    }
-
-    private void getDataIntent() {
-        String phoneNumber = getIntent().getStringExtra("phone_number");
     }
 }

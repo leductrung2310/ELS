@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.authentication.PhoneLoginFragment">
 
-    <data>
-        <variable
-            name="PhoneLoginViewmodel"
-            type="com.example.els.viewmodel.authentication.PhoneLoginViewmodel" />
-    </data>
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="PhoneLoginViewmodel"-->
+<!--            type="com.example.els.viewmodel.authentication.PhoneLoginViewmodel" />-->
+<!--    </data>-->
 
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -33,7 +33,7 @@
         <pl.droidsonroids.gif.GifImageView
             android:layout_height="@dimen/_150sdp"
             android:layout_width="wrap_content"
-            android:src="@drawable/gif_sending_otp" />
+            android:src="@drawable/gif_sending_otp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -87,7 +87,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:text="@={PhoneLoginViewmodel.phoneNumber}"
                 android:textColor="@color/dark"
                 android:textAlignment="center"
                 android:textSize="@dimen/_20sdp"
@@ -108,7 +107,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_20sdp"
             android:visibility="gone"
-            android:text="@{PhoneLoginViewmodel.messageInvalidPhoneNumber}"
             android:textColor="@color/secondary_color_3"
             android:textSize="@dimen/_12sdp"
             android:textStyle="normal" />
@@ -125,8 +123,9 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/_16sdp"
-            android:textStyle="bold"
-            android:onClick="@{ () -> PhoneLoginViewmodel.OnClickPhoneRequest()}"/>
+            android:textStyle="bold"/>
+<!--            android:onClick="@{ () -> PhoneLoginViewmodel.OnClickPhoneRequest()}"/>-->
+
     </LinearLayout>
 
-</layout>
+</FrameLayout>

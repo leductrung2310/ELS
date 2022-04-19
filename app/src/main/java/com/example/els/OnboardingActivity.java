@@ -1,6 +1,5 @@
 package com.example.els;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -43,9 +42,9 @@ public class OnboardingActivity extends AppCompatActivity {
                 if (getItem(0) <= 1)
                     activityOnBoardingBinding.slideViewPager.setCurrentItem(getItem(1), true);
                 else {
-                    Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
-                    startActivity(i);
-                    finish();
+//                    Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
+//                    startActivity(i);
+//                    finish();
                 }
             }
         });
@@ -53,9 +52,9 @@ public class OnboardingActivity extends AppCompatActivity {
         activityOnBoardingBinding.tvSkipOb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
-                startActivity(i);
-                finish();
+//                Intent i = new Intent(OnboardingActivity.this, LoginActivity.class);
+//                startActivity(i);
+//                finish();
 
             }
         });
