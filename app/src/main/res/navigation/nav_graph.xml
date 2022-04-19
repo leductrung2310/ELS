@@ -42,7 +42,6 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_skillsFragment_to_lessonDetailFragment"
-            app:destination="@id/lessonDetailFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/slide_in_right"
@@ -69,7 +68,7 @@
         tools:layout="@layout/fragment_meeting" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.els.fragment.authentication.LoginFragment"
+        android:name="com.example.els.view.authentication.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -85,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.els.fragment.authentication.SignUpFragment"
+        android:name="com.example.els.view.authentication.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -96,7 +95,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneLoginFragment"
-        android:name="com.example.els.fragment.authentication.PhoneLoginFragment"
+        android:name="com.example.els.view.authentication.PhoneLoginFragment"
         android:label="fragment_phone_login"
         tools:layout="@layout/fragment_phone_login" >
         <action
@@ -110,17 +109,16 @@
     </fragment>
     <fragment
         android:id="@+id/verifyPhoneFragment"
-        android:name="com.example.els.fragment.authentication.VerifyPhoneFragment"
+        android:name="com.example.els.view.authentication.VerifyPhoneFragment"
         android:label="fragment_verify_phone"
         tools:layout="@layout/fragment_verify_phone" >
         <action
             android:id="@+id/action_verifyPhoneFragment_to_phoneLoginFragment"
             app:destination="@id/phoneLoginFragment"
             app:popUpTo="@id/phoneLoginFragment"
-        android:id="@+id/lessonDetailFragment"
         android:name="com.example.els.view.home.LessonDetailFragment"
         android:label="fragment_lesson_detail"
-        tools:layout="@layout/fragment_lesson_detail" >
+        tools:layout="@layout/fragment_lesson_detail" />
         <action
             android:id="@+id/action_lessonDetailFragment_to_skillsFragment"
             app:destination="@id/skillsFragment"

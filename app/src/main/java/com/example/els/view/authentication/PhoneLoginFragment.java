@@ -1,4 +1,4 @@
-package com.example.els.fragment.authentication;
+package com.example.els.view.authentication;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
