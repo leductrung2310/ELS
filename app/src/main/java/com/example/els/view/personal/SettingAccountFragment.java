@@ -1,15 +1,14 @@
-package com.example.els.fragment.personal;
+package com.example.els.view.personal;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.els.R;
 import com.example.els.databinding.FragmentSettingAccountBinding;

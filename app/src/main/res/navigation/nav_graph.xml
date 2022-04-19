@@ -55,17 +55,7 @@
         android:label="fragment_games"
         tools:layout="@layout/fragment_games" />
 
-    <fragment
-        android:id="@+id/personalFragment"
-        android:name="com.example.els.view.PersonalFragment"
-        android:label="fragment_personal"
-        tools:layout="@layout/fragment_personal" />
 
-    <fragment
-        android:id="@+id/meetingFragment"
-        android:name="com.example.els.view.MeetingFragment"
-        android:label="fragment_meeting"
-        tools:layout="@layout/fragment_meeting" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.els.view.authentication.LoginFragment"
@@ -142,6 +132,172 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
             app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="com.example.els.view.PersonalFragment"
+        android:label="fragment_personal"
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personalFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_achievementFragment"
+            app:destination="@id/achievementFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_newspaperFragment"
+            app:destination="@id/newspaperFragment" />
+        <action
+            android:id="@+id/action_personalFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/meetingFragment"
+        android:name="com.example.els.view.MeetingFragment"
+        android:label="fragment_meeting"
+        tools:layout="@layout/fragment_meeting" />
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.example.els.view.personal.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationNameFragment"
+            app:destination="@id/informationNameFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationGenderFragment"
+            app:destination="@id/informationGenderFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationPositionFragment"
+            app:destination="@id/informationPositionFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_informationAgeFragment"
+            app:destination="@id/informationAgeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/achievementFragment"
+        android:name="com.example.els.view.personal.AchievementFragment"
+        android:label="fragment_achievement"
+        tools:layout="@layout/fragment_achievement" >
+        <action
+            android:id="@+id/action_achievementFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationNameFragment"
+        android:name="com.example.els.view.personal.InformationNameFragment"
+        android:label="fragment_information_name"
+        tools:layout="@layout/fragment_information_name" >
+        <action
+            android:id="@+id/action_informationNameFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/newspaperFragment"
+        android:name="com.example.els.view.personal.NewspaperFragment"
+        android:label="fragment_newspaper"
+        tools:layout="@layout/fragment_newspaper" >
+        <action
+            android:id="@+id/action_newspaperFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_newspaperFragment_to_newspaperContentFragment"
+            app:destination="@id/newspaperContentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.els.view.personal.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:popUpTo="@id/personalFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_settingFragment_to_settingAccountFragment"
+            app:destination="@id/settingAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingAccountFragment"
+        android:name="com.example.els.view.personal.SettingAccountFragment"
+        android:label="fragment_setting_account"
+        tools:layout="@layout/fragment_setting_account" >
+        <action
+            android:id="@+id/action_settingAccountFragment_to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:popUpTo="@id/settingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_settingAccountFragment_to_settingAccountPasswordFragment"
+            app:destination="@id/settingAccountPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationGenderFragment"
+        android:name="com.example.els.view.personal.InformationGenderFragment"
+        android:label="fragment_information_gender"
+        tools:layout="@layout/fragment_information_gender" >
+        <action
+            android:id="@+id/action_informationGenderFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationAgeFragment"
+        android:name="com.example.els.view.personal.InformationAgeFragment"
+        android:label="fragment_information_age"
+        tools:layout="@layout/fragment_information_age" >
+        <action
+            android:id="@+id/action_informationAgeFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationPositionFragment"
+        android:name="com.example.els.view.personal.InformationPositionFragment"
+        android:label="fragment_information_position"
+        tools:layout="@layout/fragment_information_position" >
+        <action
+            android:id="@+id/action_informationPositionFragment_to_informationFragment"
+            app:destination="@id/informationFragment"
+            app:popUpTo="@id/informationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingAccountPasswordFragment"
+        android:name="com.example.els.view.personal.SettingAccountPasswordFragment"
+        android:label="fragment_setting_account_password"
+        tools:layout="@layout/fragment_setting_account_password" >
+        <action
+            android:id="@+id/action_settingAccountPasswordFragment_to_settingAccountFragment"
+            app:destination="@id/settingAccountFragment"
+            app:popUpTo="@id/settingAccountFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/newspaperContentFragment"
+        android:name="com.example.els.view.personal.NewspaperContentFragment"
+        android:label="fragment_newspaper_content"
+        tools:layout="@layout/fragment_newspaper_content" >
+        <action
+            android:id="@+id/action_newspaperContentFragment_to_newspaperFragment"
+            app:destination="@id/newspaperFragment"
+            app:popUpTo="@id/newspaperFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

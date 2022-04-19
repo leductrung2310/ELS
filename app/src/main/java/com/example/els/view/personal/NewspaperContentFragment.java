@@ -1,19 +1,17 @@
-package com.example.els.fragment.personal;
+package com.example.els.view.personal;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import android.text.Html;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.els.R;
 import com.example.els.databinding.FragmentNewspaperContentBinding;
 
 public class NewspaperContentFragment extends Fragment {
