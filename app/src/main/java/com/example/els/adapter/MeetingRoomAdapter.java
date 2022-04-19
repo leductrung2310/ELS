@@ -1,6 +1,7 @@
 package com.example.els.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import com.example.els.R;
 
 import java.util.List;
+import java.util.Random;
 
 public class MeetingRoomAdapter extends ArrayAdapter<String> {
 
@@ -29,8 +31,13 @@ public class MeetingRoomAdapter extends ArrayAdapter<String> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.meeting_room, parent, false);
         }
         String id = getItem(position);
-        TextView textView = listItemView.findViewById(R.id.meeting_room_tv);
-        textView.setText(id);
+        View view1 = listItemView.findViewById(R.id.meeting_room_color);
+        view1.setBackgroundColor(randomColor());
         return listItemView;
+    }
+
+    private int randomColor() {
+        Random rnd = new Random();
+        return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 }

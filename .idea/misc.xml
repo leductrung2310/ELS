@@ -58,12 +58,13 @@
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_information_position.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_meeting.xml" value="0.2" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_newspaper.xml" value="0.264" />
-        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.176" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_newspaper_content.xml" value="0.14871794871794872" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.136" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_setting.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_setting_account.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_setting_account_password.xml" value="0.2829059829059829" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/fragment_skills.xml" value="0.20512820512820512" />
-        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/meeting_room.xml" value="0.1905982905982906" />
+        <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/meeting_room.xml" value="0.4" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/on_boarding_view_pager.xml" value="0.14536340852130325" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/layout/personal_achievement_item.xml" value="0.1905982905982906" />
         <entry key="..\:/HocTap/Github/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1905982905982906" />

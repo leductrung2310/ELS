@@ -38,5 +38,12 @@ public class NewspaperFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_newspaperFragment_to_personalFragment);
             }
         });
+
+        binding.personalNewspaper1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_newspaperFragment_to_newspaperContentFragment);
+            }
+        });
     }
 }

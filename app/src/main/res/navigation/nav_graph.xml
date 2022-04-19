@@ -125,6 +125,9 @@
             app:destination="@id/personalFragment"
             app:popUpTo="@id/personalFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_newspaperFragment_to_newspaperContentFragment"
+            app:destination="@id/newspaperContentFragment" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
@@ -195,6 +198,17 @@
             android:id="@+id/action_settingAccountPasswordFragment_to_settingAccountFragment"
             app:destination="@id/settingAccountFragment"
             app:popUpTo="@id/settingAccountFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/newspaperContentFragment"
+        android:name="com.example.els.fragment.personal.NewspaperContentFragment"
+        android:label="fragment_newspaper_content"
+        tools:layout="@layout/fragment_newspaper_content" >
+        <action
+            android:id="@+id/action_newspaperContentFragment_to_newspaperFragment"
+            app:destination="@id/newspaperFragment"
+            app:popUpTo="@id/newspaperFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>
