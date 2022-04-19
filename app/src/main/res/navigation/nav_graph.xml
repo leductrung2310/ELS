@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment"
+    app:startDestination="@id/loginFragment"
     tools:ignore="ExtraText">
 
     <fragment
@@ -57,4 +57,56 @@
         android:name="com.example.els.fragment.MeetingFragment"
         android:label="fragment_meeting"
         tools:layout="@layout/fragment_meeting" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.els.fragment.authentication.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_phoneLoginFragment"
+            app:destination="@id/phoneLoginFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.els.fragment.authentication.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneLoginFragment"
+        android:name="com.example.els.fragment.authentication.PhoneLoginFragment"
+        android:label="fragment_phone_login"
+        tools:layout="@layout/fragment_phone_login" >
+        <action
+            android:id="@+id/action_phoneLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_phoneLoginFragment_to_verifyPhoneFragment"
+            app:destination="@id/verifyPhoneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyPhoneFragment"
+        android:name="com.example.els.fragment.authentication.VerifyPhoneFragment"
+        android:label="fragment_verify_phone"
+        tools:layout="@layout/fragment_verify_phone" >
+        <action
+            android:id="@+id/action_verifyPhoneFragment_to_phoneLoginFragment"
+            app:destination="@id/phoneLoginFragment"
+            app:popUpTo="@id/phoneLoginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

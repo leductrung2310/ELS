@@ -24,12 +24,9 @@
         <activity
             android:name=".InformationActivity"
             android:exported="false" /> <!-- <activity -->
-        <activity android:name=".StartActivity" />
         <activity android:name=".OnboardingActivity" />
-        <activity android:name=".VerifyActivity" />
-        <activity android:name=".SignupActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

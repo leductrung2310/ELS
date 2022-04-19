@@ -31,4 +31,19 @@
     <string name="request_otp">Request OTP</string>
     <string name="sign_up_text">You will receive 6 digit code for verification</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="verify">Verify</string>
+    <string name="email">Email</string>
+    <string name="log_in">Log in</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password">Password</string>
+    <string name="please_enter_your_account_here">Please enter your account here</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="logo">Logo</string>
+    <string name="new_to_els">New to ELS?</string>
+    <string name="user_name">User Name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="sign_up2">Sign Up</string>
+    <string name="log_in2">LOG IN</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="space" />
 </resources>
