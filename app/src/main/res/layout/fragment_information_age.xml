@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_personal"
+    tools:context=".fragment.personal.InformationAgeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_color"
+        android:orientation="vertical"
+        tools:context=".InformationNameActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/personal_layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/personal_edit_info_age_back"
+                style="@style/Personal_back_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Activity_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/largePadding"
+                android:text="@string/edit_info"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/personal_background"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/largePadding"
+            android:paddingTop="@dimen/largePadding">
+
+            <TextView
+                android:id="@+id/personal_edit_info_gender_choose_your_gender"
+                style="@style/Personal_edit_info_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/largePadding"
+                android:text="@string/choose_your_age">
+
+
+            </TextView>
+
+            <RadioGroup
+                android:id="@+id/personal_edit_info_gender_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/personal_edit_info_gender_choose_your_gender"
+                android:orientation="vertical">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:text="@string/_18"
+                    android:textAlignment="textStart"
+                    android:paddingHorizontal="@dimen/largePadding"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:textAlignment="textStart"
+                    android:paddingHorizontal="@dimen/largePadding"
+                    android:text="@string/_18_24"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:textAlignment="textStart"
+                    android:paddingHorizontal="@dimen/largePadding"
+                    android:text="@string/_25_34"/>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:textAlignment="textStart"
+                    android:paddingHorizontal="@dimen/largePadding"
+                    android:text="@string/_34_44"/>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:textAlignment="textStart"
+                    android:paddingHorizontal="@dimen/largePadding"
+                    android:text="@string/_45_54" />
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    style="@style/Personal_edit_info_radio_button"
+                    android:textAlignment="textStart"
+                    android:paddingHorizontal="@dimen/largePadding"
+                    android:text="@string/_55" />
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/back_btn"
+                style="@style/Personal_save_button"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="@dimen/mediumPadding"
+                android:text="@string/save" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>
