@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="tinyPadding">@dimen/_4sdp</dimen>
     <dimen name="smallPadding">@dimen/_10sdp</dimen>
     <dimen name="mediumPadding">@dimen/_14sdp</dimen>
     <dimen name="largePadding">@dimen/_16sdp</dimen>
@@ -21,6 +22,7 @@
     <dimen name="largeButtonSize">@dimen/_40sdp</dimen>
 
     <dimen name="cardElevation">@dimen/_8sdp</dimen>
+    <dimen name="largeCardCornerRadius">@dimen/_24sdp</dimen>
     <dimen name="mediumCardCornerRadius">@dimen/_16sdp</dimen>
     <dimen name="smallCardCornerRadius">@dimen/_10sdp</dimen>
 </resources>

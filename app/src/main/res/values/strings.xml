@@ -2,7 +2,7 @@
     <string name="app_name">ELS</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="english_learning_simple">English Learning Simple</string>
-    <string name="learning_by_n_playing">Learning by \n playing</string>
+    <string name="learning_by_n_playing">Learning by \nplaying</string>
     <string name="listening">Listening</string>
     <string name="reading">Reading</string>
     <string name="speaking">Speaking</string>
@@ -46,4 +46,16 @@
     <string name="log_in2">LOG IN</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="space" />
+    <string name="totalDuration">%d minutes</string>
+    <string name="totalLesson">%d lessons</string>
+    <string name="percentage">%d%%</string>
+    <string name="opps_there_is_nothing_here">Opps! There is nothing here</string>
+    <string name="yeah_you_have_completed_this_course_n_pick_up_another">Yeah! Course is completed</string>
+    <string name="course_under_maintenance">Course under maintenance!</string>
+    <string name="notification">Notification</string>
+    <string name="no_notification_yet">No notification yet</string>
+    <string name="lessons">Lessons</string>
+    <string name="meetings">Meetings</string>
+    <string name="games">Games</string>
+    <string name="personal">Account</string>
 </resources>

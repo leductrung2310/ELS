@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_color"
     android:orientation="vertical"
-    tools:context=".fragment.PersonalFragment">
+    tools:context=".view.PersonalFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/personal_layout_header"
