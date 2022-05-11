@@ -80,4 +80,12 @@
     <string name="log_in2">LOG IN</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="space" />
+    <string name="let_s_play">Let\'s Play</string>
+    <string name="learning_by_playing_is_the_best">Learning by playing is the best!</string>
+    <string name="word_quiz">Word quiz</string>
+    <string name="easy">Easy</string>
+    <string name="word_choice">Word choice</string>
+    <string name="word_arrangement">Word arrangement</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>

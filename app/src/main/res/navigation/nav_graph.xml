@@ -81,7 +81,7 @@
     <!-- Game tab-->
     <fragment
         android:id="@+id/gamesFragment"
-        android:name="com.example.els.view.GamesFragment"
+        android:name="com.example.els.view.games.GamesFragment"
         android:label="fragment_games"
         tools:layout="@layout/fragment_games" />
 
