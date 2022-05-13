@@ -1,19 +1,17 @@
 package com.example.els.models;
 
-import java.time.LocalTime;
-
 public class Lesson {
     int lessonNumber;
     String lessonName;
-    String duration;
+    int duration;
+    boolean state;
 
-    public Lesson(int lessonNumber, String lessonName, String duration) {
+    public Lesson(int lessonNumber, String lessonName, int duration, boolean state) {
         this.lessonNumber = lessonNumber;
         this.lessonName = lessonName;
         this.duration = duration;
+        this.state = state;
     }
-
-    public Lesson() {}
 
     public int getLessonNumber() {
         return lessonNumber;
@@ -23,7 +21,11 @@ public class Lesson {
         return lessonName;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
+    }
+
+    public boolean getState() {
+        return state;
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_color"
     android:orientation="vertical"
-    tools:context=".fragment.PersonalFragment">
+    tools:context=".view.PersonalFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/personal_layout_header"
@@ -108,14 +108,14 @@
                         style="@style/Personal_card_header"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/university" />
+                        android:text="@string/career" />
 
                     <TextView
                         style="@style/Personal_card_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/smallPadding"
-                        android:text="UIT" />
+                        android:text="@string/student" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -377,72 +377,4 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <!--    <LinearLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@id/view2"-->
-    <!--        android:gravity="center">-->
-    <!--        <com.google.android.material.button.MaterialButton-->
-    <!--            style="@style/Widget.MaterialComponents.TimePicker.ImageButton"-->
-    <!--            android:layout_width="@dimen/_40sdp"-->
-    <!--            android:layout_height="@dimen/_40sdp"-->
-    <!--            app:icon="@drawable/ic_personal_gear_solid"-->
-    <!--            android:layout_marginVertical="@dimen/_8sdp"-->
-    <!--            android:layout_marginHorizontal="@dimen/_8sdp"-->
-    <!--            app:cornerRadius="@dimen/_8sdp"-->
-    <!--            android:elevation="@dimen/_10sdp"-->
-    <!--            app:iconTint="@color/primary_color"-->
-    <!--            app:iconSize="@dimen/_24sdp"-->
-    <!--            android:backgroundTint="@color/background_personal"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-    <!--        <com.google.android.material.button.MaterialButton-->
-    <!--            style="@style/Widget.MaterialComponents.TimePicker.ImageButton"-->
-    <!--            android:layout_width="@dimen/_40sdp"-->
-    <!--            android:layout_height="@dimen/_40sdp"-->
-    <!--            app:icon="@drawable/ic_personal_gear_solid"-->
-    <!--            android:layout_marginVertical="@dimen/_8sdp"-->
-    <!--            android:layout_marginHorizontal="@dimen/_8sdp"-->
-    <!--            app:cornerRadius="@dimen/_8sdp"-->
-    <!--            android:elevation="@dimen/_10sdp"-->
-    <!--            app:iconTint="@color/primary_color"-->
-    <!--            app:iconSize="@dimen/_24sdp"-->
-    <!--            android:backgroundTint="@color/background_personal"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-    <!--        <com.google.android.material.button.MaterialButton-->
-    <!--            style="@style/Widget.MaterialComponents.TimePicker.ImageButton"-->
-    <!--            android:layout_width="@dimen/_40sdp"-->
-    <!--            android:layout_height="@dimen/_40sdp"-->
-    <!--            app:icon="@drawable/ic_personal_gear_solid"-->
-    <!--            android:layout_marginVertical="@dimen/_8sdp"-->
-    <!--            android:layout_marginHorizontal="@dimen/_8sdp"-->
-    <!--            app:cornerRadius="@dimen/_8sdp"-->
-    <!--            android:elevation="@dimen/_10sdp"-->
-    <!--            app:iconTint="@color/primary_color"-->
-    <!--            app:iconSize="@dimen/_24sdp"-->
-    <!--            android:backgroundTint="@color/background_personal"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-    <!--        <com.google.android.material.button.MaterialButton-->
-    <!--            style="@style/Widget.MaterialComponents.TimePicker.ImageButton"-->
-    <!--            android:layout_width="@dimen/_40sdp"-->
-    <!--            android:layout_height="@dimen/_40sdp"-->
-    <!--            app:icon="@drawable/ic_personal_gear_solid"-->
-    <!--            android:layout_marginVertical="@dimen/_8sdp"-->
-    <!--            android:layout_marginHorizontal="@dimen/_8sdp"-->
-    <!--            app:cornerRadius="@dimen/_8sdp"-->
-    <!--            android:elevation="@dimen/_10sdp"-->
-    <!--            app:iconTint="@color/primary_color"-->
-    <!--            app:iconSize="@dimen/_24sdp"-->
-    <!--            android:backgroundTint="@color/background_personal"-->
-    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent" />-->
-    <!--    </LinearLayout>-->
 </LinearLayout>

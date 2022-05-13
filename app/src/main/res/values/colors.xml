@@ -26,6 +26,7 @@
     <color name="secondary_color_4_1">#CFCAF6</color>
 
     <color name="white_2">#fcfcfc</color>
+    <color name="white_3">#f1f1f1</color>
     <color name="gray">#DFE0E7</color>
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#7D73C3</color>

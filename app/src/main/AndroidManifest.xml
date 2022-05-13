@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.els">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -9,21 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ELS">
-        <activity
-            android:name=".InformationNameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SettingAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SettingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AchievementActivity"
-            android:exported="false" />
-        <activity
-            android:name=".InformationActivity"
-            android:exported="false" /> <!-- <activity -->
+        <!-- <activity -->
         <activity android:name=".OnboardingActivity" />
         <activity
             android:name=".MainActivity"

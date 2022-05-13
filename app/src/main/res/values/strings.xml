@@ -1,8 +1,10 @@
 <resources>
+    ...
+    //home
     <string name="app_name">ELS</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="english_learning_simple">English Learning Simple</string>
-    <string name="learning_by_n_playing">Learning by \n playing</string>
+    <string name="learning_by_n_playing">Learning by \nplaying</string>
     <string name="listening">Listening</string>
     <string name="reading">Reading</string>
     <string name="speaking">Speaking</string>
@@ -12,6 +14,17 @@
     <string name="heading_on_boarding_3">Practice English by playing games</string>
     <string name="undone">Undone</string>
     <string name="done">Done</string>
+    <string name="totalDuration">%d minutes</string>
+    <string name="totalLesson">%d lessons</string>
+    <string name="percentage">%d%%</string>
+    <string name="opps_there_is_nothing_here">Opps! There is nothing here</string>
+    <string name="yeah_you_have_completed_this_course_n_pick_up_another">Yeah! Course is completed</string>
+    <string name="course_under_maintenance">Course under maintenance!</string>
+    <string name="notification">Notification</string>
+    <string name="no_notification_yet">No notification yet</string>
+    <string name="lessons">Lessons</string>
+    <string name="meetings">Meetings</string>
+    <string name="games">Games</string>
 
     <!--    personal-->
     <string name="personal">My profile</string>
@@ -22,6 +35,27 @@
     <string name="achievement">Achievement</string>
     <string name="setting">Setting</string>
     <string name="account">Account</string>
+    <string name="could_you_tell_me_what_your_name_is">Could you tell me what your name is?</string>
+    <string name="save">Save</string>
+    <string name="choose_your_gender">Choose your gender</string>
+    <string name="choose_your_age">Choose your age</string>
+    <string name="_18"><![CDATA[< 18]]></string>
+    <string name="_18_24">18 - 24</string>
+    <string name="_25_34">25 - 34</string>
+    <string name="_34_44">34 - 44</string>
+    <string name="_45_54">45 - 54</string>
+    <string name="_55"><![CDATA[>= 55]]></string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="choose_your_career">Choose your career</string>
+    <string name="worker">Worker</string>
+    <string name="college_student">College student</string>
+    <string name="student">Student</string>
+    <string name="freelancer">Freelancer</string>
+    <string name="career">Career</string>
+
+    //authentication
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="_84">+84 -</string>
     <string name="otp_verification">OTP Verification</string>
@@ -46,4 +80,12 @@
     <string name="log_in2">LOG IN</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="space" />
+    <string name="let_s_play">Let\'s Play</string>
+    <string name="learning_by_playing_is_the_best">Learning by playing is the best!</string>
+    <string name="word_quiz">Word quiz</string>
+    <string name="easy">Easy</string>
+    <string name="word_choice">Word choice</string>
+    <string name="word_arrangement">Word arrangement</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>
