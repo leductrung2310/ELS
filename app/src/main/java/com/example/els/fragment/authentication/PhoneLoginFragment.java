@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 
 import com.example.els.R;
 import com.example.els.databinding.FragmentPhoneLoginBinding;
+import com.example.els.models.authentication.PhoneAccountRepository;
 
 public class PhoneLoginFragment extends Fragment {
 
@@ -33,5 +34,15 @@ public class PhoneLoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.backButtonPhoneLogin.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_phoneLoginFragment_to_loginFragment));
+    }
+
+    public void OnClickPhoneRequest() {
+        PhoneAccountRepository phoneAccountRepository = new PhoneAccountRepository();
+
+        if(!phoneAccountRepository.isValidPhoneNumber()) {
+           // messageInvalidPhoneNumber.set("Invalid Phone Number");
+        } else {
+
+        }
     }
 }

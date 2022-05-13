@@ -59,7 +59,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:paddingTop="10dp"
-            android:id="@+id/email"
             android:hint="@string/email"
             android:backgroundTint="@color/white"
             android:textColorHint="@color/dark"
@@ -70,6 +69,7 @@
             app:startIconTint="@color/dark"
             app:startIconDrawable="@drawable/ic_email">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
@@ -87,7 +87,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:paddingTop="10dp"
-            android:id="@+id/password"
             android:hint="@string/password"
             android:backgroundTint="@color/white"
             android:textColorHint="@color/dark"
@@ -100,6 +99,7 @@
             app:startIconTint="@color/dark"
             app:startIconDrawable="@drawable/ic_lock">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
@@ -117,7 +117,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:paddingTop="10dp"
-            android:id="@+id/confirm_password"
             android:hint="@string/confirm_password"
             android:backgroundTint="@color/white"
             android:textColorHint="@color/dark"
@@ -130,6 +129,7 @@
             app:startIconTint="@color/dark"
             app:startIconDrawable="@drawable/ic_lock">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
@@ -147,7 +147,7 @@
             android:background="@android:color/darker_gray"/>
 
         <Button
-            android:id="@+id/loginBtn"
+            android:id="@+id/signupBtn"
             android:layout_width="310dp"
             android:layout_height="52dp"
             android:layout_gravity="center"

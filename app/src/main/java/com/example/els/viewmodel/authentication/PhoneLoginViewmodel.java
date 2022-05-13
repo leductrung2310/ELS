@@ -41,6 +41,10 @@ public class PhoneLoginViewmodel extends BaseObservable {
         }
     }
 
+
+
+
+
     private void sendOtpCode(String number) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(firebaseAuth)
