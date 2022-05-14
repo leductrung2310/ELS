@@ -42,11 +42,12 @@ public class EmailAccountRepository {
         this.firebaseAuth = FirebaseAuth.getInstance();
         this.userLiveData = new MutableLiveData<>();
         this.isLoggOutLiveData = new MutableLiveData<>();
-        this.isRegisterSuccessLiveData = new MutableLiveData<>();
+        this.isRegisterSuccessLiveData = new MutableLiveData<>(false);
+
 
         if(firebaseAuth.getCurrentUser() != null) {
-            userLiveData.postValue(firebaseAuth.getCurrentUser());
-            isLoggOutLiveData.postValue(false);
+            userLiveData.setValue(firebaseAuth.getCurrentUser());
+            isLoggOutLiveData.setValue(false);
         }
     }
 
@@ -78,7 +79,7 @@ public class EmailAccountRepository {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
                            if (task.isSuccessful()) {
-                               userLiveData.postValue(firebaseAuth.getCurrentUser());
+                               userLiveData.setValue(firebaseAuth.getCurrentUser());
                            } else {
                                Toast.makeText(application.getApplicationContext(), "Login Failure: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                            }

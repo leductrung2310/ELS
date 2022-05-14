@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -30,12 +29,9 @@ public class SignUpFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         emailLoginViewmodel = new ViewModelProvider(this).get(EmailLoginViewmodel.class);
-        emailLoginViewmodel.getIsRegisterSuccessLiveData().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean aBoolean) {
-                if(aBoolean) {
-                    Navigation.findNavController(getView()).navigate(R.id.action_signUpFragment_to_loginFragment);
-                }
+        emailLoginViewmodel.getIsRegisterSuccessLiveData().observe(this, aBoolean -> {
+            if(aBoolean) {
+                Navigation.findNavController(getView()).navigate(R.id.action_signUpFragment_to_loginFragment);
             }
         });
     }
