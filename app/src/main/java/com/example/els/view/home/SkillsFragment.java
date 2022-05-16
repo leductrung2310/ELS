@@ -5,10 +5,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,10 @@ import android.widget.TextView;
 
 import com.example.els.R;
 import com.example.els.adapter.LessonCollectionAdapter;
+import com.example.els.adapter.home.ListeningAdapter;
 import com.example.els.databinding.FragmentSkillsBinding;
+import com.example.els.models.Api.Listening;
+import com.example.els.network.listening.ListeningRepository;
 import com.example.els.viewmodel.home.HomeViewModel;
 import com.example.els.viewmodel.home.ListeningViewModel;
 import com.example.els.viewmodel.home.ReadingViewModel;
@@ -25,6 +30,9 @@ import com.example.els.viewmodel.home.SpeakingViewModel;
 import com.example.els.viewmodel.home.WritingViewModel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SkillsFragment extends Fragment {
     private FragmentSkillsBinding binding;
@@ -77,6 +85,7 @@ public class SkillsFragment extends Fragment {
 
         // Setup tab layout
         setupTabLayout();
+
     }
 
     public void setupTabLayout() {
@@ -102,7 +111,7 @@ public class SkillsFragment extends Fragment {
         TextView percentTextView = binding.percentage;
         ProgressBar progressBar = binding.circleProgressIndicator;
 
-        switch(key) {
+        switch (key) {
             case "listening": {
                 listeningViewModel.getTotalDuration().observe(getViewLifecycleOwner(), duration -> durationTextView.setText(getResources().getString(R.string.totalDuration, duration)));
                 listeningViewModel.getTotalLessons().observe(getViewLifecycleOwner(), lessons -> totalLessonTextView.setText(getResources().getString(R.string.totalLesson, lessons)));
@@ -173,6 +182,7 @@ public class SkillsFragment extends Fragment {
         binding.circleProgressIndicator.setProgress(0);
         Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_homeFragment);
     }
+
 
     @Override
     public void onDestroyView() {
