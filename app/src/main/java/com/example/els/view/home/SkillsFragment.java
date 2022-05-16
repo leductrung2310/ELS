@@ -95,6 +95,7 @@ public class SkillsFragment extends Fragment {
                 .attach();
     }
 
+    // Set up view whenever get inside the skills fragment
     public void setupView(String key) {
         TextView durationTextView = binding.totalDuration;
         TextView totalLessonTextView = binding.totalLessons;
@@ -141,6 +142,7 @@ public class SkillsFragment extends Fragment {
         }
     }
 
+    // Setup appropriate content for each skill
     public void setContentSkills(String key) {
         switch (key) {
             case "listening": {
