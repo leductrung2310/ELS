@@ -1,5 +1,9 @@
 package com.example.els.viewmodel.home;
 
+import android.media.MediaPlayer;
+import android.os.Handler;
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -80,33 +84,97 @@ public class ListeningViewModel extends ViewModel {
     public LiveData<Integer> getCompletePercentage() {
         int count = 0;
         for (int i = 0; i < lessonData.listeningLessons.size(); i++) {
-            if(lessonData.listeningLessons.get(i).getState()){
+            if (lessonData.listeningLessons.get(i).getState()) {
                 count++;
             }
         }
         double percentage = ((double) count / (double) lessonData.listeningLessons.size() * 100);
-        int percent = (int)percentage;
+        int percent = (int) percentage;
         _completePercentage.setValue(percent);
         return _completePercentage;
     }
 
     private ListeningRepository listeningRepository;
-    private LiveData<List<Listening>> listeningResponseLiveData;
-    private LiveData<List<ListeningQuestion>> listeningQuestionLiveData;
+    private MutableLiveData<List<Listening>> listeningLiveData;
+    private MutableLiveData<List<ListeningQuestion>> listeningQuestionLiveData;
+    private MutableLiveData<String> title;
+    private MutableLiveData<String> content;
+    private int position;
+    private Listening listening;
+    private MutableLiveData<MediaPlayer> mediaPlayer;
+    private Handler handler;
 
     public ListeningViewModel() {
         listeningRepository = new ListeningRepository();
+        listeningLiveData = new MutableLiveData<>();
+        listeningQuestionLiveData = new MutableLiveData<>();
+        title = new MutableLiveData<>();
+        content = new MutableLiveData<>();
+        mediaPlayer = new MutableLiveData<>();
+        handler = new Handler();
+
     }
 
-    public void getDateListeningResponseLiveData() {
-        this.listeningResponseLiveData = listeningRepository.getAllListeningLesson();
+    public void getDataListeningLesson() {
+        listeningRepository.getAllListeningLesson(data -> {
+            Log.d("listening", "có data lesson");
+            listeningLiveData.setValue(data);
+        });
+    }
+    public void getDataListeningQuestionByLesson(String id) {
+        listeningQuestionLiveData.setValue(new ArrayList<>());
+        listeningRepository.getListeningQuestionByLesson(id, data -> {
+            listeningQuestionLiveData.setValue(data);
+        });
     }
 
-    public LiveData<List<Listening>> getListeningResponseLiveData() {
-        return this.listeningResponseLiveData;
+    public MutableLiveData<MediaPlayer> getMediaPlayer() {
+        return this.mediaPlayer;
     }
 
-    public LiveData<List<ListeningQuestion>> getListeningQuestionResponseLiveData() {
+    public void setMediaPlayer(MutableLiveData<MediaPlayer> mediaPlayer) {
+        this.mediaPlayer = mediaPlayer;
+    }
+
+    public LiveData<List<Listening>> getListeningLiveData() {
+        return this.listeningLiveData;
+    }
+
+    public LiveData<List<ListeningQuestion>> getListeningQuestionLiveData() {
         return this.listeningQuestionLiveData;
     }
+
+    public MutableLiveData<String> getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title.setValue(title);
+    }
+
+    public MutableLiveData<String> getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content.setValue(content);
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    public Listening getListening() {
+        return listening;
+    }
+
+    public void setListening(Listening listening) {
+        this.listening = listening;
+    }
+
+
 }

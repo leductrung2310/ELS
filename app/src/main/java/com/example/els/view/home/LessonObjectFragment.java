@@ -31,6 +31,7 @@ import com.example.els.viewmodel.home.SpeakingViewModel;
 import com.example.els.viewmodel.home.WritingViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // Instances of this class are fragments representing a single
 // object in our collection.
@@ -41,6 +42,8 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
     private ReadingViewModel readingViewModel;
     private SpeakingViewModel speakingViewModel;
     private WritingViewModel writingViewModel;
+    private ListeningAdapter listeningAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -63,36 +66,28 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
         //homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), this::setUpLessonRecyclerView);
         recyclerView = binding.lessonRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
-        listeningViewModel.getDateListeningResponseLiveData();
-
-        listenings = new ArrayList<>();
-        listeningAdapter = new ListeningAdapter(getContext(), listenings, LessonObjectFragment.this);
-
-
-        recyclerView.setAdapter(listeningAdapter);
-
-        getListening();
+        listeningViewModel.getDataListeningLesson();
+        setUpObserver();
     }
 
-    private ArrayList<Listening> listenings;
-    private ListeningAdapter listeningAdapter;
-    private RecyclerView recyclerView;
-
     @SuppressLint("NotifyDataSetChanged")
-    private void getListening() {
-        listeningViewModel.getListeningResponseLiveData().observe(getViewLifecycleOwner(), data -> {
+    private void setUpObserver() {
+        final Observer<List<Listening>> listObserver = data -> {
             if (data != null) {
-                this.listenings.addAll(data);
-                listeningAdapter.notifyDataSetChanged();
+                listeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this);
+                recyclerView.setAdapter(listeningAdapter);
+                binding.gifEmpty.setVisibility(View.GONE);
+            } else {
+                binding.gifEmpty.setVisibility(View.VISIBLE);
             }
-        });
+        };
+        listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), listObserver);
     }
 
     public void setUpLessonRecyclerView(String key) {
         RecyclerView recyclerView = binding.lessonRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
         // Create observer which updates UI
         final Observer<ArrayList<Lesson>> listObserver = new Observer<ArrayList<Lesson>>() {
@@ -116,12 +111,7 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
             switch (key) {
                 case "listening": {
                     //listeningViewModel.getDoneListeningLessons().observe(getViewLifecycleOwner(), listObserver);
-                    ArrayList<Listening> listenings = new ArrayList<>();
-                    listeningViewModel.getListeningResponseLiveData().observe(getViewLifecycleOwner(), listenings1 ->{
-                        if (listenings1 != null) {
 
-                        }
-                    } );
                     break;
                 }
                 case "reading": {
@@ -161,9 +151,8 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
 
     @Override
     public void onLessonClick(View view, int position) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("position", position);
-        Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_lessonDetailFragment, bundle);
+        listeningViewModel.setPosition(position);
+        Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_lessonDetailFragment);
     }
 
     @Override

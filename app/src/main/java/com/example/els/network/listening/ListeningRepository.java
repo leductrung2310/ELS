@@ -3,16 +3,15 @@ package com.example.els.network.listening;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import com.example.els.models.Api.Listening;
 import com.example.els.models.Api.ListeningQuestion;
 import com.example.els.network.ApiUtils;
-import com.example.els.network.listening.ListeningApi;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,14 +20,16 @@ import retrofit2.Response;
 public class ListeningRepository {
     private final ListeningApi listeningApi = ApiUtils.getAllListeningLesson();
 
-    public LiveData<List<Listening>> getAllListeningLesson() {
-        final MutableLiveData<List<Listening>> data = new MutableLiveData<>();
+    public void getAllListeningLesson(OnGetSurveyListener onGetSurveyListener) {
+        Log.d("listening", "vô repo get data");
         listeningApi.getAllListeningLesson().enqueue(new Callback<List<Listening>>() {
             @Override
             public void onResponse(@NonNull Call<List<Listening>> call, @NonNull Response<List<Listening>> response) {
-                if (response.isSuccessful()) {
-                    data.setValue(response.body());
+                if (response.isSuccessful() & response.body() != null) {
+                    Log.d("listening", "có data trả về body");
+                    onGetSurveyListener.onCallBack((ArrayList<Listening>) response.body());
                 } else {
+                    Log.d("listening", "ko có body");
                     Log.d("phat", "error");
                 }
             }
@@ -36,18 +37,25 @@ public class ListeningRepository {
             @Override
             public void onFailure(@NonNull Call<List<Listening>> call, @NonNull Throwable t) {
 
+                Log.d("listening", "get lesson bị lỗi" + t.getMessage());
             }
+
         });
-        return data;
     }
 
-    public LiveData<List<ListeningQuestion>> getListeningQuestionByLesson(String id) {
-        final MutableLiveData<List<ListeningQuestion>> data = new MutableLiveData<>();
-        listeningApi.getAllListeningQuestion(id).enqueue(new Callback<List<ListeningQuestion>>() {
+    public interface OnGetSurveyListener {
+        void onCallBack(ArrayList<Listening> listenings);
+        //void onGetSurveyFailure(errorMessage: String)
+    }
+
+    public void getListeningQuestionByLesson(String id, OnGetListeningQuestionByLesson onGetListeningQuestionByLesson) {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("id",id);
+        listeningApi.getAllListeningQuestion(params).enqueue(new Callback<List<ListeningQuestion>>() {
             @Override
             public void onResponse(Call<List<ListeningQuestion>> call, Response<List<ListeningQuestion>> response) {
-                if (response.isSuccessful()) {
-                    data.setValue(response.body());
+                if (response.isSuccessful() && response.body() !=null) {
+                    onGetListeningQuestionByLesson.onCallBack((ArrayList<ListeningQuestion>) response.body());
                 } else {
                     Log.d("phat", "error");
                 }
@@ -58,6 +66,10 @@ public class ListeningRepository {
 
             }
         });
-        return data;
+    }
+
+    public interface OnGetListeningQuestionByLesson {
+        void onCallBack(ArrayList<ListeningQuestion> listeningQuestions);
+        //void onGetSurveyFailure(errorMessage: String)
     }
 }

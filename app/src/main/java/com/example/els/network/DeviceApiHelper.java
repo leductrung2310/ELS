@@ -8,7 +8,7 @@ class DeviceAPIHelper
     public static Retrofit getClient()
     {
         return new Retrofit.Builder()
-                .baseUrl("https://els-server-production-f309.up.railway.app/api/v1/")
+                .baseUrl("https://els-server.herokuapp.com/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.ViewHolder> {
-    private final ArrayList<Listening> listenings;
+    private final ArrayList<Listening> listenings = new ArrayList<>();
     private Context context;
     private final GeneralInterface.OnLessonItemListener mOnLessonItemListener;
 
-    public ListeningAdapter(Context context, ArrayList<Listening> list, GeneralInterface.OnLessonItemListener onLessonItemListener) {
-        this.listenings = list;
+    public ListeningAdapter(Context context, List<Listening> list, GeneralInterface.OnLessonItemListener onLessonItemListener) {
+        this.listenings.addAll(list);
         this.context = context;
         this.mOnLessonItemListener = onLessonItemListener;
     }

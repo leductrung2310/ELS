@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,23 +26,31 @@
 
         <LinearLayout
             android:id="@+id/gif_empty"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:orientation="vertical">
 
-            <pl.droidsonroids.gif.GifImageView
-                android:layout_width="wrap_content"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/_300sdp"
-                android:src="@drawable/gif_empty" />
+                app:lottie_rawRes="@raw/progress"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/opps_there_is_nothing_here"
-                android:textColor="@color/s_dark"
-                android:textSize="@dimen/header3" />
+<!--            <pl.droidsonroids.gif.GifImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="@dimen/_300sdp"-->
+<!--                android:src="@drawable/gif_empty" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:text="@string/opps_there_is_nothing_here"-->
+<!--                android:textColor="@color/s_dark"-->
+<!--                android:textSize="@dimen/header3" />-->
         </LinearLayout>
 
         <LinearLayout
