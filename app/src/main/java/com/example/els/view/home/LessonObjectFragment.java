@@ -64,12 +64,10 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
         recyclerView = binding.lessonRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
         listeningViewModel.getDateListeningResponseLiveData();
 
         listenings = new ArrayList<>();
         listeningAdapter = new ListeningAdapter(getContext(), listenings, LessonObjectFragment.this);
-
 
         recyclerView.setAdapter(listeningAdapter);
 

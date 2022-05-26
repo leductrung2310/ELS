@@ -61,7 +61,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.2.0')
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
-    
+
 
     //ui
     implementation 'com.airbnb.android:lottie:5.0.3'
