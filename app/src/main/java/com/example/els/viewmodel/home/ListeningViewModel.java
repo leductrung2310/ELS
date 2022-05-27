@@ -116,9 +116,18 @@ public class ListeningViewModel extends ViewModel {
     }
 
     public void getDataListeningLesson() {
-        listeningRepository.getAllListeningLesson(data -> {
-            Log.d("listening", "có data lesson");
-            listeningLiveData.setValue(data);
+        listeningRepository.getAllListeningLesson(new ListeningRepository.OnGetSurveyListener() {
+            @Override
+            public void onCallBack(ArrayList<Listening> data) {
+                Log.d("listening", "có data lesson");
+                listeningLiveData.setValue(data);
+            }
+
+            @Override
+            public void onCallBackFailure(ArrayList<Listening> listenings) {
+                Log.d("listening", "có data lesson");
+                listeningLiveData.setValue(listenings);
+            }
         });
     }
     public void getDataListeningQuestionByLesson(String id) {

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -68,6 +69,7 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         listeningViewModel.getDataListeningLesson();
         setUpObserver();
+        setUpEvent();
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -78,10 +80,21 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
                 recyclerView.setAdapter(listeningAdapter);
                 binding.gifEmpty.setVisibility(View.GONE);
             } else {
-                binding.gifEmpty.setVisibility(View.VISIBLE);
+                binding.gifEmpty.setVisibility(View.GONE);
+                binding.textState.setVisibility(View.VISIBLE);
             }
         };
         listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), listObserver);
+    }
+
+    public void setUpEvent() {
+        binding.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setUpObserver();
+                binding.swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     public void setUpLessonRecyclerView(String key) {

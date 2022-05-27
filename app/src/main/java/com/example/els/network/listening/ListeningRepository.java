@@ -36,8 +36,7 @@ public class ListeningRepository {
 
             @Override
             public void onFailure(@NonNull Call<List<Listening>> call, @NonNull Throwable t) {
-
-                Log.d("listening", "get lesson bị lỗi" + t.getMessage());
+                onGetSurveyListener.onCallBackFailure(new ArrayList<>());
             }
 
         });
@@ -45,7 +44,7 @@ public class ListeningRepository {
 
     public interface OnGetSurveyListener {
         void onCallBack(ArrayList<Listening> listenings);
-        //void onGetSurveyFailure(errorMessage: String)
+       void onCallBackFailure(ArrayList<Listening> listenings);
     }
 
     public void getListeningQuestionByLesson(String id, OnGetListeningQuestionByLesson onGetListeningQuestionByLesson) {

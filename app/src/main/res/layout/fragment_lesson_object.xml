@@ -18,13 +18,19 @@
         android:focusable="true"
         tools:ignore="NestedWeights">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lesson_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/tinyPadding" />
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lesson_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/tinyPadding" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <LinearLayout
+
+        <FrameLayout
             android:id="@+id/gif_empty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,14 +50,18 @@
 <!--                android:layout_height="@dimen/_300sdp"-->
 <!--                android:src="@drawable/gif_empty" />-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:text="@string/opps_there_is_nothing_here"-->
-<!--                android:textColor="@color/s_dark"-->
-<!--                android:textSize="@dimen/header3" />-->
-        </LinearLayout>
+            <TextView
+                android:id="@+id/text_state"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/opps_there_is_nothing_here"
+                android:textColor="@color/s_dark"
+                android:textSize="@dimen/header2"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:visibility="invisible"/>
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/gif_success"

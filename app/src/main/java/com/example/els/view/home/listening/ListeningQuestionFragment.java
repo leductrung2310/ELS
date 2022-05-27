@@ -89,10 +89,12 @@ public class ListeningQuestionFragment extends Fragment {
         setUpObserver();
 
         binding.startButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                if (getItem(0) <= 1)
+                if (getItem(0) <= 7)
                     binding.viewPager2Employee.setCurrentItem(getItem(1), true);
+                else binding.startButton.setText("Finish");
             }
         });
     }
