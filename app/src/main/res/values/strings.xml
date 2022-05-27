@@ -88,4 +88,8 @@
     <string name="word_arrangement">Word arrangement</string>
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="dictionary_tv">Dictionary</string>
+    <string name="find_out_the_word_you_don_t_know">Find out the word you don\'t know</string>
+    <string name="search_new_words">Search</string>
 </resources>

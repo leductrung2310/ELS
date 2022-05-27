@@ -35,6 +35,7 @@ public class LoginFragment extends Fragment {
             public void onChanged(FirebaseUser firebaseUser) {
                 if(firebaseUser != null ) {
                     Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_homeFragment);
+                    Toast.makeText(getActivity(), "Log in success", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -28,4 +28,5 @@ public class Lesson {
     public boolean getState() {
         return state;
     }
+
 }

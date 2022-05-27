@@ -126,6 +126,9 @@
         <action
             android:id="@+id/action_phoneLoginFragment_to_verifyPhoneFragment"
             app:destination="@id/verifyPhoneFragment" />
+        <action
+            android:id="@+id/action_phoneLoginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/verifyPhoneFragment"
@@ -136,6 +139,9 @@
             android:id="@+id/action_verifyPhoneFragment_to_phoneLoginFragment"
             app:destination="@id/phoneLoginFragment"
             app:popUpTo="@id/phoneLoginFragment" />
+        <action
+            android:id="@+id/action_verifyPhoneFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
     <!-- Personal tab -->
@@ -311,7 +317,7 @@
     <!-- Meeting tab-->
     <fragment
         android:id="@+id/meetingFragment"
-        android:name="com.example.els.view.MeetingFragment"
+        android:name="com.example.els.view.DictionaryFragment"
         android:label="fragment_meeting"
         tools:layout="@layout/fragment_meeting" />
 

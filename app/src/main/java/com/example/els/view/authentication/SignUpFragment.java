@@ -17,23 +17,17 @@ import androidx.navigation.Navigation;
 
 import com.example.els.R;
 import com.example.els.databinding.FragmentSignUpBinding;
-import com.example.els.viewmodel.authentication.EmailLoginViewmodel;
+import com.example.els.models.ELSUser;
+import com.example.els.viewmodel.authentication.SignUpViewmodel;
 
 public class SignUpFragment extends Fragment {
 
     FragmentSignUpBinding binding;
-    private EmailLoginViewmodel emailLoginViewmodel;
+    private SignUpViewmodel signUpViewmodel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        emailLoginViewmodel = new ViewModelProvider(this).get(EmailLoginViewmodel.class);
-        emailLoginViewmodel.getIsRegisterSuccessLiveData().observe(this, aBoolean -> {
-            if(aBoolean) {
-                Navigation.findNavController(getView()).navigate(R.id.action_signUpFragment_to_loginFragment);
-            }
-        });
     }
 
     @Override
@@ -47,20 +41,54 @@ public class SignUpFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        signUpViewmodel = new ViewModelProvider(this).get(SignUpViewmodel.class);
+        signUpViewmodel.getIsRegisterSuccessLiveData().observe(getViewLifecycleOwner(), aBoolean -> {
+            if(aBoolean) {
+                Navigation.findNavController(getView()).navigate(R.id.action_signUpFragment_to_loginFragment);
+            }
+        });
+
         binding.signupBtn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.P)
             @Override
             public void onClick(View view) {
                     String email = binding.email.getText().toString();
                 String password = binding.password.getText().toString();
-                String confirmPassword = binding.confirmPassword.getText().toString();
 
-                if(password.equals(confirmPassword)) {
-                    emailLoginViewmodel.register(email, password);
-                }else {
-                    Toast.makeText(getContext(), "Email Address and Password Must Be Entered", Toast.LENGTH_SHORT).show();
+                ELSUser newUser = new ELSUser();
+                newUser.setName(binding.name.getText().toString());
+                newUser.setAge(0);
+                newUser.setGender(true);
+                newUser.setPosition("");
+
+                if(checkEmpty()) {
+                    signUpViewmodel.register(email, password, newUser);
                 }
             }
         });
+    }
+
+    public boolean checkEmpty(){
+        if(binding.name.getText() == null) {
+            Toast.makeText(getContext(), "Invalid Username", Toast.LENGTH_SHORT).show();
+            binding.name.requestFocus();
+            return false;
+        }
+        if(binding.email.getText() == null) {
+            Toast.makeText(getContext(), "Invalid Email", Toast.LENGTH_SHORT).show();
+            binding.name.requestFocus();
+            return false;
+        }
+        if(binding.password.getText() == null) {
+            Toast.makeText(getContext(), "Invalid Password", Toast.LENGTH_SHORT).show();
+            binding.name.requestFocus();
+            return false;
+        }
+        if(!binding.confirmPassword.getText().toString().equals(binding.password.getText().toString())) {
+            Toast.makeText(getContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+            binding.name.requestFocus();
+            return false;
+        }
+        return true;
     }
 }

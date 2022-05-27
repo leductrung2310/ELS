@@ -1,8 +1,10 @@
 package com.example.els.view.authentication;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,14 +12,19 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import com.example.els.R;
 import com.example.els.databinding.FragmentVerifyPhoneBinding;
-import com.example.els.models.authentication.PhoneAccountRepository;
+import com.example.els.viewmodel.authentication.PhoneLoginViewmodel;
 
 public class VerifyPhoneFragment extends Fragment {
 
     FragmentVerifyPhoneBinding binding;
+    PhoneLoginViewmodel phoneLoginViewmodel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,8 +41,27 @@ public class VerifyPhoneFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        phoneLoginViewmodel = new ViewModelProvider(requireActivity()).get(PhoneLoginViewmodel.class);
+        phoneLoginViewmodel.getUserLiveData().observe(getViewLifecycleOwner(), firebaseUser -> {
+            if (firebaseUser != null) {
+                Navigation.findNavController(getView()).navigate(R.id.action_verifyPhoneFragment_to_homeFragment);
+            }
+        });
+        //Log.d("trung", phoneLoginViewmodel.getPhoneNumber().getValue());
+        phoneLoginViewmodel.getPhoneNumber().observe(getViewLifecycleOwner(), s -> {
+            binding.phoneNumberVerify.setText(s);
+        });
+
+        binding.backButton.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_verifyPhoneFragment_to_phoneLoginFragment));
 
         setupOTPInputs();
+        binding.verifyBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.P)
+            @Override
+            public void onClick(View view) {
+                phoneLoginViewmodel.verifyOtp(getVerificationId(),getActivity().getApplication());
+            }
+        });
     }
 
     private void setupOTPInputs() {
@@ -134,6 +160,7 @@ public class VerifyPhoneFragment extends Fragment {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (i == KeyEvent.KEYCODE_DEL) {
+                    Log.d("key", "1");
                     binding.inputCode5.requestFocus();
                 }
                 return false;
@@ -144,6 +171,7 @@ public class VerifyPhoneFragment extends Fragment {
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (i == KeyEvent.KEYCODE_DEL) {
                     binding.inputCode4.requestFocus();
+                    Log.d("key", "2");
                 }
                 return false;
             }
@@ -153,6 +181,7 @@ public class VerifyPhoneFragment extends Fragment {
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (i == KeyEvent.KEYCODE_DEL) {
                     binding.inputCode3.requestFocus();
+                    Log.d("key", "3");
                 }
                 return false;
             }
@@ -162,6 +191,7 @@ public class VerifyPhoneFragment extends Fragment {
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (i == KeyEvent.KEYCODE_DEL) {
                     binding.inputCode2.requestFocus();
+                    Log.d("key", "4");
                 }
                 return false;
             }
