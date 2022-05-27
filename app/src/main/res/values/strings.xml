@@ -101,4 +101,7 @@
     <string name="score">%d/10</string>
     <string name="did_great_job">Yay! You did a great job!</string>
     <string name="continue_to_exit">Continue</string>
+    <string name="exit_warning">You want to exit? Your progress will be lost</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit">Exit</string>
 </resources>

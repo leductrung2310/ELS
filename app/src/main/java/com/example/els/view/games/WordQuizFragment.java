@@ -67,12 +67,12 @@ public class WordQuizFragment extends Fragment {
             // Handle event when user choose the first option of answers
             firstBtn.setOnClickListener(view1 -> {
                 onFirstOptionChosen(quizGame);
-                if(quizViewModel.currentQuiz().getValue() == totalQuiz) navigateToTheCongratulationsScreen(view1);
+                navigateToTheCongratulationsScreen(view1);
             });
             // Handle event when user choose the first option of answers
             secondBtn.setOnClickListener(view12 -> {
                 onSecondOptionChosen(quizGame);
-                if(quizViewModel.currentQuiz().getValue() == totalQuiz) navigateToTheCongratulationsScreen(view12);
+                navigateToTheCongratulationsScreen(view12);
             });
         });
 
@@ -81,9 +81,11 @@ public class WordQuizFragment extends Fragment {
 
         // Skip quiz
         binding.skipThisQuiz.setOnClickListener(view13 -> {
+            int currentQuiz = quizViewModel.currentQuiz().getValue();
             quizViewModel.updateQuiz();
-            updateQuizViewContent(quizViewModel.currentQuiz().getValue());
-            updateProgressInfo(quizViewModel.currentQuiz().getValue());
+            updateQuizViewContent(currentQuiz);
+            updateProgressInfo(currentQuiz);
+            navigateToTheCongratulationsScreen(view13);
         });
     }
 
@@ -169,10 +171,12 @@ public class WordQuizFragment extends Fragment {
 
     // Navigate to the congratulations fragment
     public void navigateToTheCongratulationsScreen(View view) {
-        (new Handler()).postDelayed(() ->
-                Navigation.findNavController(view).navigate(R.id.action_wordQuizFragment_to_congratulationFragment),
-                constantsTime
-        );
+        if(quizViewModel.currentQuiz().getValue() == totalQuiz) {
+            (new Handler()).postDelayed(() ->
+                            Navigation.findNavController(view).navigate(R.id.action_wordQuizFragment_to_congratulationFragment),
+                    constantsTime
+            );
+        }
     }
 
     // Set state of the buttons
