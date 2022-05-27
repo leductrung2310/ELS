@@ -97,4 +97,8 @@
     <string name="first_answer">A. %s</string>
     <string name="second_answer">B. %s</string>
     <string name="skip_this_quiz"><u>Skip this quiz</u></string>
+    <string name="congratulations">Congratulations</string>
+    <string name="score">%d/10</string>
+    <string name="did_great_job">Yay! You did a great job!</string>
+    <string name="continue_to_exit">Continue</string>
 </resources>

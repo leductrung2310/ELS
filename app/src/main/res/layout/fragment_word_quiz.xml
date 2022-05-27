@@ -126,8 +126,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        android:textAllCaps="true"
                         android:text="@string/instruction"
+                        android:textAllCaps="true"
                         android:textColor="@color/primary_color"
                         android:textSize="@dimen/bodyText1" />
 
@@ -154,6 +154,7 @@
                         android:layout_marginEnd="@dimen/tinyPadding"
                         android:layout_weight="1"
                         android:backgroundTint="@color/accent_color"
+                        android:clickable="false"
                         android:fontFamily="@font/roboto_medium"
                         android:textAllCaps="false"
                         android:textColor="@color/text_on_p"
@@ -169,6 +170,7 @@
                         android:layout_marginEnd="@dimen/tinyPadding"
                         android:layout_weight="1"
                         android:backgroundTint="@color/accent_color"
+                        android:clickable="false"
                         android:fontFamily="@font/roboto_medium"
                         android:textAllCaps="false"
                         android:textColor="@color/text_on_p"
