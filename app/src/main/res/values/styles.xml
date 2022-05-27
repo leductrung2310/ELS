@@ -170,6 +170,7 @@
         <item name="android:textSize">@dimen/bodyText1</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="Personal_newspaper_content" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/dark</item>
         <item name="android:textSize">@dimen/bodyText2</item>
@@ -179,6 +180,39 @@
         <item name="android:textColor">@color/dark</item>
         <item name="android:textSize">@dimen/header2</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Lesson_title" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/text_on_s</item>
+        <item name="android:textSize">@dimen/header2</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Lesson_content" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/text_on_s</item>
+        <item name="android:textSize">@dimen/header3</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Lesson_music" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/text_on_s</item>
+        <item name="android:textSize">@dimen/bodyText1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="question" parent="Widget.Material3.CompoundButton.RadioButton">
+        <item name="android:background">@drawable/personal_radio_button_selector</item>
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:elevation">@dimen/_1sdp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@drawable/personal_radio_button_text_color</item>
+        <item name="android:textSize">@dimen/bodyText1</item>
+        <item name="android:textStyle">normal</item>'
+        <item name="android:textAlignment">center</item>
     </style>
 
 </resources>
