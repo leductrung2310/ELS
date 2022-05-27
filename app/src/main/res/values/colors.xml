@@ -28,7 +28,7 @@
     <color name="white_2">#fcfcfc</color>
     <color name="white_3">#f1f1f1</color>
     <color name="gray">#DFE0E7</color>
-    <color name="accent_color">#FF8D29</color>
+    <color name="accent_color">#FBA074</color>
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#7D73C3</color>
     <color name="ripple_color">#cfd8dc</color>

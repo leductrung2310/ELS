@@ -76,12 +76,16 @@
         <entry key="..\:/University/ThirdYear/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.1337386018237082" />
         <entry key="..\:/University/ThirdYear/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.27076923076923076" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/background_primary.xml" value="0.191" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/bg_white_rounded.xml" value="0.2075" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/border_edittext.xml" value="0.1625" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/bottom_navigation_background.xml" value="0.191" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/bottom_navigation_color_selector.xml" value="0.191" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/exam_button.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/gradient1.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2495" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/ic_phone.xml" value="0.118" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/ic_volume.xml" value="0.137" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/drawable/theme_searchview.xml" value="0.137" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/font-v26/roboto.xml" value="0.30416666666666664" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/font/roboto.xml" value="0.29010416666666666" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_login.xml" value="0.25" />
@@ -89,11 +93,16 @@
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_signup.xml" value="0.3175213675213675" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_start.xml" value="0.16802536231884058" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/activity_verify.xml" value="0.33" />
-        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_games.xml" value="0.12512664640324214" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_games.xml" value="0.33" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_home.xml" value="0.176" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_information.xml" value="0.22" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_information_age.xml" value="0.1431159420289855" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_meeting.xml" value="0.25" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.1" />
         <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_phone_login.xml" value="0.16530797101449277" />
-        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1893162393162393" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_sign_up.xml" value="0.1" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/layout/fragment_verify_phone.xml" value="0.25" />
+        <entry key="..\:/Users/leduc/OneDrive/Desktop/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.33" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/drawable/background_primary.xml" value="0.1705" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/drawable/bottom_navigation_color_selector.xml" value="0.168" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/drawable/circle_progress_indicator.xml" value="0.1655" />
@@ -116,13 +125,14 @@
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/fragment_lesson_detail.xml" value="0.264" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/fragment_personal.xml" value="0.11296859169199595" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/fragment_skills.xml" value="0.24728260869565216" />
+        <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/fragment_word_quiz.xml" value="0.264" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/layout/lesson_item.xml" value="0.2" />
         <entry key="..\:/final_projects/ELS/ELS/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

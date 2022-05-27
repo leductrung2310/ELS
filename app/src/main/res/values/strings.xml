@@ -85,11 +85,21 @@
     <string name="word_quiz">Word quiz</string>
     <string name="word_choice">Word choice</string>
     <string name="word_arrangement">Word arrangement</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="dictionary_tv">Dictionary</string>
+    <string name="search_new_words">Search</string>
 
     // Games fragment
+    <string name="instruction">Choose the word that is related to: </string>
     <string name="choose_right_word">Choose right word</string>
     <string name="choose_synonyms">Choose synonyms</string>
     <string name="rearrange_words">Rearrange words</string>
     <string name="current_question">QUESTION %d OUT OF %d</string>
     <string name="current_score">Your score: %d/%d</string>
+    <string name="quiz_content">%s \n%s \n%s</string>
+    <string name="first_answer">A. %s</string>
+    <string name="second_answer">B. %s</string>
+    <string name="skip_this_quiz"><u>Skip this quiz</u></string>
 </resources>

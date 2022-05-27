@@ -1,16 +1,15 @@
 package com.example.els.view.home;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.els.R;
 import com.example.els.databinding.FragmentHomeBinding;
@@ -63,6 +62,9 @@ public class HomeFragment extends Fragment {
 
         // On notification button click
         binding.notificationBtn.setOnClickListener(this::moveToNotification);
+
+        //get user data
+        homeViewModel.getAccountInfo();
     }
 
     private void setUpCourses() {

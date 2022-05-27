@@ -111,6 +111,7 @@
                         android:text="@string/career" />
 
                     <TextView
+                        android:id="@+id/personal_position"
                         style="@style/Personal_card_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -146,6 +147,7 @@
                         android:text="@string/mobile_number" />
 
                     <TextView
+                        android:id="@+id/personal_phone_number"
                         style="@style/Personal_card_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
