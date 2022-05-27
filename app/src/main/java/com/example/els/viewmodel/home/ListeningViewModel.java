@@ -4,10 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.els.models.Api.Listening;
+import com.example.els.models.Api.ListeningQuestion;
 import com.example.els.models.Lesson;
 import com.example.els.models.LessonData;
+import com.example.els.network.listening.ListeningRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListeningViewModel extends ViewModel {
     private final LessonData lessonData = new LessonData();
@@ -84,5 +88,25 @@ public class ListeningViewModel extends ViewModel {
         int percent = (int)percentage;
         _completePercentage.setValue(percent);
         return _completePercentage;
+    }
+
+    private ListeningRepository listeningRepository;
+    private LiveData<List<Listening>> listeningResponseLiveData;
+    private LiveData<List<ListeningQuestion>> listeningQuestionLiveData;
+
+    public ListeningViewModel() {
+        listeningRepository = new ListeningRepository();
+    }
+
+    public void getDateListeningResponseLiveData() {
+        this.listeningResponseLiveData = listeningRepository.getAllListeningLesson();
+    }
+
+    public LiveData<List<Listening>> getListeningResponseLiveData() {
+        return this.listeningResponseLiveData;
+    }
+
+    public LiveData<List<ListeningQuestion>> getListeningQuestionResponseLiveData() {
+        return this.listeningQuestionLiveData;
     }
 }

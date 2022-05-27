@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_color"
+    android:orientation="vertical"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    tools:context=".view.games.WordQuizFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.4"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/buttonSize"
+            android:layout_height="@dimen/buttonSize"
+            android:layout_marginStart="@dimen/mediumPadding"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:cornerRadius="@dimen/_10sdp"
+            app:icon="@drawable/ic_close"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="@dimen/_20sdp"
+            app:iconTint="@color/primary_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/word_quiz_indicator"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="@dimen/mediumPadding"
+            android:paddingEnd="@dimen/largePadding"
+            android:progress="0"
+            app:indicatorColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/back_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/current_quiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smallPadding"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/current_question"
+            android:textColor="@color/text_on_p"
+            android:textSize="@dimen/bodyText1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/word_quiz_indicator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/tinyPadding"
+        android:layout_marginEnd="@dimen/tinyPadding"
+        android:layout_marginBottom="@dimen/smallPadding"
+        android:layout_weight="8.5"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/mediumCardCornerRadius">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/smallPadding"
+            android:paddingTop="@dimen/tinyPadding"
+            android:paddingEnd="@dimen/smallPadding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/education_blocks"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:src="@drawable/books_block"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/tinyPadding"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/your_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/current_score"
+                        android:textColor="@color/accent_color"
+                        android:textSize="@dimen/bodyText1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textAllCaps="true"
+                        android:text="@string/instruction"
+                        android:textColor="@color/primary_color"
+                        android:textSize="@dimen/bodyText1" />
+
+                    <TextView
+                        android:id="@+id/quiz"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/text_on_s"
+                        android:textSize="@dimen/header2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginTop="@dimen/smallPadding"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/first_answer_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/tinyPadding"
+                        android:layout_marginEnd="@dimen/tinyPadding"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/accent_color"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_on_p"
+                        android:textSize="@dimen/header3"
+                        app:cornerRadius="@dimen/smallCardCornerRadius" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/second_answer_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/tinyPadding"
+                        android:layout_marginTop="@dimen/smallPadding"
+                        android:layout_marginEnd="@dimen/tinyPadding"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/accent_color"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textAllCaps="false"
+                        android:textColor="@color/text_on_p"
+                        android:textSize="@dimen/header3"
+                        app:cornerRadius="@dimen/smallCardCornerRadius" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom">
+
+                    <TextView
+                        android:id="@+id/skip_this_quiz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/smallPadding"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/skip_this_quiz"
+                        android:textAllCaps="true"
+                        android:textColor="@color/s_dark"
+                        android:textSize="@dimen/bodyText2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/eng_class"
+                        tools:ignore="AllCaps" />
+
+                    <ImageView
+                        android:id="@+id/eng_class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="@dimen/largePadding"
+                        android:layout_marginTop="@dimen/smallPadding"
+                        android:src="@drawable/english_class"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/largePadding"
+                        android:src="@drawable/first_medal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
