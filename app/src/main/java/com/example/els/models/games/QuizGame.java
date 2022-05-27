@@ -31,7 +31,7 @@ public class QuizGame {
     }
 
     public ArrayList<Quiz> getQuizList() {
-        if(quizList == null) quizList = new ArrayList<>();
+        if (quizList == null) quizList = new ArrayList<>();
         return quizList;
     }
 

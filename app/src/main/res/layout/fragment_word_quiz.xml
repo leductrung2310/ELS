@@ -41,7 +41,7 @@
             android:layout_gravity="center_vertical"
             android:paddingStart="@dimen/mediumPadding"
             android:paddingEnd="@dimen/largePadding"
-            android:progress="60"
+            android:progress="0"
             app:indicatorColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
