@@ -332,6 +332,20 @@
                 app:destination="@id/skillsFragment"
                 app:popUpTo="@id/skillsFragment"
                 app:popUpToInclusive="true" />
+            <action
+                android:id="@+id/action_lessonDetailFragment_to_listeningQuestionFragment"
+                app:destination="@id/listeningQuestionFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/listeningQuestionFragment"
+            android:name="com.example.els.view.home.listening.ListeningQuestionFragment"
+            android:label="fragment_listening_question"
+            tools:layout="@layout/fragment_listening_question" >
+            <action
+                android:id="@+id/action_listeningQuestionFragment_to_lessonDetailFragment"
+                app:destination="@id/lessonDetailFragment"
+                app:popUpTo="@id/lessonDetailFragment"
+                app:popUpToInclusive="true" />
         </fragment>
     </navigation>
     <navigation android:id="@+id/navigation2"
