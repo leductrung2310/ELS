@@ -127,6 +127,7 @@
                 tools:ignore="RtlSymmetry" />
 
             <ImageButton
+                android:id="@+id/phonetic_sound"
                 android:layout_width="@dimen/_32sdp"
                 android:layout_height="@dimen/_32sdp"
                 android:src="@drawable/ic_volume"

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -40,27 +39,33 @@ public class DictionaryFragment extends Fragment {
 
         dictionaryViewmodel = new ViewModelProvider(requireActivity()).get(DictionaryViewmodel.class);
 
-        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                dictionaryViewmodel.getWord(query);
-                return false;
-            }
+//        binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                dictionaryViewmodel.getWord(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
 
+        dictionaryViewmodel.getNewWordLiveData().observe(getViewLifecycleOwner(), new Observer<Word>() {
             @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
+            public void onChanged(Word word) {
+                if(word != null ) {
+                    binding.word.setText(word.getWord());
+                    binding.phonetic.setText(word.getPhonetic());
+                }
             }
         });
 
-        dictionaryViewmodel.getIsSuccess().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+        binding.phoneticSound.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(Boolean aBoolean) {
-                if(aBoolean) {
-                    Word newWord = dictionaryViewmodel.getNewWord().getValue();
-                    binding.word.setText(newWord.getWord());
-                    binding.phonetic.setText(newWord.getPhonetic());
-                }
+            public void onClick(View view) {
+                dictionaryViewmodel.getWord("apple");
             }
         });
     }
