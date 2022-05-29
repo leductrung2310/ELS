@@ -66,6 +66,7 @@ public class SignUpViewmodel extends AndroidViewModel {
         newUser.put("age", user.getAge());
         newUser.put("gender", user.isGender());
         newUser.put("position", user.getPosition());
+        newUser.put("phoneNumber", user.getPhoneNumber());
 
         CollectionReference collection = firebaseFirestore.collection("ELSUser");
         String userId = firebaseAuth.getCurrentUser().getUid();

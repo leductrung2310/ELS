@@ -2,14 +2,15 @@ package com.example.els.models;
 
 public class ELSUser {
     String name;
-    Integer age;
-    Boolean gender;
+    String age;
+    String gender;
     String position;
+    String phoneNumber;
 
     public ELSUser() {
     }
 
-    public ELSUser(String name, Integer age, Boolean gender, String position) {
+    public ELSUser(String name, String age, String gender, String position) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -24,19 +25,27 @@ public class ELSUser {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public Boolean isGender() {
+    public String isGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

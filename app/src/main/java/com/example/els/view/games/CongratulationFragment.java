@@ -1,16 +1,15 @@
 package com.example.els.view.games;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.els.R;
 import com.example.els.databinding.FragmentCongratulationBinding;
@@ -41,6 +40,9 @@ public class CongratulationFragment extends Fragment {
         // Set score
         quizViewModel.currentScore().observe(getViewLifecycleOwner(), score -> binding.tvScore.setText(getString(R.string.score, score)));
 
-        binding.btnContinue.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_congratulationFragment_to_gamesFragment));
+        binding.btnContinue.setOnClickListener(view1 -> {
+            Navigation.findNavController(view1).navigate(R.id.action_congratulationFragment_to_gamesFragment);
+            quizViewModel.clearCurrentProgress();
+        });
     }
 }

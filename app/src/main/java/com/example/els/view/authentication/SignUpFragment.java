@@ -37,6 +37,7 @@ public class SignUpFragment extends Fragment {
         return binding.getRoot();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -48,24 +49,23 @@ public class SignUpFragment extends Fragment {
             }
         });
 
-        binding.signupBtn.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.P)
-            @Override
-            public void onClick(View view) {
-                    String email = binding.email.getText().toString();
-                String password = binding.password.getText().toString();
+        binding.signupBtn.setOnClickListener(view1 -> {
+                String email = binding.email.getText().toString();
+            String password = binding.password.getText().toString();
 
-                ELSUser newUser = new ELSUser();
-                newUser.setName(binding.name.getText().toString());
-                newUser.setAge(0);
-                newUser.setGender(true);
-                newUser.setPosition("");
+            ELSUser newUser = new ELSUser();
+            newUser.setName(binding.name.getText().toString());
+            newUser.setAge("");
+            newUser.setGender("");
+            newUser.setPosition("");
+            newUser.setPhoneNumber("");
 
-                if(checkEmpty()) {
-                    signUpViewmodel.register(email, password, newUser);
-                }
+            if(checkEmpty()) {
+                signUpViewmodel.register(email, password, newUser);
             }
         });
+
+        binding.backToLogin.setOnClickListener(v -> Navigation.findNavController(v).navigate(R.id.action_signUpFragment_to_loginFragment));
     }
 
     public boolean checkEmpty(){

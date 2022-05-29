@@ -15,7 +15,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_40sdp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -48,6 +48,7 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:visibility="gone"
                 android:id="@+id/history_btn"
                 android:layout_width="@dimen/buttonSize"
                 android:layout_height="@dimen/buttonSize"
