@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_color"
-    tools:context=".fragment.personal.InformationGenderFragment">
+    tools:context=".view.personal.InformationGenderFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,20 +65,23 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/male_choice"
                     style="@style/Personal_edit_info_radio_button"
                     android:text="@string/male"/>
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/female_choice"
                     style="@style/Personal_edit_info_radio_button"
                     android:text="@string/female" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/others_choice"
                     style="@style/Personal_edit_info_radio_button"
-                    android:text="@string/other"/>
+                    android:text="@string/others"/>
             </RadioGroup>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/back_btn"
+                android:id="@+id/save_btn"
                 style="@style/Personal_save_button"
                 android:layout_alignParentBottom="true"
                 android:layout_marginVertical="@dimen/mediumPadding"

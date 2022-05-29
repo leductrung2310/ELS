@@ -1,20 +1,18 @@
 package com.example.els.fragment.personal;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.els.R;
 import com.example.els.databinding.FragmentInformationBinding;
-import com.example.els.databinding.FragmentPersonalBinding;
-import com.example.els.fragment.PersonalFragmentDirections;
+import com.example.els.models.authentication.GeneralUser;
 
 
 public class InformationFragment extends Fragment {
@@ -34,6 +32,11 @@ public class InformationFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        binding.personalInfoName.setText(GeneralUser.getInstance().getUserName());
+        binding.personalInfoGender.setText(GeneralUser.getInstance().isGender());
+        binding.personalInfoAge.setText(GeneralUser.getInstance().getAge());
+        binding.personalInfoPosition.setText(GeneralUser.getInstance().getPosition());
 
         binding.personalEditInfoBack.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_informationFragment_to_personalFragment));
 
