@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_color"
-    tools:context=".fragment.personal.InformationFragment">
+    tools:context=".view.personal.InformationFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -141,6 +141,7 @@
                 app:dividerInsetStart="@dimen/largePadding" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
                 android:id="@+id/personal_info_gender_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
@@ -194,6 +195,7 @@
                 app:dividerInsetStart="@dimen/largePadding" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
                 android:id="@+id/personal_info_age_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
@@ -247,6 +249,7 @@
                 app:dividerInsetStart="@dimen/largePadding" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
                 android:id="@+id/personal_info_position_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"

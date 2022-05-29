@@ -34,8 +34,8 @@ public class InformationFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.personalInfoName.setText(GeneralUser.getInstance().getUserName());
-        binding.personalInfoGender.setText(GeneralUser.getInstance().isGender() ? "Male" : "Female");
-        binding.personalInfoAge.setText(GeneralUser.getInstance().getAge() == 0 ? "---" : String.valueOf(GeneralUser.getInstance().getAge()) );
+        binding.personalInfoGender.setText(GeneralUser.getInstance().isGender());
+        binding.personalInfoAge.setText(GeneralUser.getInstance().getAge() );
         binding.personalInfoPosition.setText(GeneralUser.getInstance().getPosition());
 
         binding.personalEditInfoBack.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_informationFragment_to_personalFragment));

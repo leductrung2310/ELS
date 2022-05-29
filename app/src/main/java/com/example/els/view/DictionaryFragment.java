@@ -73,6 +73,7 @@ public class DictionaryFragment extends Fragment {
             @Override
             public void onChanged(Word word) {
                 if (word != null) {
+                    binding.bodyLayout.setVisibility(View.VISIBLE);
                     binding.word.setText(word.getWord());
                     for (int i = 0; i < word.getPhonetics().size(); i++) {
                         if (!word.getPhonetics().get(i).getAudio().equals("") && !word.getPhonetics().get(i).getText().equals("")) {

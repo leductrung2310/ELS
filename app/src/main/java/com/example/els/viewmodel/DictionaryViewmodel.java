@@ -1,7 +1,5 @@
 package com.example.els.viewmodel;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -25,8 +23,6 @@ public class DictionaryViewmodel extends ViewModel {
 
         DictionaryAPIService apiService = RetroInstance.getRetroClient().create(DictionaryAPIService.class);
         Call<List<Word>> call = apiService.getWord(word);
-
-        Log.d("xxx", word);
 
         call.enqueue(new Callback<List<Word>>() {
             @Override
