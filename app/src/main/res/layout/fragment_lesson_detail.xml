@@ -39,6 +39,7 @@
         tools:ignore="NestedWeights">
 
         <LinearLayout
+            android:id="@+id/gif_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -47,8 +48,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_300sdp"
                 android:src="@drawable/gif_error" />
-
             <TextView
+                android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -56,6 +57,33 @@
                 android:textColor="@color/text_on_s"
                 android:textSize="@dimen/header3" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                style="@style/Lesson_title"
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/smallPadding"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                style="@style/Lesson_content"
+                android:id="@+id/content"
+                android:textStyle="normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/smallPadding"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/start_button"
+            style="@style/Personal_save_button"
+            android:layout_marginVertical="@dimen/mediumPadding"
+            android:layout_marginHorizontal="@dimen/smallPadding"
+            android:text="Start Lesson"
+            android:layout_gravity="bottom"/>
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

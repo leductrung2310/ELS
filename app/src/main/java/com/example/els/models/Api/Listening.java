@@ -68,5 +68,16 @@ public class Listening {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "Listening{" +
+                "uuid='" + uuid + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", duration=" + duration +
+                ", audio='" + audio + '\'' +
+                '}';
+    }
 }
 

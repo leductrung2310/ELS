@@ -85,6 +85,11 @@
     <string name="word_quiz">Word quiz</string>
     <string name="word_choice">Word choice</string>
     <string name="word_arrangement">Word arrangement</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="dictionary_tv">Dictionary</string>
+    <string name="search_new_words">Search</string>
 
     // Games fragment
     <string name="instruction">Choose the word that is related to: </string>

@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 
 import com.example.els.R;
 import com.example.els.databinding.FragmentInformationBinding;
+import com.example.els.models.authentication.GeneralUser;
 
 
 public class InformationFragment extends Fragment {
@@ -31,6 +32,11 @@ public class InformationFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        binding.personalInfoName.setText(GeneralUser.getInstance().getUserName());
+        binding.personalInfoGender.setText(GeneralUser.getInstance().isGender() ? "Male" : "Female");
+        binding.personalInfoAge.setText(GeneralUser.getInstance().getAge() == 0 ? "---" : String.valueOf(GeneralUser.getInstance().getAge()) );
+        binding.personalInfoPosition.setText(GeneralUser.getInstance().getPosition());
 
         binding.personalEditInfoBack.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_informationFragment_to_personalFragment));
 
