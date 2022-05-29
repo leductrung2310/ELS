@@ -12,10 +12,11 @@
         style="@style/CustomCardViewStyleBottomRadius"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2.2"
+        android:layout_weight="2.4"
         android:backgroundTint="@color/primary_color">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingTop="@dimen/_20sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingStart="@dimen/mediumPadding"
@@ -34,9 +35,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="RtlSymmetry" />
-            <ImageView
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_58sdp"
                 android:src="@drawable/dictionary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,46 +56,14 @@
                 android:background="@drawable/bg_white_rounded"
                 />
 
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:layout_width="320dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:background="@drawable/border_edittext"-->
-<!--                android:backgroundTint="@color/white"-->
-<!--                android:hint="@string/search_new_words"-->
-<!--                android:textColorHint="@color/dark"-->
-<!--                app:hintEnabled="true"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/dictionary_tv"-->
-<!--                app:startIconDrawable="@drawable/ic_baseline_search_24"-->
-
-<!--                app:startIconTint="@color/dark"-->
-<!--                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"-->
-<!--                app:boxCornerRadiusBottomStart="@dimen/_10sdp"-->
-<!--                app:boxCornerRadiusTopEnd="@dimen/_10sdp"-->
-<!--                app:boxCornerRadiusTopStart="@dimen/_10sdp"-->
-<!--                app:boxStrokeWidth="0dp"-->
-<!--                app:boxStrokeWidthFocused="0dp">-->
-
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:id="@+id/name"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:backgroundTint="@color/white"-->
-<!--                    android:inputType="text"-->
-<!--                    android:maxLines="1"-->
-<!--                    android:textColor="@color/dark"-->
-<!--                    android:textSize="16sp" />-->
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
+        android:id="@+id/bodyLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7.5"
+        android:layout_weight="7"
         android:orientation="vertical"
         android:layout_marginTop="@dimen/smallPadding"
         android:layout_marginStart="@dimen/smallPadding"
@@ -114,14 +83,17 @@
                 android:textSize="@dimen/header2"
                 />
 
+
+
             <TextView
                 android:id="@+id/phonetic"
                 android:paddingStart="@dimen/_5sdp"
                 android:paddingEnd="@dimen/_5sdp"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/code/"
-                android:textColor="@color/dark"
+                android:textColor="@color/s_dark"
                 android:textStyle="normal"
                 android:textSize="@dimen/header2"
                 tools:ignore="RtlSymmetry" />
@@ -134,6 +106,11 @@
                 android:backgroundTint="@color/primary_color"/>
 
         </LinearLayout>
+
+        <ListView
+            android:id="@+id/listMeanings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
