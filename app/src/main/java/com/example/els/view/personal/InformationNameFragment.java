@@ -43,6 +43,7 @@ public class InformationNameFragment extends Fragment {
                 if(aBoolean) {
                     Toast.makeText(getContext(), "Edit Name Successfully", Toast.LENGTH_SHORT).show();
                     Navigation.findNavController(getView()).navigate(R.id.action_informationNameFragment_to_informationFragment);
+                    personalViewmodel.getIsEditNameSuccess().setValue(false);
                 }
             }
         });

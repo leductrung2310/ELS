@@ -1,13 +1,13 @@
 package com.example.els.viewmodel;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.els.models.dictionary.Word;
 import com.example.els.network.dictionary.DictionaryAPIService;
 import com.example.els.network.dictionary.RetroInstance;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,20 +22,18 @@ public class DictionaryViewmodel extends ViewModel {
     public void getWord(String word) {
 
         DictionaryAPIService apiService = RetroInstance.getRetroClient().create(DictionaryAPIService.class);
-        Call<Word> call = apiService.getWord();
+        Call<List<Word>> call = apiService.getWord(word);
 
-        Log.d("xxx", word);
-
-        call.enqueue(new Callback<Word>() {
+        call.enqueue(new Callback<List<Word>>() {
             @Override
-            public void onResponse(Call<Word> call, Response<Word> response) {
-                Log.d("xxx", "111");
-                newWordLiveData.postValue(response.body());
+            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
+
+                newWordLiveData.postValue(response.body().get(0));
             }
 
             @Override
-            public void onFailure(Call<Word> call, Throwable t) {
-                Log.d("xxx", t.getMessage());
+            public void onFailure(Call<List<Word>> call, Throwable t) {
+
             }
         });
     }
