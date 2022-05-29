@@ -55,7 +55,7 @@ public class WordQuizViewModel extends ViewModel {
     }
 
     public MutableLiveData<String> area() {
-        if (_area == null) _area = new MutableLiveData<>("toeic");
+        if (_area == null) _area = new MutableLiveData<>("Overall");
         return _area;
     }
 
@@ -64,7 +64,7 @@ public class WordQuizViewModel extends ViewModel {
         // call the get quiz list method from the repo class and pass necessary parameters
         wordQuizRepo().getQuizList(
                 // Handle unboxing null object
-                level().getValue() == null ? 1 : level().getValue(),
+                level().getValue(),
                 area().getValue(),
                 quizGame -> quizGame().postValue(quizGame)
         );
@@ -83,5 +83,13 @@ public class WordQuizViewModel extends ViewModel {
         int newScore = currentScore().getValue() + 1;
         if (newScore > 10) newScore = 10;
         currentScore().setValue(newScore);
+    }
+
+    public void clearCurrentProgress() {
+        // Return the current quiz and score to initial value
+        currentQuiz().postValue(1);
+        currentScore().postValue(0);
+        // Set quiz game to null value
+        quizGame().getValue().getQuizList().clear();
     }
 }
