@@ -14,13 +14,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
-
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.els.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         // Setup Navigation components for main activity
@@ -32,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Set visibility for bottom navigation
         navController.addOnDestinationChangedListener((navController1, navDestination, bundle) -> {
+            // If the destination is one of the four main page then show the bottom nav
             if (navDestination.getId() == R.id.homeFragment ||
                     navDestination.getId() == R.id.gamesFragment ||
                     navDestination.getId() == R.id.personalFragment ||
                     navDestination.getId() == R.id.meetingFragment) {
                 bottomNav.setVisibility(View.VISIBLE);
-            } else {
+            }  // else hide it
+            else {
                 bottomNav.setVisibility(View.GONE);
             }
         });

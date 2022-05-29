@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/one"
+        android:title="@string/one" />
+    <item
+        android:id="@+id/two"
+        android:title="@string/two" />
+    <item
+        android:id="@+id/three"
+        android:title="@string/three" />
+    <item
+        android:id="@+id/four"
+        android:title="@string/four" />
+    <item
+        android:id="@+id/five"
+        android:title="@string/five" />
+    <item
+        android:id="@+id/six"
+        android:title="@string/six" />
+    <item
+        android:id="@+id/seven"
+        android:title="@string/seven" />
+    <item
+        android:id="@+id/eight"
+        android:title="@string/eight" />
+    <item
+        android:id="@+id/nine"
+        android:title="@string/nine" />
+    <item
+        android:id="@+id/ten"
+        android:title="@string/ten" />
+
+</menu>

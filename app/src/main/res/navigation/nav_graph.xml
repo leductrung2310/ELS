@@ -61,6 +61,10 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_gamesFragment_to_playHistoryFragment"
+            app:destination="@id/playHistoryFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <!-- Login sections-->
@@ -361,6 +365,21 @@
             app:exitAnim="@anim/slide_in_right"
             app:popEnterAnim="@anim/slide_out_left"
             app:popExitAnim="@anim/fade_in"
+            app:popUpTo="@id/gamesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/playHistoryFragment"
+        android:name="com.example.els.view.games.PlayHistoryFragment"
+        android:label="fragment_play_history"
+        tools:layout="@layout/fragment_play_history" >
+        <action
+            android:id="@+id/action_playHistoryFragment_to_gamesFragment"
+            app:destination="@id/gamesFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
             app:popUpTo="@id/gamesFragment"
             app:popUpToInclusive="true" />
     </fragment>

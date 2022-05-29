@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 
 import com.example.els.R;
 import com.example.els.databinding.FragmentCongratulationBinding;
-import com.example.els.databinding.FragmentWordQuizBinding;
 import com.example.els.viewmodel.games.WordQuizViewModel;
 
 public class CongratulationFragment extends Fragment {
@@ -26,7 +25,7 @@ public class CongratulationFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentCongratulationBinding.inflate(inflater, container, false);
         return binding.getRoot();
