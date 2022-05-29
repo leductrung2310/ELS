@@ -48,7 +48,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:paddingTop="30dp"
-            android:id="@+id/email"
             android:hint="@string/email"
             android:backgroundTint="@color/white"
             android:textColorHint="@color/dark"
@@ -59,6 +58,7 @@
             app:startIconTint="@color/dark"
             app:startIconDrawable="@drawable/ic_email">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
@@ -76,7 +76,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:paddingTop="20dp"
-            android:id="@+id/password"
             android:hint="@string/password"
             android:backgroundTint="@color/white"
             android:textColorHint="@color/dark"
@@ -89,6 +88,7 @@
             app:startIconTint="@color/dark"
             app:startIconDrawable="@drawable/ic_lock">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"

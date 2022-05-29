@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.authentication.VerifyPhoneFragment">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.authentication.VerifyPhoneFragment">
+
+    <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:background="@color/white"
-        tools:context=".VerifyActivity">
+        android:background="@color/white">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back_button"
@@ -58,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_8sdp"
-            android:textColor="@color/dark"
+            android:textColor="@color/s_dark"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold" />
 
@@ -206,4 +203,4 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-</FrameLayout>
+</layout>

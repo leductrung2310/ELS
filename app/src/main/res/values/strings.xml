@@ -1,10 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     ...
     //home
     <string name="app_name">ELS</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="english_learning_simple">English Learning Simple</string>
-    <string name="learning_by_n_playing">Learning by \nplaying</string>
+    <string name="learning_by_playing">Learning by playing is the best</string>
     <string name="listening">Listening</string>
     <string name="reading">Reading</string>
     <string name="speaking">Speaking</string>
@@ -80,16 +80,61 @@
     <string name="log_in2">LOG IN</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="space" />
-    <string name="let_s_play">Let\'s Play</string>
+    <string name="learning_by_n_playing">Learning by \nplaying</string>
     <string name="learning_by_playing_is_the_best">Learning by playing is the best!</string>
     <string name="word_quiz">Word quiz</string>
     <string name="word_choice">Word choice</string>
     <string name="word_arrangement">Word arrangement</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="dictionary_tv">Dictionary</string>
+    <string name="search_new_words">Search</string>
 
     // Games fragment
+    <string name="instruction">Choose the word that is related to: </string>
     <string name="choose_right_word">Choose right word</string>
     <string name="choose_synonyms">Choose synonyms</string>
     <string name="rearrange_words">Rearrange words</string>
     <string name="current_question">QUESTION %d OUT OF %d</string>
     <string name="current_score">Your score: %d/%d</string>
+    <string name="quiz_content">%s \n%s \n%s</string>
+    <string name="first_answer">A. %s</string>
+    <string name="second_answer">B. %s</string>
+    <string name="skip_this_quiz"><u>Skip this quiz</u></string>
+    <string name="congratulations">Congratulations</string>
+    <string name="score">%d/10</string>
+    <string name="did_great_job">Yay! You did a great job!</string>
+    <string name="continue_to_exit">Continue</string>
+    <string name="exit_warning">You want to exit? Your progress will be lost!</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit">Exit</string>
+    <string name="level"><u>Level: %d</u></string>
+    <string name="area"><u>Area: %s</u></string>
+    <string name="let_play">Let\'s play</string>
+
+    // Game level and area
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="ten">10</string>
+    <string name="toeic">TOEIC</string>
+    <string name="ielts">IELTS</string>
+    <string name="toefl">TOEFL</string>
+    <string name="overall">Overall</string>
+    <string name="sat">SAT</string>
+    <string name="history">History</string>
+    <string name="average_score">Average score</string>
+    <string name="d_10">%d/10</string>
+    <string name="play_times">Play times</string>
+    <string name="play_time">%d</string>
+    <string name="best_score">Best score</string>
+    <string name="history_item_title"><![CDATA[Area: %s level: %d]]></string>
+
 </resources>

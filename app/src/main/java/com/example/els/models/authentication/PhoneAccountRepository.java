@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
 public class PhoneAccountRepository {
 
@@ -41,6 +42,7 @@ public class PhoneAccountRepository {
     private FirebaseAuth firebaseAuth;
     private MutableLiveData<FirebaseUser> userLiveData;
     private MutableLiveData<Boolean> loggedOutLiveData;
+    private MutableLiveData<String> verificationId;
 
     public LiveData<FirebaseUser> getUserLiveData() {
         return userLiveData;
@@ -50,16 +52,26 @@ public class PhoneAccountRepository {
         return loggedOutLiveData;
     }
 
+    public PhoneAccountRepository() {
+    }
+
     public PhoneAccountRepository(Application application) {
         this.application = application;
         this.firebaseAuth = FirebaseAuth.getInstance();
         this.userLiveData = new MutableLiveData<>();
         this.loggedOutLiveData = new MutableLiveData<>();
+        this.verificationId = new MutableLiveData<>();
 
         if (firebaseAuth.getCurrentUser() != null) {
             userLiveData.postValue(firebaseAuth.getCurrentUser());
             loggedOutLiveData.postValue(false);
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.P)
+    private void OnClickVerifyOtpId(String otp) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(String.valueOf(verificationId), otp);
+        signInWithPhoneAuthCredential(credential);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.P)
@@ -89,4 +101,6 @@ public class PhoneAccountRepository {
         firebaseAuth.signOut();
         loggedOutLiveData.postValue(true);
     }
+
+
 }
