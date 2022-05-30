@@ -2,13 +2,13 @@ package com.example.els.models.games;
 
 import java.util.Date;
 
-public class PlayHistory {
+public class History {
     private int score;
     private Date date;
     private int level;
     private String area;
 
-    public PlayHistory(int score, Date date, int level, String area) {
+    public History(int score, Date date, int level, String area) {
         this.score = score;
         this.date = date;
         this.level = level;
