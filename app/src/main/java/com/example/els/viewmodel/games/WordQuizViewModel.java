@@ -74,7 +74,6 @@ public class WordQuizViewModel extends ViewModel {
     public void updateQuiz() {
         // if current quiz is greater than set it back to 10 to avoid crash
         int newQuiz = currentQuiz().getValue() + 1;
-        if (newQuiz > 10) newQuiz = 10;
         currentQuiz().setValue(newQuiz);
     }
 

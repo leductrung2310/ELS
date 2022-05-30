@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import com.example.els.models.games.Quiz;
 import com.example.els.models.games.QuizGame;
 import com.example.els.viewmodel.games.WordQuizViewModel;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import java.util.Objects;
 
 public class WordQuizFragment extends Fragment {
     // Delay time to see correct answer
@@ -113,24 +116,42 @@ public class WordQuizFragment extends Fragment {
         // Use observer to make sure the quizlist changes and non null to avoid crash
         quizViewModel.quizGame().observe(getViewLifecycleOwner(), quizGame -> {
             // get the current quiz from the quiz list with the given index
-            // Current quiz is always greater than the index of quiz 1 unit
-            Quiz quiz = quizGame.getQuizList().get(currentQuiz - 1);
-            // Set quiz content
-            binding.quiz.setText(getString(R.string.quiz_content,
-                    quiz.getQuestions().get(0),
-                    quiz.getQuestions().get(1),
-                    quiz.getQuestions().get(2)
-            ));
-            // Make buttons clickable
-            setButtonClickable(true);
-            // Set text for answer button text
-            firstBtn.setText(getString(R.string.first_answer,
-                    quiz.getOptions().get(0)
-            ));
-            secondBtn.setText(getString(R.string.second_answer,
-                    quiz.getOptions().get(1)
-            ));
-            resetButtonColor();
+            if (quizGame.getQuizList() == null || quizGame.getQuizList().size() < 10) {
+                // If the quizlist is null or has item smaller than 10
+                // then hide all the view
+                // and show a dialog to inform user
+                binding.quiz.setVisibility(View.GONE);
+                firstBtn.setVisibility(View.GONE);
+                secondBtn.setVisibility(View.GONE);
+                new MaterialAlertDialogBuilder(requireActivity())
+                        .setTitle("ERROR")
+                        .setMessage("Cannot fetch data, please try again later")
+                        // Add action buttons
+                        .setPositiveButton(R.string.exit, (dialogInterface, i) -> {
+                            // Exit the game
+                            Navigation.findNavController(requireView()).navigate(R.id.action_wordQuizFragment_to_gamesFragment);
+                            quizViewModel.clearCurrentProgress();
+                        }).show();
+            } else {
+                // Current quiz is always greater than the index of quiz 1 unit
+                Quiz quiz = quizGame.getQuizList().get(currentQuiz > totalQuiz ? totalQuiz - 1 : currentQuiz - 1);
+                // Set quiz content
+                binding.quiz.setText(getString(R.string.quiz_content,
+                        quiz.getQuestions().get(0),
+                        quiz.getQuestions().get(1),
+                        quiz.getQuestions().get(2)
+                ));
+                // Make buttons clickable
+                setButtonClickable(true);
+                // Set text for answer button text
+                firstBtn.setText(getString(R.string.first_answer,
+                        quiz.getOptions().get(0)
+                ));
+                secondBtn.setText(getString(R.string.second_answer,
+                        quiz.getOptions().get(1)
+                ));
+                resetButtonColor();
+            }
         });
     }
 
@@ -195,7 +216,7 @@ public class WordQuizFragment extends Fragment {
 
     // Navigate to the congratulations fragment
     public void navigateToTheCongratulationsScreen(View view) {
-        if (quizViewModel.currentQuiz().getValue() == totalQuiz) {
+        if (quizViewModel.currentQuiz().getValue() > totalQuiz) {
             (new Handler()).postDelayed(() -> {
                         Navigation.findNavController(view).navigate(R.id.action_wordQuizFragment_to_congratulationFragment);
                         player = MediaPlayer.create(getContext(), R.raw.complete_quiz_sound);

@@ -47,28 +47,17 @@
 
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:visibility="gone"
+            <ImageView
                 android:id="@+id/history_btn"
-                android:layout_width="@dimen/buttonSize"
-                android:layout_height="@dimen/buttonSize"
-                android:layout_marginTop="@dimen/tinyPadding"
-                android:backgroundTint="@color/s_light"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                app:cornerRadius="@dimen/_10sdp"
-                app:icon="@drawable/ic_history"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:iconSize="@dimen/_20sdp"
-                app:iconTint="@color/primary_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/largePadding"
+                android:src="@drawable/ic_history"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white"
+                tools:ignore="ContentDescription" />
 
             <LinearLayout
                 android:id="@+id/area"
