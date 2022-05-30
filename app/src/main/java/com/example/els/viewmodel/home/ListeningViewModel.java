@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.els.models.Api.Listening;
+import com.example.els.models.Api.ListeningFirebase;
 import com.example.els.models.Api.ListeningQuestion;
 import com.example.els.models.Lesson;
 import com.example.els.models.LessonData;
@@ -16,6 +17,8 @@ import com.example.els.network.listening.ListeningRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ListeningViewModel extends ViewModel {
     private final LessonData lessonData = new LessonData();
@@ -103,11 +106,18 @@ public class ListeningViewModel extends ViewModel {
     private Listening listening;
     private MutableLiveData<MediaPlayer> mediaPlayer;
     private Handler handler;
+    private MutableLiveData<ArrayList<Listening>> unDoneListening;
+    private MutableLiveData<ArrayList<Listening>> doneListening;
+    private MutableLiveData<ArrayList<ListeningFirebase>> doneListeningFirebase;
 
     public ListeningViewModel() {
         listeningRepository = new ListeningRepository();
         listeningLiveData = new MutableLiveData<>();
         listeningQuestionLiveData = new MutableLiveData<>();
+        unDoneListening = new MutableLiveData<>();
+        doneListening = new MutableLiveData<>();
+        doneListeningFirebase = new MutableLiveData<>();
+
         title = new MutableLiveData<>();
         content = new MutableLiveData<>();
         mediaPlayer = new MutableLiveData<>();
@@ -115,26 +125,62 @@ public class ListeningViewModel extends ViewModel {
 
     }
 
+
     public void getDataListeningLesson() {
         listeningRepository.getAllListeningLesson(new ListeningRepository.OnGetSurveyListener() {
             @Override
             public void onCallBack(ArrayList<Listening> data) {
                 Log.d("listening", "có data lesson");
                 listeningLiveData.setValue(data);
+                getDoneListeningFromFireStore();
             }
 
             @Override
             public void onCallBackFailure(ArrayList<Listening> listenings) {
-                Log.d("listening", "có data lesson");
+                Log.d("listening", "nothing here");
                 listeningLiveData.setValue(listenings);
             }
         });
     }
+
     public void getDataListeningQuestionByLesson(String id) {
+        Log.d("listening", "vô đây x");
         listeningQuestionLiveData.setValue(new ArrayList<>());
         listeningRepository.getListeningQuestionByLesson(id, data -> {
             listeningQuestionLiveData.setValue(data);
         });
+    }
+
+    public void getDoneListeningFromFireStore() {
+        Log.d("listening", "vô đây x");
+        listeningRepository.getDoneListeningFromFirestore(new ListeningRepository.ListeningFromFirestore() {
+            @Override
+            public void onGetDoneListening(ArrayList<ListeningFirebase> listeningQuestions) {
+                doneListeningFirebase.setValue(listeningQuestions);
+                Log.d("listening", "vô đây xx");
+                setUnDoneListeningFromFirebase(Objects.requireNonNull(listeningQuestions));
+            }
+        });
+    }
+
+    public void setUnDoneListeningFromFirebase(ArrayList<ListeningFirebase> listeningQuestions) {
+        if (listeningQuestions.size() == Objects.requireNonNull(listeningLiveData.getValue()).size()) {
+            doneListening.setValue((ArrayList<Listening>) listeningLiveData.getValue());
+            unDoneListening.setValue(new ArrayList<>());
+        } else if (listeningQuestions.size() == 0) {
+            unDoneListening.setValue((ArrayList<Listening>) listeningLiveData.getValue());
+            doneListening.setValue(new ArrayList<>());
+        } else {
+            for (int i = 0; i < listeningQuestions.size(); i++) {
+                for (int j = 0; j < Objects.requireNonNull(listeningLiveData.getValue()).size(); j++) {
+                    if (!Objects.equals(listeningLiveData.getValue().get(i).getUuid(), listeningQuestions.get(j).getId())) {
+                        Objects.requireNonNull(unDoneListening.getValue()).add(listeningLiveData.getValue().get(i));
+                    } else {
+                        Objects.requireNonNull(doneListening.getValue()).add(listeningLiveData.getValue().get(i));
+                    }
+                }
+            }
+        }
     }
 
     public MutableLiveData<MediaPlayer> getMediaPlayer() {
@@ -186,4 +232,27 @@ public class ListeningViewModel extends ViewModel {
     }
 
 
+    public MutableLiveData<ArrayList<Listening>> getUnDoneListening() {
+        return unDoneListening;
+    }
+
+    public void setUnDoneListening(ArrayList<Listening> unDoneListening) {
+        this.unDoneListening.setValue(unDoneListening);
+    }
+
+    public MutableLiveData<ArrayList<Listening>> getDoneListening() {
+        return doneListening;
+    }
+
+    public void setDoneListening(ArrayList<Listening> doneListening) {
+        this.doneListening.setValue(doneListening);
+    }
+
+    public MutableLiveData<ArrayList<ListeningFirebase>> getDoneListeningFirebase() {
+        return doneListeningFirebase;
+    }
+
+    public void setDoneListeningFirebase(ArrayList<ListeningFirebase> doneListeningFirebase) {
+        this.doneListeningFirebase.setValue(doneListeningFirebase);
+    }
 }

@@ -46,6 +46,9 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
     private ListeningAdapter listeningAdapter;
     private RecyclerView recyclerView;
 
+    private ListeningAdapter unDoneListeningAdapter;
+    private ListeningAdapter doneListeningAdapter;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,23 +71,58 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
         recyclerView = binding.lessonRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         listeningViewModel.getDataListeningLesson();
+
         setUpObserver();
         setUpEvent();
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private void setUpObserver() {
-        final Observer<List<Listening>> listObserver = data -> {
+//        final Observer<List<Listening>> listObserver = data -> {
+//            if (data != null) {
+//                listeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this);
+//                recyclerView.setAdapter(listeningAdapter);
+//                binding.gifEmpty.setVisibility(View.GONE);
+//            } else {
+//                binding.gifEmpty.setVisibility(View.GONE);
+//                //binding.textState.setVisibility(View.VISIBLE);
+//            }
+//        };
+//        listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), listObserver);
+
+        final Observer<List<Listening>> unDoneListeningLesson = data -> {
             if (data != null) {
-                listeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this);
-                recyclerView.setAdapter(listeningAdapter);
+                unDoneListeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this);
+                recyclerView.setAdapter(unDoneListeningAdapter);
                 binding.gifEmpty.setVisibility(View.GONE);
             } else {
                 binding.gifEmpty.setVisibility(View.GONE);
                 binding.textState.setVisibility(View.VISIBLE);
             }
         };
-        listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), listObserver);
+
+        final Observer<List<Listening>> doneListeningLesson = data -> {
+            Log.d("listening", "ob done");
+            if (data != null) {
+                Log.d("listening", "ob done 1");
+                doneListeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this);
+                recyclerView.setAdapter(doneListeningAdapter);
+                binding.gifEmpty.setVisibility(View.GONE);
+            } else {
+                Log.d("listening", "ob done 2");
+                binding.gifEmpty.setVisibility(View.GONE);
+                binding.textState.setVisibility(View.VISIBLE);
+            }
+        };
+
+        assert getArguments() != null;
+        if (getArguments().getInt(POSITION) == 1) {
+            Log.d("listening", "done");
+            listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), doneListeningLesson);
+        } else {
+            Log.d("listening", "undone");
+            listeningViewModel.getUnDoneListening().observe(getViewLifecycleOwner(), unDoneListeningLesson);
+        }
     }
 
     public void setUpEvent() {

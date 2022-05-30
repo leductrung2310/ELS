@@ -29,6 +29,9 @@ public class Listening {
     public Listening() {
     }
 
+    public Listening(ListeningFirebase listeningFirebase) {
+    }
+
     public String getUuid() {
         return uuid;
     }
