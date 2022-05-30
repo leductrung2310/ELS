@@ -2,8 +2,8 @@ package com.example.els.models.authentication;
 
 public class GeneralUser {
     String userName;
-    int age;
-    boolean gender;
+    String age;
+    String gender;
     String position;
     String phoneNumber;
 
@@ -20,19 +20,19 @@ public class GeneralUser {
         this.userName = userName;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public boolean isGender() {
+    public String isGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

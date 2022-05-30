@@ -43,7 +43,6 @@ public class AccountRepository {
     }
 
 
-
     public void getUserDataFromFirestore() {
         DocumentReference docRef = db.collection("ELSUser").document(firebaseAuth.getCurrentUser().getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -53,8 +52,8 @@ public class AccountRepository {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         GeneralUser.getInstance().setUserName( checkString(document.getString("name")));
-                        GeneralUser.getInstance().setAge(checkInt(document.getString("age")));
-                        GeneralUser.getInstance().setGender(checkBoolean(document.getString("gender")));
+                        GeneralUser.getInstance().setAge(checkString(document.getString("age")));
+                        GeneralUser.getInstance().setGender(checkString(document.getString("gender")));
                         GeneralUser.getInstance().setPosition(checkString(document.getString("position")));
                         GeneralUser.getInstance().setPhoneNumber(checkString(document.getString("phoneNumber")));
                     } else {

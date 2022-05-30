@@ -54,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/smallPadding"
             android:fontFamily="@font/roboto_medium"
-            android:text="@string/current_question"
             android:textColor="@color/text_on_p"
             android:textSize="@dimen/bodyText1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,9 +75,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingStart="@dimen/smallPadding"
+            android:paddingStart="@dimen/mediumPadding"
             android:paddingTop="@dimen/tinyPadding"
-            android:paddingEnd="@dimen/smallPadding">
+            android:paddingEnd="@dimen/mediumPadding">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -118,7 +117,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="@string/current_score"
                         android:textColor="@color/accent_color"
                         android:textSize="@dimen/bodyText1" />
 
@@ -126,8 +124,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        android:textAllCaps="true"
                         android:text="@string/instruction"
+                        android:textAllCaps="true"
                         android:textColor="@color/primary_color"
                         android:textSize="@dimen/bodyText1" />
 
@@ -154,6 +152,7 @@
                         android:layout_marginEnd="@dimen/tinyPadding"
                         android:layout_weight="1"
                         android:backgroundTint="@color/accent_color"
+                        android:clickable="false"
                         android:fontFamily="@font/roboto_medium"
                         android:textAllCaps="false"
                         android:textColor="@color/text_on_p"
@@ -169,6 +168,7 @@
                         android:layout_marginEnd="@dimen/tinyPadding"
                         android:layout_weight="1"
                         android:backgroundTint="@color/accent_color"
+                        android:clickable="false"
                         android:fontFamily="@font/roboto_medium"
                         android:textAllCaps="false"
                         android:textColor="@color/text_on_p"
@@ -179,7 +179,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="bottom">
+                    android:gravity="bottom"
+                    android:layout_marginTop="@dimen/largePadding">
 
                     <TextView
                         android:id="@+id/skip_this_quiz"
@@ -196,30 +197,31 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/eng_class"
                         tools:ignore="AllCaps" />
+<!--                        app:layout_constraintTop_toBottomOf="@+id/eng_class"-->
 
-                    <ImageView
-                        android:id="@+id/eng_class"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:layout_marginStart="@dimen/largePadding"
-                        android:layout_marginTop="@dimen/smallPadding"
-                        android:src="@drawable/english_class"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="ContentDescription" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/largePadding"
-                        android:src="@drawable/first_medal"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="ContentDescription" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/eng_class"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="end"-->
+<!--                        android:layout_marginStart="@dimen/largePadding"-->
+<!--                        android:layout_marginTop="@dimen/smallPadding"-->
+<!--                        android:src="@drawable/english_class"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        tools:ignore="ContentDescription" />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginEnd="@dimen/largePadding"-->
+<!--                        android:src="@drawable/first_medal"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        tools:ignore="ContentDescription" />-->
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </ScrollView>
