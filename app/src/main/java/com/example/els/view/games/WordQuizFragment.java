@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +22,6 @@ import com.example.els.models.games.Quiz;
 import com.example.els.models.games.QuizGame;
 import com.example.els.viewmodel.games.WordQuizViewModel;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import java.util.Objects;
 
 public class WordQuizFragment extends Fragment {
     // Delay time to see correct answer

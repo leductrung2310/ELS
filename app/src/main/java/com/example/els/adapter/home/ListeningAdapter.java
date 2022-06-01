@@ -2,7 +2,6 @@ package com.example.els.adapter.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,8 +56,6 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
         private final TextView numberLessonTV;
         private final TextView nameLessonTV;
         private final TextView durationTV;
-        private final ImageView stateImageView;
-        private final ImageView stateIcon;
         private final GeneralInterface.OnLessonItemListener onLessonItemListener;
 
         public ViewHolder(@NonNull View itemView, GeneralInterface.OnLessonItemListener onLessonItemListener) {
@@ -66,8 +63,8 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
             numberLessonTV = itemView.findViewById(R.id.lesson_number);
             nameLessonTV = itemView.findViewById(R.id.lesson_name);
             durationTV = itemView.findViewById(R.id.duration_tv);
-            stateImageView = itemView.findViewById(R.id.state_img);
-            stateIcon = itemView.findViewById(R.id.state_ic);
+            ImageView stateImageView = itemView.findViewById(R.id.state_img);
+            ImageView stateIcon = itemView.findViewById(R.id.state_ic);
             this.onLessonItemListener = onLessonItemListener;
 
             itemView.setOnClickListener(this);
