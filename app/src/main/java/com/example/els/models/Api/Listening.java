@@ -18,12 +18,18 @@ public class Listening {
     @SerializedName("audio")
     private String audio;
 
-    public Listening(String uuid, String title, String content, Integer duration, String audio) {
+    public String getImage() {
+        return image;
+    }
+
+
+    public Listening(String uuid, String title, String content, Integer duration, String audio, String image) {
         this.uuid = uuid;
         this.title = title;
         this.content = content;
         this.duration = duration;
         this.audio = audio;
+        this.image = image;
     }
 
     public Listening() {
@@ -71,6 +77,13 @@ public class Listening {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @SerializedName("image")
+    private String image;
 
     @Override
     public String toString() {

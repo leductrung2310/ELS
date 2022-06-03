@@ -76,7 +76,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/smallPadding"
                 android:layout_gravity="center_horizontal"/>
+
+
         </LinearLayout>
+        <ImageView
+            android:id="@+id/lesson_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/smallPadding"
+            android:layout_marginBottom="@dimen/_80sdp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/start_button"
             style="@style/Personal_save_button"

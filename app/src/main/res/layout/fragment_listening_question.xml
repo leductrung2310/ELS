@@ -27,81 +27,131 @@
         app:iconSize="@dimen/_20sdp"
         app:iconTint="@color/primary_color" />
 
-    <com.google.android.material.card.MaterialCardView
-        style="@style/CustomCardViewStyleTopRadius"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="bottom"
-        android:layout_weight="1"
-        android:backgroundTint="@color/white"
-        android:clickable="true"
-        android:focusable="true"
-        tools:ignore="NestedWeights">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CustomCardViewStyleTopRadius"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/smallPadding"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/image_play_pause"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_listening_pause" />
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="NestedWeights">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginHorizontal="@dimen/tinyPadding">
+                android:layout_marginTop="@dimen/smallPadding"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/currentTime"
-                    style="@style/Lesson_music"
+                <ImageView
+                    android:id="@+id/image_play_pause"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00:00" />
-
-                <SeekBar
-                    android:progressBackgroundTint="@color/background_personal"
-                    android:id="@+id/playerSeekBar"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:layout_marginHorizontal="@dimen/tinyPadding"/>
-                <TextView
-                    android:id="@+id/total_duration"
-                    style="@style/Lesson_music"
-                    android:layout_width="wrap_content"
+                    android:src="@drawable/ic_listening_pause" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="00:00" />
+                    android:layout_marginHorizontal="@dimen/tinyPadding"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/currentTime"
+                        style="@style/Lesson_music"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00" />
+
+                    <SeekBar
+                        android:id="@+id/playerSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/tinyPadding"
+                        android:layout_weight="1"
+                        android:progressBackgroundTint="@color/background_personal" />
+
+                    <TextView
+                        android:id="@+id/total_duration"
+                        style="@style/Lesson_music"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp" />
+                <!--                <androidx.viewpager2.widget.ViewPager2-->
+                <!--                    android:id="@+id/viewPager2_employee"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="@dimen/_360sdp"/>-->
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/rcv_listening_question"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_360sdp"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_360sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/item_lq_1"
+                        style="@style/Lesson_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
+                        android:text="123312" />
+
+                    <RadioGroup
+                        android:id="@+id/radio_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true">
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/lq_answer_1"
+                            style="@style/Personal_edit_info_radio_button"
+                            android:text="@string/male" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/lq_answer_2"
+                            style="@style/Personal_edit_info_radio_button"
+                            android:text="@string/female" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/lq_answer_3"
+                            style="@style/Personal_edit_info_radio_button"
+                            android:text="@string/other" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/lq_answer_4"
+                            style="@style/Personal_edit_info_radio_button"
+                            android:text="@string/other" />
+                    </RadioGroup>
+
+                </RelativeLayout>
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_20sdp"/>
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager2_employee"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_360sdp"/>
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/rcv_listening_question"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
-        </LinearLayout>
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/start_button"
-            style="@style/Personal_save_button"
-            android:layout_gravity="bottom"
-            android:layout_marginHorizontal="@dimen/smallPadding"
-            android:layout_marginVertical="@dimen/mediumPadding"
-            android:text="Next" />
-    </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/start_button"
+                style="@style/Personal_save_button"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="@dimen/smallPadding"
+                android:layout_marginVertical="@dimen/mediumPadding"
+                android:text="Next" />
+        </com.google.android.material.card.MaterialCardView>
 
+    </ScrollView>
 </LinearLayout>

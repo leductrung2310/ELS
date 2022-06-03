@@ -1,6 +1,7 @@
 package com.example.els.network.listening;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -9,6 +10,7 @@ import com.example.els.models.Api.ListeningFirebase;
 import com.example.els.models.Api.ListeningQuestion;
 import com.example.els.network.ApiUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -47,6 +49,7 @@ public class ListeningRepository {
 
             @Override
             public void onFailure(@NonNull Call<List<Listening>> call, @NonNull Throwable t) {
+                Log.d("listening", "false " + t.getMessage());
                 onGetSurveyListener.onCallBackFailure(new ArrayList<>());
             }
 
@@ -101,11 +104,28 @@ public class ListeningRepository {
                 if (task.isSuccessful()) {
                     ArrayList<ListeningFirebase> listeningFirebases = new ArrayList<>();
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        listeningFirebases.add(new ListeningFirebase(document.getId(), document.getString("score")));
+                        listeningFirebases.add(new ListeningFirebase(document.getString("id"), document.getString("score")));
                     }
                     listeningFromFirestore.onGetDoneListening(listeningFirebases);
                 }
             }
         });
+    }
+
+    public void pushDoneListeningFromFirestore(ListeningFirebase listeningFirebase) {
+        CollectionReference collectionReference =
+                FirebaseFirestore
+                        .getInstance()
+                        .collection("ELSUser")
+                        .document(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
+                        .collection("listening");
+            collectionReference.document().set(listeningFirebase).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Log.d("listening", "oke task");
+                    }
+                }
+            });
     }
 }

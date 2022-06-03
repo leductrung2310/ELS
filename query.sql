@@ -28,10 +28,10 @@ INSERT INTO listening VALUES('2e43a02a-d1c7-11ec-9d64-0242ac120002','Selection q
 INSERT INTO listening VALUES('2e43a106-d1c7-11ec-9d64-0242ac120002','Company conservation','Listen to the main content and need to reason about the problem first. When there are structures like could you? Please pay attention to the content that appears immediately after.','10','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1.mp3?alt=media&token=5bc5192a-7efe-4682-88f3-adceb8a77652','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1_image.jpg?alt=media&token=3925ba3c-2f50-459b-b906-d01ad74507e12');
 
 INSERT INTO listeningquestion VALUES('09c7d17e-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','The woman is ___ the street with a broom.','cleaning');
-INSERT INTO listeningquestion VALUES('09c7d3a4-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120003','The woman is ___  the girl''s arm.','examining');
-INSERT INTO listeningquestion VALUES('09c7d570-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120004','He is ___ a phone conservation at the desk.','conducting');
-INSERT INTO listeningquestion VALUES('09c7d688-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120005','The speaker is ___ into the microphone.','speaking');
-INSERT INTO listeningquestion VALUES('09c7d7a0-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120006','He is ___ on the paper with a pen.','writing');
-INSERT INTO listeningquestion VALUES('09c7d8ae-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120007','She is ___ the liquid into the cup.','pouring');
-INSERT INTO listeningquestion VALUES('09c7d9b2-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120008','The man is ___ at the computer.','working');
-INSERT INTO listeningquestion VALUES('09c7dc3c-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120009','A woman is ___ something under her arm.','carrying');
+INSERT INTO listeningquestion VALUES('09c7d3a4-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','The woman is ___  the girl''s arm.','examining');
+INSERT INTO listeningquestion VALUES('09c7d570-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','He is ___ a phone conservation at the desk.','conducting');
+INSERT INTO listeningquestion VALUES('09c7d688-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','The speaker is ___ into the microphone.','speaking');
+INSERT INTO listeningquestion VALUES('09c7d7a0-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','He is ___ on the paper with a pen.','writing');
+INSERT INTO listeningquestion VALUES('09c7d8ae-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','She is ___ the liquid into the cup.','pouring');
+INSERT INTO listeningquestion VALUES('09c7d9b2-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','The man is ___ at the computer.','working');
+INSERT INTO listeningquestion VALUES('09c7dc3c-dc0a-11ec-9d64-0242ac120002','2e439328-d1c7-11ec-9d64-0242ac120002','A woman is ___ something under her arm.','carrying');

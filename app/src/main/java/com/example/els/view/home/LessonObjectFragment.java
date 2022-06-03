@@ -67,13 +67,33 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
         speakingViewModel = new ViewModelProvider(requireActivity()).get(SpeakingViewModel.class);
         writingViewModel = new ViewModelProvider(requireActivity()).get(WritingViewModel.class);
 
-        //homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), this::setUpLessonRecyclerView);
+        homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), this::setUpSkill);
         recyclerView = binding.lessonRecyclerview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        listeningViewModel.getDataListeningLesson();
 
-        setUpObserver();
+//        listeningViewModel.getDataListeningLesson();
+//        setUpObserver();
         setUpEvent();
+    }
+
+    private void setUpSkill(String key) {
+        switch (key) {
+            case "listening": {
+                //listeningViewModel.getDoneListeningLessons().observe(getViewLifecycleOwner(), listObserver);
+                listeningViewModel.getDataListeningLesson();
+                setUpObserver();
+                break;
+            }
+            case "reading": {
+                break;
+            }
+            case "speaking": {
+                break;
+            }
+            case "writing": {
+                break;
+            }
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -92,7 +112,7 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
 
         final Observer<List<Listening>> unDoneListeningLesson = data -> {
             if (data != null) {
-                unDoneListeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this);
+                unDoneListeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this, 0);
                 recyclerView.setAdapter(unDoneListeningAdapter);
                 binding.gifEmpty.setVisibility(View.GONE);
             } else {
@@ -105,7 +125,7 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
             Log.d("listening", "ob done");
             if (data != null) {
                 Log.d("listening", "ob done 1");
-                doneListeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this);
+                doneListeningAdapter = new ListeningAdapter(getContext(), data, LessonObjectFragment.this, 1);
                 recyclerView.setAdapter(doneListeningAdapter);
                 binding.gifEmpty.setVisibility(View.GONE);
             } else {
@@ -129,7 +149,7 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
         binding.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                setUpObserver();
+                listeningViewModel.getDataListeningLesson();
                 binding.swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -162,6 +182,7 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
             switch (key) {
                 case "listening": {
                     //listeningViewModel.getDoneListeningLessons().observe(getViewLifecycleOwner(), listObserver);
+
 
                     break;
                 }
@@ -202,8 +223,15 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
 
     @Override
     public void onLessonClick(View view, int position) {
+        assert getArguments() != null;
         listeningViewModel.setPosition(position);
-        Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_lessonDetailFragment);
+        if (getArguments().getInt(POSITION) == 1) {
+            Log.d("listening", "done");
+            Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_doneListeningLessonFragment);
+        } else {
+            Log.d("listening", "undone");
+            Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_lessonDetailFragment);
+        }
     }
 
     @Override

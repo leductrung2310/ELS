@@ -24,11 +24,13 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
     private final ArrayList<Listening> listenings = new ArrayList<>();
     private Context context;
     private final GeneralInterface.OnLessonItemListener mOnLessonItemListener;
+    private int check;
 
-    public ListeningAdapter(Context context, List<Listening> list, GeneralInterface.OnLessonItemListener onLessonItemListener) {
+    public ListeningAdapter(Context context, List<Listening> list, GeneralInterface.OnLessonItemListener onLessonItemListener, int check) {
         this.listenings.addAll(list);
         this.context = context;
         this.mOnLessonItemListener = onLessonItemListener;
+        this.check = check;
     }
 
     @NonNull
@@ -44,8 +46,11 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
         Listening listening= listenings.get(position);
         holder.numberLessonTV.setText(String.valueOf(position+1));
         holder.nameLessonTV.setText(listening.getTitle());
-        holder.durationTV.setText(listening.getDuration() + " seconds");
+        holder.durationTV.setText(listening.getDuration() + " minutes");
+        if (check == 0) {
 
+            holder.stateImageView.setImageResource(R.drawable.undone_button_background);
+        }
     }
 
     @Override

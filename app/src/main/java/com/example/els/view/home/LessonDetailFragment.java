@@ -1,5 +1,6 @@
 package com.example.els.view.home;
 
+import android.app.Application;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.els.R;
 import com.example.els.databinding.FragmentLessonDetailBinding;
 import com.example.els.models.Api.Listening;
@@ -56,17 +58,21 @@ public class LessonDetailFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_lessonDetailFragment_to_listeningQuestionFragment);
             }
         });
+
+        listeningViewModel.getAnswerMap().clear();
     }
 
     private void setObserver() {
         //Observer of title, content, set list question of lesson - it set value when I click the lesson;
         final Observer<List<Listening>> listObserver = data -> {
+            Log.d("listening", String.valueOf(listeningViewModel.getPosition()));
             listeningViewModel.getDataListeningQuestionByLesson(data.get(listeningViewModel.getPosition()).getUuid());
             listeningViewModel.setTitle(data.get(listeningViewModel.getPosition()).getTitle());
             listeningViewModel.setContent(data.get(listeningViewModel.getPosition()).getContent());
+            listeningViewModel.setImage(data.get(listeningViewModel.getPosition()).getImage());
             listeningViewModel.setListening(data.get(listeningViewModel.getPosition()));
         };
-        listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), listObserver);
+        listeningViewModel.getUnDoneListening().observe(getViewLifecycleOwner(), listObserver);
 
         //Observer of list question of lesson
         final Observer<List<ListeningQuestion>> listQuestionObserver = data -> {
@@ -81,6 +87,12 @@ public class LessonDetailFragment extends Fragment {
         //Observer of content - auto set when I click the lesson.
         final Observer<String> contentObserver = binding.content::setText;
         this.listeningViewModel.getContent().observe(getViewLifecycleOwner(), contentObserver);
+
+
+        //Observer of image - auto set when I click the lesson.
+//        Log.d("listening", listeningViewModel.getImage().getValue());
+        final Observer<String> imageObserver = s -> Glide.with(this).load(s).into(binding.lessonImage);
+        this.listeningViewModel.getImage().observe(getViewLifecycleOwner(), imageObserver);
     }
 
     public void onBackButtonPressed(View view) {

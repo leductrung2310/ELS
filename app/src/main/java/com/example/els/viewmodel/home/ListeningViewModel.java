@@ -3,6 +3,7 @@ package com.example.els.viewmodel.home;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -16,6 +17,7 @@ import com.example.els.models.LessonData;
 import com.example.els.network.listening.ListeningRepository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -102,6 +104,7 @@ public class ListeningViewModel extends ViewModel {
     private MutableLiveData<List<ListeningQuestion>> listeningQuestionLiveData;
     private MutableLiveData<String> title;
     private MutableLiveData<String> content;
+    private MutableLiveData<String> image;
     private int position;
     private Listening listening;
     private MutableLiveData<MediaPlayer> mediaPlayer;
@@ -109,6 +112,8 @@ public class ListeningViewModel extends ViewModel {
     private MutableLiveData<ArrayList<Listening>> unDoneListening;
     private MutableLiveData<ArrayList<Listening>> doneListening;
     private MutableLiveData<ArrayList<ListeningFirebase>> doneListeningFirebase;
+    private HashMap<Integer, String>  answerMap;
+    private MutableLiveData<Integer>  score;
 
     public ListeningViewModel() {
         listeningRepository = new ListeningRepository();
@@ -120,9 +125,12 @@ public class ListeningViewModel extends ViewModel {
 
         title = new MutableLiveData<>();
         content = new MutableLiveData<>();
+        image = new MutableLiveData<>();
         mediaPlayer = new MutableLiveData<>();
         handler = new Handler();
 
+        answerMap = new HashMap<>();
+        score = new MutableLiveData<>();
     }
 
 
@@ -164,6 +172,8 @@ public class ListeningViewModel extends ViewModel {
     }
 
     public void setUnDoneListeningFromFirebase(ArrayList<ListeningFirebase> listeningQuestions) {
+        ArrayList<Listening> _done = new ArrayList<>();
+        ArrayList<Listening> _unDone = new ArrayList<>();
         if (listeningQuestions.size() == Objects.requireNonNull(listeningLiveData.getValue()).size()) {
             doneListening.setValue((ArrayList<Listening>) listeningLiveData.getValue());
             unDoneListening.setValue(new ArrayList<>());
@@ -173,14 +183,31 @@ public class ListeningViewModel extends ViewModel {
         } else {
             for (int i = 0; i < listeningQuestions.size(); i++) {
                 for (int j = 0; j < Objects.requireNonNull(listeningLiveData.getValue()).size(); j++) {
-                    if (!Objects.equals(listeningLiveData.getValue().get(i).getUuid(), listeningQuestions.get(j).getId())) {
-                        Objects.requireNonNull(unDoneListening.getValue()).add(listeningLiveData.getValue().get(i));
+                    if (!Objects.equals(listeningLiveData.getValue().get(j).getUuid(), listeningQuestions.get(i).getId())) {
+                        Log.d("listening", "add undone");
+                        _unDone.add(listeningLiveData.getValue().get(j));
                     } else {
-                        Objects.requireNonNull(doneListening.getValue()).add(listeningLiveData.getValue().get(i));
+                        Log.d("listening", "add done");
+                        _done.add(listeningLiveData.getValue().get(j));
                     }
                 }
             }
+            doneListening.setValue(_done);
+            unDoneListening.setValue(_unDone);
+            Log.d("listening", String.valueOf(doneListening.getValue().size()));
+            Log.d("listening", String.valueOf(unDoneListening.getValue().size()));
         }
+    }
+
+    public void checkAnswer(ArrayList<String> answer) {
+        Log.d("Listening", answer.toString());
+        int _score = 0;
+        for (int i = 0; i< listeningQuestionLiveData.getValue().size(); i++) {
+          if ( listeningQuestionLiveData.getValue().get(i).getAnswer() == answer.get(i) ) {
+              _score += 10;
+          }
+        }
+        score.setValue(_score);
     }
 
     public MutableLiveData<MediaPlayer> getMediaPlayer() {
@@ -231,6 +258,13 @@ public class ListeningViewModel extends ViewModel {
         this.listening = listening;
     }
 
+    public MutableLiveData<String> getImage() {
+        return image;
+    }
+
+    public void setImage(String content) {
+        this.image.setValue(content);
+    }
 
     public MutableLiveData<ArrayList<Listening>> getUnDoneListening() {
         return unDoneListening;
@@ -255,4 +289,29 @@ public class ListeningViewModel extends ViewModel {
     public void setDoneListeningFirebase(ArrayList<ListeningFirebase> doneListeningFirebase) {
         this.doneListeningFirebase.setValue(doneListeningFirebase);
     }
+
+    public HashMap<Integer, String> getAnswerMap() {
+        return answerMap;
+    }
+
+    public void setAnswerMap(HashMap<Integer, String> answerMap) {
+        this.answerMap = answerMap;
+    }
+
+
+    public MutableLiveData<Integer> getScore() {
+        return score;
+    }
+
+    public void setScore(MutableLiveData<Integer> score) {
+        this.score = score;
+    }
+
+
+    //pushDoneLessonToFirestore
+    public void pushDoneLessonToFirestore() {
+        ListeningFirebase listeningFirebase = new ListeningFirebase(listeningLiveData.getValue().get(position).getUuid(), Integer.toString(score.getValue()));
+        listeningRepository.pushDoneListeningFromFirestore(listeningFirebase);
+    }
+
 }
