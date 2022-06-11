@@ -1,6 +1,9 @@
 package com.example.els.view.games;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,10 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.els.R;
 import com.example.els.adapter.HistoryAdapter;
@@ -55,7 +54,7 @@ public class PlayHistoryFragment extends Fragment {
 
     public void setupHistoryRecyclerView(ArrayList<History> histories) {
         RecyclerView recyclerView = binding.historyRecyclerView;
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         HistoryAdapter adapter = new HistoryAdapter(histories);
         recyclerView.setAdapter(adapter);
     }
