@@ -15,7 +15,7 @@
         android:text="123312" />
 
     <RadioGroup
-        android:id="@+id/personal_edit_info_gender_radio_button"
+        android:id="@+id/radio_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/item_lq_1"

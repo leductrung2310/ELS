@@ -2,12 +2,10 @@ package com.example.els.adapter.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,18 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.els.R;
 import com.example.els.component.GeneralInterface;
 import com.example.els.models.Api.Listening;
+import com.example.els.models.Api.ReadingLesson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.ViewHolder> {
-    private final ArrayList<Listening> listenings = new ArrayList<>();
+public class ReadingAdapter extends  RecyclerView.Adapter<ReadingAdapter.ViewHolder> {
+    private final ArrayList<ReadingLesson> readingLessons = new ArrayList<>();
     private Context context;
     private final GeneralInterface.OnLessonItemListener mOnLessonItemListener;
     private int check;
 
-    public ListeningAdapter(Context context, List<Listening> list, GeneralInterface.OnLessonItemListener onLessonItemListener, int check) {
-        this.listenings.addAll(list);
+    public ReadingAdapter(Context context, List<ReadingLesson> list, GeneralInterface.OnLessonItemListener onLessonItemListener, int check) {
+        this.readingLessons.addAll(list);
         this.context = context;
         this.mOnLessonItemListener = onLessonItemListener;
         this.check = check;
@@ -43,19 +42,18 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Listening listening= listenings.get(position);
+        ReadingLesson readingLesson=  readingLessons.get(position);
         holder.numberLessonTV.setText(String.valueOf(position+1));
-        holder.nameLessonTV.setText(listening.getTitle());
-        holder.durationTV.setText(listening.getDuration() + " minutes");
+        holder.nameLessonTV.setText(readingLesson.getTitle());
+        holder.durationTV.setText(readingLesson.getDuration() + " minutes");
         if (check == 0) {
-
             holder.stateImageView.setImageResource(R.drawable.undone_button_background);
         }
     }
 
     @Override
     public int getItemCount() {
-        return listenings.size();
+        return readingLessons.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

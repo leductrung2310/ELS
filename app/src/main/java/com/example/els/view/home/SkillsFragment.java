@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
@@ -22,6 +23,7 @@ import com.example.els.adapter.LessonCollectionAdapter;
 import com.example.els.adapter.home.ListeningAdapter;
 import com.example.els.databinding.FragmentSkillsBinding;
 import com.example.els.models.Api.Listening;
+import com.example.els.models.Api.ReadingLesson;
 import com.example.els.network.listening.ListeningRepository;
 import com.example.els.viewmodel.home.HomeViewModel;
 import com.example.els.viewmodel.home.ListeningViewModel;
@@ -86,6 +88,12 @@ public class SkillsFragment extends Fragment {
         // Setup tab layout
         setupTabLayout();
 
+        binding.actionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_instructionListeningFragment);
+            }
+        });
     }
 
     public void setupTabLayout() {
@@ -113,20 +121,57 @@ public class SkillsFragment extends Fragment {
 
         switch (key) {
             case "listening": {
-                listeningViewModel.getTotalDuration().observe(getViewLifecycleOwner(), duration -> durationTextView.setText(getResources().getString(R.string.totalDuration, duration)));
-                listeningViewModel.getTotalLessons().observe(getViewLifecycleOwner(), lessons -> totalLessonTextView.setText(getResources().getString(R.string.totalLesson, lessons)));
-                listeningViewModel.getCompletePercentage().observe(getViewLifecycleOwner(), percentage -> {
-                    percentTextView.setText(getResources().getString(R.string.percentage, percentage));
-                    progressBar.setProgress(percentage);
+                listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), new Observer<List<Listening>>() {
+                    @Override
+                    public void onChanged(List<Listening> listenings) {
+                        int duration = 0;
+                        for(Listening listening: listenings) {
+                            duration += listening.getDuration();
+                        }
+                        binding.totalDuration.setText(getResources().getString(R.string.totalDuration, duration));
+                        binding.totalLessons.setText(getResources().getString(R.string.totalLesson, listenings.size()));
+
+                    }
                 });
+                listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), new Observer<ArrayList<Listening>>() {
+                    @Override
+                    public void onChanged(ArrayList<Listening> listenings) {
+                        double per = (double) listenings.size() / listeningViewModel.getListeningLiveData().getValue().size();
+                        int convertPer = (int) (per * 100);
+                        binding.percentage.setText(String.valueOf(convertPer));
+                        binding.circleProgressIndicator.setProgress(convertPer);
+                    }
+                });
+
+//                listeningViewModel.getTotalDuration().observe(getViewLifecycleOwner(), duration -> durationTextView.setText(getResources().getString(R.string.totalDuration, duration)));
+//                listeningViewModel.getTotalLessons().observe(getViewLifecycleOwner(), lessons -> totalLessonTextView.setText(getResources().getString(R.string.totalLesson, lessons)));
+//                listeningViewModel.getCompletePercentage().observe(getViewLifecycleOwner(), percentage -> {
+//                    percentTextView.setText(getResources().getString(R.string.percentage, percentage));
+//                    progressBar.setProgress(percentage);
+//                });
                 break;
             }
             case "reading": {
-                readingViewModel.getTotalDuration().observe(getViewLifecycleOwner(), duration -> durationTextView.setText(getResources().getString(R.string.totalDuration, duration)));
-                readingViewModel.getTotalLessons().observe(getViewLifecycleOwner(), lessons -> totalLessonTextView.setText(getResources().getString(R.string.totalLesson, lessons)));
-                readingViewModel.getCompletePercentage().observe(getViewLifecycleOwner(), percentage -> {
-                    percentTextView.setText(getResources().getString(R.string.percentage, percentage));
-                    progressBar.setProgress(percentage);
+                readingViewModel.getReadingLessonLiveData().observe(getViewLifecycleOwner(), new Observer<List<ReadingLesson>>() {
+                    @Override
+                    public void onChanged(List<ReadingLesson> readingLessons) {
+                        int duration = 0;
+                        for(ReadingLesson readingLesson: readingLessons) {
+                            duration += readingLesson.getDuration();
+                        }
+                        binding.totalDuration.setText(getResources().getString(R.string.totalDuration, duration));
+                        binding.totalLessons.setText(getResources().getString(R.string.totalLesson, readingLessons.size()));
+                    }
+                });
+
+                readingViewModel.getDoneReadingLesson().observe(getViewLifecycleOwner(), new Observer<ArrayList<ReadingLesson>>() {
+                    @Override
+                    public void onChanged(ArrayList<ReadingLesson> readingLessons) {
+                        double per = (double) readingLessons.size() / readingViewModel.getReadingLessonLiveData().getValue().size();
+                        int convertPer = (int) (per * 100);
+                        binding.percentage.setText(String.valueOf(convertPer));
+                        binding.circleProgressIndicator.setProgress(convertPer);
+                    }
                 });
                 break;
             }

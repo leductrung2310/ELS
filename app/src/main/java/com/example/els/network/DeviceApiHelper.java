@@ -13,6 +13,13 @@ class DeviceAPIHelper {
                 .build();
     }
 
+    public static Retrofit getReadingClient() {
+        return new Retrofit.Builder()
+                .baseUrl("https://els-server-reading.herokuapp.com/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
+
     // Get data from dictionary for word quiz game and dictionary
     // This Java class is used to send requests to an API.
     // We specify the URL that contains the data required and use the Retrofit Builder class.

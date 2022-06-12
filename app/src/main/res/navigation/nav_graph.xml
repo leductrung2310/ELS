@@ -323,6 +323,18 @@
                 app:exitAnim="@anim/fade_out"
                 app:popEnterAnim="@anim/slide_in_right"
                 app:popExitAnim="@anim/slide_out_left" />
+            <action
+                android:id="@+id/action_skillsFragment_to_doneListeningLessonFragment"
+                app:destination="@id/doneListeningLessonFragment" />
+            <action
+                android:id="@+id/action_skillsFragment_to_instructionListeningFragment"
+                app:destination="@id/instructionListeningFragment" />
+            <action
+                android:id="@+id/action_skillsFragment_to_readingQuestionFragment"
+                app:destination="@id/readingQuestionFragment" />
+            <action
+                android:id="@+id/action_skillsFragment_to_doneReadingLessonragment"
+                app:destination="@id/doneReadingLessonragment" />
             tools:layout="@layout/fragment_skills" />
         </fragment>
         <fragment
@@ -345,9 +357,53 @@
             android:label="fragment_listening_question"
             tools:layout="@layout/fragment_listening_question" >
             <action
-                android:id="@+id/action_listeningQuestionFragment_to_lessonDetailFragment"
-                app:destination="@id/lessonDetailFragment"
-                app:popUpTo="@id/lessonDetailFragment"
+                android:id="@+id/action_listeningQuestionFragment_to_skillsFragment"
+                app:destination="@id/skillsFragment"
+                app:popUpTo="@id/skillsFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/doneListeningLessonFragment"
+            android:name="com.example.els.view.home.listening.DoneListeningLessonFragment"
+            android:label="fragment_done_listening_lesson"
+            tools:layout="@layout/fragment_done_listening_lesson" >
+            <action
+                android:id="@+id/action_doneListeningLessonFragment_to_skillsFragment"
+                app:destination="@id/skillsFragment"
+                app:popUpTo="@id/skillsFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/instructionListeningFragment"
+            android:name="com.example.els.view.home.listening.InstructionListeningFragment"
+            android:label="fragment_instruction_listening"
+            tools:layout="@layout/fragment_instruction_listening" >
+            <action
+                android:id="@+id/action_instructionListeningFragment_to_skillsFragment"
+                app:destination="@id/skillsFragment"
+                app:popUpTo="@id/instructionListeningFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/readingQuestionFragment"
+            android:name="com.example.els.view.home.reading.ReadingQuestionFragment"
+            android:label="fragment_reading_question"
+            tools:layout="@layout/fragment_reading_question" >
+            <action
+                android:id="@+id/action_readingQuestionFragment_to_skillsFragment"
+                app:destination="@id/skillsFragment"
+                app:popUpTo="@id/skillsFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/doneReadingLessonragment"
+            android:name="com.example.els.view.home.reading.DoneReadingLessonragment"
+            android:label="fragment_done_reading_lessonragment"
+            tools:layout="@layout/fragment_done_reading_lessonragment" >
+            <action
+                android:id="@+id/action_doneReadingLessonragment_to_skillsFragment"
+                app:destination="@id/skillsFragment"
+                app:popUpTo="@id/skillsFragment"
                 app:popUpToInclusive="true" />
         </fragment>
     </navigation>
