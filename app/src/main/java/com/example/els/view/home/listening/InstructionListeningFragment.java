@@ -44,10 +44,13 @@ public class InstructionListeningFragment extends Fragment {
             public void onChanged(String s) {
                 switch (s) {
                     case "listening": {
+                        binding.instructionReadingLly.setVisibility(View.GONE);
                         binding.instructionListeningLly.setVisibility(View.VISIBLE);
                         break;
                     }
                     case "reading": {
+                        binding.instructionListeningLly.setVisibility(View.GONE);
+                        binding.instructionReadingLly.setVisibility(View.VISIBLE);
                         break;
                     }
                 }

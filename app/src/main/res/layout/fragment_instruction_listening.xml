@@ -81,6 +81,45 @@
                     android:text="4. You can see the answers after completing the lesson."
                     android:textStyle="normal" />
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/instruction_reading_lly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <TextView
+                    style="@style/Lesson_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:text="1. Each lesson have 5 questions."
+                    android:textStyle="normal" />
+
+                <TextView
+                    style="@style/Lesson_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:text="2. Please read carefully, you cannot go back to the previous question."
+                    android:textStyle="normal" />
+
+                <TextView
+                    style="@style/Lesson_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:text="3. With each correct answer, you will get 10 points."
+                    android:textStyle="normal" />
+
+                <TextView
+                    style="@style/Lesson_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:text="4. You can see the answers after completing the lesson."
+                    android:textStyle="normal" />
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

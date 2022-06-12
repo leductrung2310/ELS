@@ -173,7 +173,6 @@ public class ListeningViewModel extends ViewModel {
 
     public void setUnDoneListeningFromFirebase(ArrayList<ListeningFirebase> listeningQuestions) {
         ArrayList<Listening> _done = new ArrayList<>();
-        ArrayList<Listening> _unDone = new ArrayList<>();
         if (listeningQuestions.size() == Objects.requireNonNull(listeningLiveData.getValue()).size()) {
             doneListening.setValue((ArrayList<Listening>) listeningLiveData.getValue());
             unDoneListening.setValue(new ArrayList<>());
@@ -181,18 +180,20 @@ public class ListeningViewModel extends ViewModel {
             unDoneListening.setValue((ArrayList<Listening>) listeningLiveData.getValue());
             doneListening.setValue(new ArrayList<>());
         } else {
-            for (int i = 0; i < listeningQuestions.size(); i++) {
-                for (int j = 0; j < Objects.requireNonNull(listeningLiveData.getValue()).size(); j++) {
-                    if (!Objects.equals(listeningLiveData.getValue().get(j).getUuid(), listeningQuestions.get(i).getId())) {
-                        Log.d("listening", "add undone");
-                        _unDone.add(listeningLiveData.getValue().get(j));
+            for (int i = 0; i < Objects.requireNonNull(listeningLiveData.getValue()).size(); i++) {
+                for (int j = 0; j < listeningQuestions.size(); j++) {
+                    if (!Objects.equals(listeningLiveData.getValue().get(i).getUuid(), listeningQuestions.get(j).getId())) {
+//                        Log.d("listening", "add u  ndone");
+//                        _unDone.add(listeningLiveData.getValue().get(i));
                     } else {
                         Log.d("listening", "add done");
-                        _done.add(listeningLiveData.getValue().get(j));
+                        _done.add(listeningLiveData.getValue().get(i));
                     }
                 }
             }
             doneListening.setValue(_done);
+            ArrayList<Listening> _unDone = new ArrayList<>(listeningLiveData.getValue());
+            _unDone.removeAll(_done);
             unDoneListening.setValue(_unDone);
             Log.d("listening", String.valueOf(doneListening.getValue().size()));
             Log.d("listening", String.valueOf(unDoneListening.getValue().size()));
@@ -310,7 +311,7 @@ public class ListeningViewModel extends ViewModel {
 
     //pushDoneLessonToFirestore
     public void pushDoneLessonToFirestore() {
-        ListeningFirebase listeningFirebase = new ListeningFirebase(listeningLiveData.getValue().get(position).getUuid(), Integer.toString(score.getValue()));
+        ListeningFirebase listeningFirebase = new ListeningFirebase(unDoneListening.getValue().get(position).getUuid(), Integer.toString(score.getValue()));
         listeningRepository.pushDoneListeningFromFirestore(listeningFirebase);
     }
 
