@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,15 +34,15 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.lesson_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lesson_item, parent, false);
         return new ViewHolder(view, mOnLessonItemListener);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Listening listening= listenings.get(position);
-        holder.numberLessonTV.setText(String.valueOf(position+1));
+        Listening listening = listenings.get(position);
+        holder.numberLessonTV.setText(String.valueOf(position + 1));
         holder.nameLessonTV.setText(listening.getTitle());
         holder.durationTV.setText(listening.getDuration() + " minutes");
         if (check == 0) {
@@ -61,6 +60,8 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
         private final TextView numberLessonTV;
         private final TextView nameLessonTV;
         private final TextView durationTV;
+        private final ImageView stateImageView;
+        private final ImageView stateIcon;
         private final GeneralInterface.OnLessonItemListener onLessonItemListener;
 
         public ViewHolder(@NonNull View itemView, GeneralInterface.OnLessonItemListener onLessonItemListener) {
@@ -68,8 +69,8 @@ public class ListeningAdapter extends RecyclerView.Adapter<ListeningAdapter.View
             numberLessonTV = itemView.findViewById(R.id.lesson_number);
             nameLessonTV = itemView.findViewById(R.id.lesson_name);
             durationTV = itemView.findViewById(R.id.duration_tv);
-            ImageView stateImageView = itemView.findViewById(R.id.state_img);
-            ImageView stateIcon = itemView.findViewById(R.id.state_ic);
+            stateImageView = itemView.findViewById(R.id.state_img);
+            stateIcon = itemView.findViewById(R.id.state_ic);
             this.onLessonItemListener = onLessonItemListener;
 
             itemView.setOnClickListener(this);

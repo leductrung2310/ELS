@@ -50,7 +50,7 @@ public class LoginFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        binding.phoneLogin.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(LoginFragmentDirections.actionLoginFragmentToPhoneLoginFragment()));
+        binding.phoneLogin.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_loginFragment_to_phoneLoginFragment));
         binding.signupTv.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_loginFragment_to_signUpFragment));
 
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {

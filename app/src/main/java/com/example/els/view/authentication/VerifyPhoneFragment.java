@@ -44,10 +44,10 @@ public class VerifyPhoneFragment extends Fragment {
         phoneLoginViewmodel = new ViewModelProvider(requireActivity()).get(PhoneLoginViewmodel.class);
         phoneLoginViewmodel.getUserLiveData().observe(getViewLifecycleOwner(), firebaseUser -> {
             if (firebaseUser != null) {
-                Navigation.findNavController(getView()).navigate(R.id.action_verifyPhoneFragment_to_homeFragment);
+                Navigation.findNavController(view).navigate(R.id.action_verifyPhoneFragment_to_homeFragment);
             }
         });
-        //Log.d("trung", phoneLoginViewmodel.getPhoneNumber().getValue());
+
         phoneLoginViewmodel.getPhoneNumber().observe(getViewLifecycleOwner(), s -> {
             binding.phoneNumberVerify.setText(s);
         });

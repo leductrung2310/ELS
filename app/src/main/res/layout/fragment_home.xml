@@ -53,7 +53,8 @@
             app:iconSize="@dimen/mediumIconSize"
             app:iconTint="@color/primary_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
 
         <!-- Learning by playing card view -->
         <androidx.cardview.widget.CardView
