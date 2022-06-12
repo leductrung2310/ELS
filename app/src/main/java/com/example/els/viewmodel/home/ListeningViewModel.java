@@ -1,9 +1,6 @@
 package com.example.els.viewmodel.home;
 
-import android.media.MediaPlayer;
-import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -12,107 +9,26 @@ import androidx.lifecycle.ViewModel;
 import com.example.els.models.Api.Listening;
 import com.example.els.models.Api.ListeningFirebase;
 import com.example.els.models.Api.ListeningQuestion;
-import com.example.els.models.Lesson;
-import com.example.els.models.LessonData;
 import com.example.els.network.listening.ListeningRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class ListeningViewModel extends ViewModel {
-    private final LessonData lessonData = new LessonData();
-
-    // Done listening lessons
-    private MutableLiveData<ArrayList<Lesson>> _doneListeningLessons;
-
-    public LiveData<ArrayList<Lesson>> getDoneListeningLessons() {
-        if (_doneListeningLessons == null) _doneListeningLessons = new MutableLiveData<>();
-        loadDoneLessons();
-        return _doneListeningLessons;
-    }
-
-    public void loadDoneLessons() {
-        ArrayList<Lesson> temp = new ArrayList<>();
-        for (int i = 0; i < lessonData.listeningLessons.size(); i++) {
-            if (lessonData.listeningLessons.get(i).getState()) {
-                temp.add(lessonData.listeningLessons.get(i));
-            }
-        }
-        _doneListeningLessons.setValue(temp);
-    }
-
-    // Undone listening lessons
-    private MutableLiveData<ArrayList<Lesson>> _undoneListeningLessons;
-
-    public LiveData<ArrayList<Lesson>> getUndoneListeningLessons() {
-        if (_undoneListeningLessons == null) _undoneListeningLessons = new MutableLiveData<>();
-        loadUndoneLessons();
-        return _undoneListeningLessons;
-    }
-
-    public void loadUndoneLessons() {
-        ArrayList<Lesson> temp = new ArrayList<>();
-        for (int i = 0; i < lessonData.listeningLessons.size(); i++) {
-            if (!lessonData.listeningLessons.get(i).getState()) {
-                temp.add(lessonData.listeningLessons.get(i));
-            }
-        }
-        _undoneListeningLessons.setValue(temp);
-    }
-
-    // Total duration
-    private final MutableLiveData<Integer> _totalDuration = new MutableLiveData<>(0);
-
-    public LiveData<Integer> getTotalDuration() {
-        int total = 0;
-        for (int i = 0; i < lessonData.listeningLessons.size(); i++) {
-            total += lessonData.listeningLessons.get(i).getDuration();
-        }
-        _totalDuration.setValue(total);
-        return _totalDuration;
-    }
-
-    // Number of lessons
-    private final MutableLiveData<Integer> _totalLessons = new MutableLiveData<>(0);
-
-    public LiveData<Integer> getTotalLessons() {
-        _totalLessons.setValue(lessonData.listeningLessons.size());
-        return _totalLessons;
-    }
-
-    // Complete percentage
-    private final MutableLiveData<Integer> _completePercentage = new MutableLiveData<>(0);
-
-    public LiveData<Integer> getCompletePercentage() {
-        int count = 0;
-        for (int i = 0; i < lessonData.listeningLessons.size(); i++) {
-            if (lessonData.listeningLessons.get(i).getState()) {
-                count++;
-            }
-        }
-        double percentage = ((double) count / (double) lessonData.listeningLessons.size() * 100);
-        int percent = (int) percentage;
-        _completePercentage.setValue(percent);
-        return _completePercentage;
-    }
-
-    private ListeningRepository listeningRepository;
-    private MutableLiveData<List<Listening>> listeningLiveData;
-    private MutableLiveData<List<ListeningQuestion>> listeningQuestionLiveData;
-    private MutableLiveData<String> title;
-    private MutableLiveData<String> content;
-    private MutableLiveData<String> image;
+    private final ListeningRepository listeningRepository;
+    private final MutableLiveData<List<Listening>> listeningLiveData;
+    private final MutableLiveData<List<ListeningQuestion>> listeningQuestionLiveData;
+    private final MutableLiveData<String> title;
+    private final MutableLiveData<String> content;
+    private final MutableLiveData<String> image;
     private int position;
     private Listening listening;
-    private MutableLiveData<MediaPlayer> mediaPlayer;
-    private Handler handler;
-    private MutableLiveData<ArrayList<Listening>> unDoneListening;
-    private MutableLiveData<ArrayList<Listening>> doneListening;
-    private MutableLiveData<ArrayList<ListeningFirebase>> doneListeningFirebase;
-    private HashMap<Integer, String>  answerMap;
+    private final MutableLiveData<ArrayList<Listening>> unDoneListening;
+    private final MutableLiveData<ArrayList<Listening>> doneListening;
+    private final MutableLiveData<ArrayList<ListeningFirebase>> doneListeningFirebase;
+    private final HashMap<Integer, String>  answerMap;
     private MutableLiveData<Integer>  score;
 
     public ListeningViewModel() {
@@ -126,8 +42,6 @@ public class ListeningViewModel extends ViewModel {
         title = new MutableLiveData<>();
         content = new MutableLiveData<>();
         image = new MutableLiveData<>();
-        mediaPlayer = new MutableLiveData<>();
-        handler = new Handler();
 
         answerMap = new HashMap<>();
         score = new MutableLiveData<>();
@@ -154,20 +68,15 @@ public class ListeningViewModel extends ViewModel {
     public void getDataListeningQuestionByLesson(String id) {
         Log.d("listening", "vô đây x");
         listeningQuestionLiveData.setValue(new ArrayList<>());
-        listeningRepository.getListeningQuestionByLesson(id, data -> {
-            listeningQuestionLiveData.setValue(data);
-        });
+        listeningRepository.getListeningQuestionByLesson(id, listeningQuestionLiveData::setValue);
     }
 
     public void getDoneListeningFromFireStore() {
         Log.d("listening", "vô đây x");
-        listeningRepository.getDoneListeningFromFirestore(new ListeningRepository.ListeningFromFirestore() {
-            @Override
-            public void onGetDoneListening(ArrayList<ListeningFirebase> listeningQuestions) {
-                doneListeningFirebase.setValue(listeningQuestions);
-                Log.d("listening", "vô đây xx");
-                setUnDoneListeningFromFirebase(Objects.requireNonNull(listeningQuestions));
-            }
+        listeningRepository.getDoneListeningFromFirestore(listeningQuestions -> {
+            doneListeningFirebase.setValue(listeningQuestions);
+            Log.d("listening", "vô đây xx");
+            setUnDoneListeningFromFirebase(Objects.requireNonNull(listeningQuestions));
         });
     }
 
@@ -195,28 +104,20 @@ public class ListeningViewModel extends ViewModel {
             ArrayList<Listening> _unDone = new ArrayList<>(listeningLiveData.getValue());
             _unDone.removeAll(_done);
             unDoneListening.setValue(_unDone);
-            Log.d("listening", String.valueOf(doneListening.getValue().size()));
-            Log.d("listening", String.valueOf(unDoneListening.getValue().size()));
+            Log.d("listening", String.valueOf(Objects.requireNonNull(doneListening.getValue()).size()));
+            Log.d("listening", String.valueOf(Objects.requireNonNull(unDoneListening.getValue()).size()));
         }
     }
 
     public void checkAnswer(ArrayList<String> answer) {
         Log.d("Listening", answer.toString());
         int _score = 0;
-        for (int i = 0; i< listeningQuestionLiveData.getValue().size(); i++) {
-          if ( listeningQuestionLiveData.getValue().get(i).getAnswer() == answer.get(i) ) {
+        for (int i = 0; i< Objects.requireNonNull(listeningQuestionLiveData.getValue()).size(); i++) {
+          if (Objects.equals(listeningQuestionLiveData.getValue().get(i).getAnswer(), answer.get(i))) {
               _score += 10;
           }
         }
         score.setValue(_score);
-    }
-
-    public MutableLiveData<MediaPlayer> getMediaPlayer() {
-        return this.mediaPlayer;
-    }
-
-    public void setMediaPlayer(MutableLiveData<MediaPlayer> mediaPlayer) {
-        this.mediaPlayer = mediaPlayer;
     }
 
     public LiveData<List<Listening>> getListeningLiveData() {
@@ -271,34 +172,17 @@ public class ListeningViewModel extends ViewModel {
         return unDoneListening;
     }
 
-    public void setUnDoneListening(ArrayList<Listening> unDoneListening) {
-        this.unDoneListening.setValue(unDoneListening);
-    }
-
     public MutableLiveData<ArrayList<Listening>> getDoneListening() {
         return doneListening;
-    }
-
-    public void setDoneListening(ArrayList<Listening> doneListening) {
-        this.doneListening.setValue(doneListening);
     }
 
     public MutableLiveData<ArrayList<ListeningFirebase>> getDoneListeningFirebase() {
         return doneListeningFirebase;
     }
 
-    public void setDoneListeningFirebase(ArrayList<ListeningFirebase> doneListeningFirebase) {
-        this.doneListeningFirebase.setValue(doneListeningFirebase);
-    }
-
     public HashMap<Integer, String> getAnswerMap() {
         return answerMap;
     }
-
-    public void setAnswerMap(HashMap<Integer, String> answerMap) {
-        this.answerMap = answerMap;
-    }
-
 
     public MutableLiveData<Integer> getScore() {
         return score;
@@ -311,7 +195,7 @@ public class ListeningViewModel extends ViewModel {
 
     //pushDoneLessonToFirestore
     public void pushDoneLessonToFirestore() {
-        ListeningFirebase listeningFirebase = new ListeningFirebase(unDoneListening.getValue().get(position).getUuid(), Integer.toString(score.getValue()));
+        ListeningFirebase listeningFirebase = new ListeningFirebase(Objects.requireNonNull(unDoneListening.getValue()).get(position).getUuid(), Integer.toString(score.getValue()));
         listeningRepository.pushDoneListeningFromFirestore(listeningFirebase);
     }
 

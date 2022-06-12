@@ -77,13 +77,10 @@
                 android:id="@+id/word"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="code"
                 android:textColor="@color/dark"
                 android:textStyle="bold"
                 android:textSize="@dimen/header2"
                 />
-
-
 
             <TextView
                 android:id="@+id/phonetic"
@@ -92,7 +89,6 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/code/"
                 android:textColor="@color/s_dark"
                 android:textStyle="normal"
                 android:textSize="@dimen/header2"
@@ -103,7 +99,8 @@
                 android:layout_width="@dimen/_32sdp"
                 android:layout_height="@dimen/_32sdp"
                 android:src="@drawable/ic_volume"
-                android:backgroundTint="@color/primary_color"/>
+                android:backgroundTint="@color/primary_color"
+                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 

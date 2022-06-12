@@ -53,7 +53,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_listening_pause" />
+                    android:src="@drawable/ic_listening_play"
+                    tools:ignore="ContentDescription" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -89,15 +90,6 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_20sdp" />
-                <!--                <androidx.viewpager2.widget.ViewPager2-->
-                <!--                    android:id="@+id/viewPager2_employee"-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="@dimen/_360sdp"/>-->
-<!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/rcv_listening_question"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="@dimen/_360sdp"-->
-<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />-->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_360sdp"

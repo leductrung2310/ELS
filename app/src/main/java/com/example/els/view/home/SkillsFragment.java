@@ -1,48 +1,35 @@
 package com.example.els.view.home;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
 import com.example.els.R;
 import com.example.els.adapter.LessonCollectionAdapter;
-import com.example.els.adapter.home.ListeningAdapter;
 import com.example.els.databinding.FragmentSkillsBinding;
 import com.example.els.models.Api.Listening;
 import com.example.els.models.Api.ReadingLesson;
-import com.example.els.network.listening.ListeningRepository;
 import com.example.els.viewmodel.home.HomeViewModel;
 import com.example.els.viewmodel.home.ListeningViewModel;
 import com.example.els.viewmodel.home.ReadingViewModel;
-import com.example.els.viewmodel.home.SpeakingViewModel;
-import com.example.els.viewmodel.home.WritingViewModel;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public class SkillsFragment extends Fragment {
     private FragmentSkillsBinding binding;
     private HomeViewModel homeViewModel;
     private ListeningViewModel listeningViewModel;
     private ReadingViewModel readingViewModel;
-    private SpeakingViewModel speakingViewModel;
-    private WritingViewModel writingViewModel;
 
     // When requested, this adapter returns a DemoObjectFragment,
     // representing an object in the collection.
@@ -68,8 +55,6 @@ public class SkillsFragment extends Fragment {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
         listeningViewModel = new ViewModelProvider(requireActivity()).get(ListeningViewModel.class);
         readingViewModel = new ViewModelProvider(requireActivity()).get(ReadingViewModel.class);
-        speakingViewModel = new ViewModelProvider(requireActivity()).get(SpeakingViewModel.class);
-        writingViewModel = new ViewModelProvider(requireActivity()).get(WritingViewModel.class);
 
         // Get argument from previous fragment
         homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), key -> {
@@ -88,12 +73,7 @@ public class SkillsFragment extends Fragment {
         // Setup tab layout
         setupTabLayout();
 
-        binding.actionBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_instructionListeningFragment);
-            }
-        });
+        binding.actionBtn.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_skillsFragment_to_instructionListeningFragment));
     }
 
     public void setupTabLayout() {
@@ -114,82 +94,41 @@ public class SkillsFragment extends Fragment {
 
     // Set up view whenever get inside the skills fragment
     public void setupView(String key) {
-        TextView durationTextView = binding.totalDuration;
-        TextView totalLessonTextView = binding.totalLessons;
-        TextView percentTextView = binding.percentage;
-        ProgressBar progressBar = binding.circleProgressIndicator;
-
         switch (key) {
             case "listening": {
-                listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), new Observer<List<Listening>>() {
-                    @Override
-                    public void onChanged(List<Listening> listenings) {
-                        int duration = 0;
-                        for(Listening listening: listenings) {
-                            duration += listening.getDuration();
-                        }
-                        binding.totalDuration.setText(getResources().getString(R.string.totalDuration, duration));
-                        binding.totalLessons.setText(getResources().getString(R.string.totalLesson, listenings.size()));
+                listeningViewModel.getListeningLiveData().observe(getViewLifecycleOwner(), listenings -> {
+                    int duration = 0;
+                    for(Listening listening: listenings) {
+                        duration += listening.getDuration();
+                    }
+                    binding.totalDuration.setText(getResources().getString(R.string.totalDuration, duration));
+                    binding.totalLessons.setText(getResources().getString(R.string.totalLesson, listenings.size()));
 
-                    }
                 });
-                listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), new Observer<ArrayList<Listening>>() {
-                    @Override
-                    public void onChanged(ArrayList<Listening> listenings) {
-                        double per = (double) listenings.size() / listeningViewModel.getListeningLiveData().getValue().size();
-                        int convertPer = (int) (per * 100);
-                        binding.percentage.setText(String.valueOf(convertPer));
-                        binding.circleProgressIndicator.setProgress(convertPer);
-                    }
+                listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), listenings -> {
+                    double per = (double) listenings.size() / Objects.requireNonNull(listeningViewModel.getListeningLiveData().getValue()).size();
+                    int convertPer = (int) (per * 100);
+                    binding.percentage.setText(String.valueOf(convertPer));
+                    binding.circleProgressIndicator.setProgress(convertPer);
                 });
 
-//                listeningViewModel.getTotalDuration().observe(getViewLifecycleOwner(), duration -> durationTextView.setText(getResources().getString(R.string.totalDuration, duration)));
-//                listeningViewModel.getTotalLessons().observe(getViewLifecycleOwner(), lessons -> totalLessonTextView.setText(getResources().getString(R.string.totalLesson, lessons)));
-//                listeningViewModel.getCompletePercentage().observe(getViewLifecycleOwner(), percentage -> {
-//                    percentTextView.setText(getResources().getString(R.string.percentage, percentage));
-//                    progressBar.setProgress(percentage);
-//                });
                 break;
             }
             case "reading": {
-                readingViewModel.getReadingLessonLiveData().observe(getViewLifecycleOwner(), new Observer<List<ReadingLesson>>() {
-                    @Override
-                    public void onChanged(List<ReadingLesson> readingLessons) {
-                        int duration = 0;
-                        for(ReadingLesson readingLesson: readingLessons) {
-                            duration += readingLesson.getDuration();
-                        }
-                        binding.totalDuration.setText(getResources().getString(R.string.totalDuration, duration));
-                        binding.totalLessons.setText(getResources().getString(R.string.totalLesson, readingLessons.size()));
+                readingViewModel.getReadingLessonLiveData().observe(getViewLifecycleOwner(), readingLessons -> {
+                    int duration = 0;
+                    for(ReadingLesson readingLesson: readingLessons) {
+                        duration += readingLesson.getDuration();
                     }
+                    binding.totalDuration.setText(getResources().getString(R.string.totalDuration, duration));
+                    binding.totalLessons.setText(getResources().getString(R.string.totalLesson, readingLessons.size()));
                 });
 
-                readingViewModel.getDoneReadingLesson().observe(getViewLifecycleOwner(), new Observer<ArrayList<ReadingLesson>>() {
-                    @Override
-                    public void onChanged(ArrayList<ReadingLesson> readingLessons) {
-                        double per = (double) readingLessons.size() / readingViewModel.getReadingLessonLiveData().getValue().size();
-                        int convertPer = (int) (per * 100);
-                        binding.percentage.setText(String.valueOf(convertPer));
-                        binding.circleProgressIndicator.setProgress(convertPer);
-                    }
-                });
-                break;
-            }
-            case "speaking": {
-                speakingViewModel.getTotalDuration().observe(getViewLifecycleOwner(), duration -> durationTextView.setText(getResources().getString(R.string.totalDuration, duration)));
-                speakingViewModel.getTotalLessons().observe(getViewLifecycleOwner(), lessons -> totalLessonTextView.setText(getResources().getString(R.string.totalLesson, lessons)));
-                speakingViewModel.getCompletePercentage().observe(getViewLifecycleOwner(), percentage -> {
-                    percentTextView.setText(getResources().getString(R.string.percentage, percentage));
-                    progressBar.setProgress(percentage);
-                });
-                break;
-            }
-            case "writing": {
-                writingViewModel.getTotalDuration().observe(getViewLifecycleOwner(), duration -> durationTextView.setText(getResources().getString(R.string.totalDuration, duration)));
-                writingViewModel.getTotalLessons().observe(getViewLifecycleOwner(), lessons -> totalLessonTextView.setText(getResources().getString(R.string.totalLesson, lessons)));
-                writingViewModel.getCompletePercentage().observe(getViewLifecycleOwner(), percentage -> {
-                    percentTextView.setText(getResources().getString(R.string.percentage, percentage));
-                    progressBar.setProgress(percentage);
+                readingViewModel.getDoneReadingLesson().observe(getViewLifecycleOwner(), readingLessons -> {
+                    double per = (double) readingLessons.size() / Objects.requireNonNull(readingViewModel.getReadingLessonLiveData().getValue()).size();
+                    int convertPer = (int) (per * 100);
+                    binding.percentage.setText(String.valueOf(convertPer));
+                    binding.circleProgressIndicator.setProgress(convertPer);
                 });
                 break;
             }
@@ -204,19 +143,9 @@ public class SkillsFragment extends Fragment {
                 binding.skillIcon.setImageResource(R.drawable.ic_headphone);
                 break;
             }
-            case "writing": {
-                binding.skillName.setText(R.string.writing);
-                binding.skillIcon.setImageResource(R.drawable.ic_pen);
-                break;
-            }
             case "reading": {
                 binding.skillName.setText(R.string.reading);
                 binding.skillIcon.setImageResource(R.drawable.ic_notebook);
-                break;
-            }
-            case "speaking": {
-                binding.skillName.setText(R.string.speaking);
-                binding.skillIcon.setImageResource(R.drawable.ic_speaker);
                 break;
             }
         }

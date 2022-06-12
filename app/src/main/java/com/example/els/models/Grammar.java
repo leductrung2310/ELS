@@ -5,7 +5,6 @@ public class Grammar {
     private String data;
 
     public Grammar() {
-
     }
 
     public Grammar(String name, String data) {

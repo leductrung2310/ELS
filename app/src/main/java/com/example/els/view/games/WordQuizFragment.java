@@ -25,9 +25,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class WordQuizFragment extends Fragment {
     // Delay time to see correct answer
-    public static int constantsTime = 1500;
+    public static int CONSTANT_TIME = 1500;
     // Total number of quiz
-    public static final int totalQuiz = 10;
+    public static final int TOTAL_QUIZ = 10;
     private FragmentWordQuizBinding binding;
     private WordQuizViewModel quizViewModel;
     // 2 buttons for 2 options answer
@@ -77,7 +77,7 @@ public class WordQuizFragment extends Fragment {
             (new Handler()).postDelayed(() -> {
                 updateQuizViewContent(currentQuiz);
                 updateProgressInfo(currentQuiz);
-            }, constantsTime);
+            }, CONSTANT_TIME);
         });
 
         // Handle event when user choose the second option of answers
@@ -131,7 +131,7 @@ public class WordQuizFragment extends Fragment {
                         }).show();
             } else {
                 // Current quiz is always greater than the index of quiz 1 unit
-                Quiz quiz = quizGame.getQuizList().get(currentQuiz > totalQuiz ? totalQuiz - 1 : currentQuiz - 1);
+                Quiz quiz = quizGame.getQuizList().get(currentQuiz > TOTAL_QUIZ ? TOTAL_QUIZ - 1 : currentQuiz - 1);
                 // Set quiz content
                 binding.quiz.setText(getString(R.string.quiz_content,
                         quiz.getQuestions().get(0),
@@ -158,12 +158,11 @@ public class WordQuizFragment extends Fragment {
         binding.currentQuiz.setText(getString(
                 R.string.current_question,
                 currentQuiz,
-                totalQuiz
+                TOTAL_QUIZ
         ));
         quizViewModel.currentScore().observe(getViewLifecycleOwner(), score -> binding.yourScore.setText(getString(
                 R.string.current_score,
-                score,
-                totalQuiz)
+                score)
         ));
         // Update progress indicator
         binding.wordQuizIndicator.setProgress(currentQuiz * 10, true);
@@ -213,13 +212,13 @@ public class WordQuizFragment extends Fragment {
 
     // Navigate to the congratulations fragment
     public void navigateToTheCongratulationsScreen(View view) {
-        if (quizViewModel.currentQuiz().getValue() > totalQuiz) {
+        if (quizViewModel.currentQuiz().getValue() > TOTAL_QUIZ) {
             (new Handler()).postDelayed(() -> {
                         Navigation.findNavController(view).navigate(R.id.action_wordQuizFragment_to_congratulationFragment);
                         player = MediaPlayer.create(getContext(), R.raw.complete_quiz_sound);
                         player.start();
                     },
-                    constantsTime
+                    CONSTANT_TIME
             );
         }
     }

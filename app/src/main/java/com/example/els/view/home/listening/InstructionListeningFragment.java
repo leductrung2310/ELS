@@ -1,20 +1,17 @@
 package com.example.els.view.home.listening;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+
 import com.example.els.R;
-import com.example.els.databinding.FragmentDoneListeningLessonBinding;
 import com.example.els.databinding.FragmentInstructionListeningBinding;
 import com.example.els.viewmodel.home.HomeViewModel;
 
@@ -29,7 +26,7 @@ public class InstructionListeningFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentInstructionListeningBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -39,30 +36,22 @@ public class InstructionListeningFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         HomeViewModel homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
-        homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                switch (s) {
-                    case "listening": {
-                        binding.instructionReadingLly.setVisibility(View.GONE);
-                        binding.instructionListeningLly.setVisibility(View.VISIBLE);
-                        break;
-                    }
-                    case "reading": {
-                        binding.instructionListeningLly.setVisibility(View.GONE);
-                        binding.instructionReadingLly.setVisibility(View.VISIBLE);
-                        break;
-                    }
+        homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), key -> {
+            switch (key) {
+                case "listening": {
+                    binding.instructionReadingLly.setVisibility(View.GONE);
+                    binding.instructionListeningLly.setVisibility(View.VISIBLE);
+                    break;
+                }
+                case "reading": {
+                    binding.instructionListeningLly.setVisibility(View.GONE);
+                    binding.instructionReadingLly.setVisibility(View.VISIBLE);
+                    break;
                 }
             }
         });
 
-        binding.backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_instructionListeningFragment_to_skillsFragment);
-            }
-        });
+        binding.backBtn.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_instructionListeningFragment_to_skillsFragment));
     }
 
 

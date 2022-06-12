@@ -7,7 +7,7 @@
 
     <item
         android:id="@+id/meetingFragment"
-        android:icon="@drawable/ic_meeting"
+        android:icon="@drawable/ic_book"
         android:title="@string/dictionary" />
 
     <item

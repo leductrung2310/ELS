@@ -1,7 +1,10 @@
 package com.example.els.view.home;
 
-import android.app.Application;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,20 +13,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
 import com.example.els.R;
 import com.example.els.databinding.FragmentLessonDetailBinding;
 import com.example.els.models.Api.Listening;
 import com.example.els.models.Api.ListeningQuestion;
-import com.example.els.view.home.listening.ListeningQuestionFragmentDirections;
 import com.example.els.viewmodel.home.ListeningViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LessonDetailFragment extends Fragment {
@@ -52,12 +48,7 @@ public class LessonDetailFragment extends Fragment {
 
         // Handle back event
         binding.backBtn.setOnClickListener(this::onBackButtonPressed);
-        binding.startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_lessonDetailFragment_to_listeningQuestionFragment);
-            }
-        });
+        binding.startButton.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_lessonDetailFragment_to_listeningQuestionFragment));
 
         listeningViewModel.getAnswerMap().clear();
     }
@@ -75,9 +66,7 @@ public class LessonDetailFragment extends Fragment {
         listeningViewModel.getUnDoneListening().observe(getViewLifecycleOwner(), listObserver);
 
         //Observer of list question of lesson
-        final Observer<List<ListeningQuestion>> listQuestionObserver = data -> {
-            binding.gifEmpty.setVisibility(View.GONE);
-        };
+        final Observer<List<ListeningQuestion>> listQuestionObserver = data -> binding.gifEmpty.setVisibility(View.GONE);
         listeningViewModel.getListeningQuestionLiveData().observe(getViewLifecycleOwner(), listQuestionObserver);
 
         //Observer of title - auto set when I click the lesson.
@@ -90,7 +79,6 @@ public class LessonDetailFragment extends Fragment {
 
 
         //Observer of image - auto set when I click the lesson.
-//        Log.d("listening", listeningViewModel.getImage().getValue());
         final Observer<String> imageObserver = s -> Glide.with(this).load(s).into(binding.lessonImage);
         this.listeningViewModel.getImage().observe(getViewLifecycleOwner(), imageObserver);
     }

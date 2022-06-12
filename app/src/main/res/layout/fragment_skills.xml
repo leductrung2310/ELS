@@ -86,7 +86,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/tinyPadding"
-                    android:text="@string/totalDuration"
                     android:textColor="@color/s_dark"
                     android:textStyle="bold"
                     tools:text="72 hours" />
@@ -96,7 +95,7 @@
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/smallPadding"
-                    android:src="@drawable/ic_book"
+                    android:src="@drawable/ic_menu_book"
                     app:tint="@color/s_dark"
                     tools:ignore="ContentDescription" />
 
@@ -106,7 +105,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/tinyPadding"
-                    android:text="@string/totalLesson"
                     android:textColor="@color/s_dark"
                     android:textStyle="bold"
                     tools:text="20 lessons" />
@@ -150,7 +148,6 @@
                     android:textColor="@color/primary_color"
                     android:textSize="@dimen/header3"
                     android:textStyle="bold"
-                    android:text="@string/percentage"
                     tools:text="60%" />
             </FrameLayout>
         </androidx.cardview.widget.CardView>

@@ -1,5 +1,6 @@
 package com.example.els.viewmodel;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -8,6 +9,7 @@ import com.example.els.network.dictionary.DictionaryAPIService;
 import com.example.els.network.dictionary.RetroInstance;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,9 +17,7 @@ import retrofit2.Response;
 
 public class DictionaryViewmodel extends ViewModel {
 
-    private MutableLiveData<Word> newWordLiveData = new MutableLiveData<>();
-
-    private MutableLiveData<Boolean> isSuccess = new MutableLiveData<>();
+    private final MutableLiveData<Word> newWordLiveData = new MutableLiveData<>();
 
     public void getWord(String word) {
 
@@ -26,20 +26,15 @@ public class DictionaryViewmodel extends ViewModel {
 
         call.enqueue(new Callback<List<Word>>() {
             @Override
-            public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
-
-                newWordLiveData.postValue(response.body().get(0));
+            public void onResponse(@NonNull Call<List<Word>> call, @NonNull Response<List<Word>> response) {
+                newWordLiveData.postValue(Objects.requireNonNull(response.body()).get(0));
             }
 
             @Override
-            public void onFailure(Call<List<Word>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Word>> call, @NonNull Throwable t) {
 
             }
         });
-    }
-
-    public MutableLiveData<Boolean> getIsSuccess() {
-        return isSuccess;
     }
 
     public MutableLiveData<Word> getNewWordLiveData() {

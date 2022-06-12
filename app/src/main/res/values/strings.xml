@@ -7,7 +7,7 @@
     <string name="learning_by_playing">Learning by playing is the best</string>
     <string name="listening">Listening</string>
     <string name="reading">Reading</string>
-    <string name="speaking">Speaking</string>
+    <string name="newspaper">Newspaper</string>
     <string name="writing">Writing</string>
     <string name="heading_on_boarding_1">Hundred self-learn courses for 4 skills</string>
     <string name="heading_on_boarding_2">Speaking practice with friends from all over the world</string>
@@ -97,13 +97,13 @@
     <string name="choose_synonyms">Choose synonyms</string>
     <string name="rearrange_words">Rearrange words</string>
     <string name="current_question">QUESTION %d OUT OF %d</string>
-    <string name="current_score">Your score: %d/%d</string>
+    <string name="current_score">Your score: %d/100</string>
     <string name="quiz_content">%s \n%s \n%s</string>
     <string name="first_answer">A. %s</string>
     <string name="second_answer">B. %s</string>
     <string name="skip_this_quiz"><u>Skip this quiz</u></string>
     <string name="congratulations">Congratulations</string>
-    <string name="score">%d/10</string>
+    <string name="score">%d/100</string>
     <string name="did_great_job">Yay! You did a great job!</string>
     <string name="continue_to_exit">Continue</string>
     <string name="exit_warning">You want to exit? Your progress will be lost!</string>
@@ -136,7 +136,6 @@
     <string name="play_time">%d</string>
     <string name="best_score">Best score</string>
     <string name="history_item_title"><![CDATA[Area: %s level: %d]]></string>
-
 
 
     <string name="grammar1">""</string>

@@ -2,6 +2,12 @@ package com.example.els.view.home.listening;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,32 +16,20 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 import com.example.els.R;
 import com.example.els.adapter.home.DoneListeningAdapter;
-import com.example.els.adapter.home.ListeningQuestionAdapter;
 import com.example.els.databinding.FragmentDoneListeningLessonBinding;
-import com.example.els.databinding.FragmentListeningQuestionBinding;
 import com.example.els.models.Api.Listening;
 import com.example.els.models.Api.ListeningFirebase;
-import com.example.els.models.Api.ListeningQuestion;
 import com.example.els.viewmodel.home.ListeningViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class DoneListeningLessonFragment extends Fragment {
     FragmentDoneListeningLessonBinding binding;
-    private MediaPlayer mediaPlayer = new MediaPlayer();
-    private Handler handler = new Handler();
+    private final MediaPlayer mediaPlayer = new MediaPlayer();
+    private final Handler handler = new Handler();
 
     private ListeningViewModel listeningViewModel;
     private DoneListeningAdapter listeningQuestionAdapter;
@@ -45,7 +39,7 @@ public class DoneListeningLessonFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentDoneListeningLessonBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -58,29 +52,21 @@ public class DoneListeningLessonFragment extends Fragment {
 
         binding.playerSeekBar.setMax(100);
 
-        binding.imagePlayPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mediaPlayer.isPlaying()) {
-                    handler.removeCallbacks(updater);
-                    mediaPlayer.pause();
-                    binding.imagePlayPause.setImageResource(R.drawable.ic_listening_pause);
-                } else {
-                    mediaPlayer.start();
-                    updateSeekBar();
-                    binding.imagePlayPause.setImageResource(R.drawable.ic_listening_play);
-                }
+        binding.imagePlayPause.setOnClickListener(view1 -> {
+            if (mediaPlayer.isPlaying()) {
+                handler.removeCallbacks(updater);
+                mediaPlayer.pause();
+                binding.imagePlayPause.setImageResource(R.drawable.ic_listening_play);
+            } else {
+                mediaPlayer.start();
+                updateSeekBar();
+                binding.imagePlayPause.setImageResource(R.drawable.ic_listening_pause);
             }
         });
         setUpObserver();
         preparedMediaPlayer();
 
-        binding.backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_doneListeningLessonFragment_to_skillsFragment);
-            }
-        });
+        binding.backBtn.setOnClickListener(view12 -> Navigation.findNavController(view12).navigate(R.id.action_doneListeningLessonFragment_to_skillsFragment));
     }
 
     private void setUpObserver() {
@@ -93,38 +79,23 @@ public class DoneListeningLessonFragment extends Fragment {
         };
         listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), listObserver);
 
-        listeningViewModel.getListeningQuestionLiveData().observe(getViewLifecycleOwner(), new Observer<List<ListeningQuestion>>() {
-            @Override
-            public void onChanged(List<ListeningQuestion> listeningQuestions) {
-                listeningQuestionAdapter = new DoneListeningAdapter(listeningQuestions);
-                binding.rcvListeningQuestion.setAdapter(listeningQuestionAdapter);
-            }
+        listeningViewModel.getListeningQuestionLiveData().observe(getViewLifecycleOwner(), listeningQuestions -> {
+            listeningQuestionAdapter = new DoneListeningAdapter(listeningQuestions);
+            binding.rcvListeningQuestion.setAdapter(listeningQuestionAdapter);
         });
         
-        listeningViewModel.getDoneListeningFirebase().observe(getViewLifecycleOwner(), new Observer<ArrayList<ListeningFirebase>>() {
-            @Override
-            public void onChanged(ArrayList<ListeningFirebase> listeningFirebases) {
-                for (ListeningFirebase listeningFirebase: listeningFirebases) {
-                    String firstId =  listeningFirebase.getId();
-                    String secondId =  listeningViewModel.getListeningLiveData().getValue().get(listeningViewModel.getPosition()).getUuid();
-                   if (Objects.equals(firstId, secondId)) {
-                       binding.score.setText(listeningFirebase.getScore());
-                   }
-                }
+        listeningViewModel.getDoneListeningFirebase().observe(getViewLifecycleOwner(), listeningFirebases -> {
+            for (ListeningFirebase listeningFirebase: listeningFirebases) {
+                String firstId =  listeningFirebase.getId();
+                String secondId =  Objects.requireNonNull(listeningViewModel.getListeningLiveData().getValue()).get(listeningViewModel.getPosition()).getUuid();
+               if (Objects.equals(firstId, secondId)) {
+                   binding.score.setText(listeningFirebase.getScore());
+               }
             }
         });
-
-        //Observer of title - auto set when I click the lesson.
-//        final Observer<String> titleObserver = binding.title::setText;
-//        this.listeningViewModel.getTitle().observe(getViewLifecycleOwner(), titleObserver);
-
-        //Observer of content - auto set when I click the lesson.
-//        final Observer<String> contentObserver = binding.content::setText;
-//        this.listeningViewModel.getContent().observe(getViewLifecycleOwner(), contentObserver);
-
     }
 
-    private Runnable updater = new Runnable() {
+    private final Runnable updater = new Runnable() {
         @Override
         public void run() {
             updateSeekBar();
@@ -136,7 +107,7 @@ public class DoneListeningLessonFragment extends Fragment {
 
     private void preparedMediaPlayer() {
         try {
-            mediaPlayer.setDataSource(listeningViewModel.getListeningLiveData().getValue().get(listeningViewModel.getPosition()).getAudio());
+            mediaPlayer.setDataSource(Objects.requireNonNull(listeningViewModel.getListeningLiveData().getValue()).get(listeningViewModel.getPosition()).getAudio());
             mediaPlayer.prepare();
             binding.totalDuration.setText(milliSecondsToTimer(mediaPlayer.getDuration()));
         } catch (Exception e) {
@@ -156,7 +127,6 @@ public class DoneListeningLessonFragment extends Fragment {
     private String milliSecondsToTimer(long milliSeconds) {
         String timerString = "";
         String secondsString;
-        int hours = (int) (milliSeconds / (1000 * 60 * 60));
         int minutes = (int) (milliSeconds % (1000 * 60 * 60)) / (1000 * 60);
         int seconds = (int) ((milliSeconds % (1000 * 60 * 60)) % (1000 * 60) / 1000);
 
@@ -170,4 +140,9 @@ public class DoneListeningLessonFragment extends Fragment {
         return timerString;
     }
 
+    @Override
+    public void onPause() {
+        mediaPlayer.pause();
+        super.onPause();
+    }
 }

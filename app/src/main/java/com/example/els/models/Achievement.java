@@ -4,10 +4,6 @@ public class Achievement {
     private int image;
     private String name;
 
-    Achievement() {
-
-    }
-
     public Achievement(int image, String name) {
         this.image = image;
         this.name = name;

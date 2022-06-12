@@ -3,7 +3,6 @@ package com.example.els.viewmodel.games;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.els.models.games.Quiz;
 import com.example.els.models.games.QuizGame;
 import com.example.els.network.games.WordQuizRepository;
 
@@ -79,8 +78,8 @@ public class WordQuizViewModel extends ViewModel {
 
     public void updateScore() {
         // if current score is greater than set it back to 10 to avoid crash
-        int newScore = currentScore().getValue() + 1;
-        if (newScore > 10) newScore = 10;
+        int newScore = currentScore().getValue() + 10;
+        if (newScore > 100) newScore = 100;
         currentScore().setValue(newScore);
     }
 
