@@ -137,16 +137,8 @@
     <string name="best_score">Best score</string>
     <string name="history_item_title"><![CDATA[Area: %s level: %d]]></string>
 
-
+    <string name="grammar">Grammar</string>
     <string name="grammar1">""</string>
-    <string name="grammar2"></string>
-    <string name="grammar3"></string>
-    <string name="grammar4"></string>
-    <string name="grammar5"></string>
-    <string name="grammar6"></string>
-    <string name="grammar7"></string>
-    <string name="grammar8"></string>
-    <string name="grammar9"></string>
-    <string name="grammar10"></string>
+    <string name="revise_grammar">Revise grammar</string>
 
 </resources>
