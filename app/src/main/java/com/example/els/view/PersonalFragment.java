@@ -25,7 +25,6 @@ public class PersonalFragment extends Fragment {
     private FragmentPersonalBinding binding;
     private EmailLoginViewmodel emailLoginViewmodel;
     private PhoneLoginViewmodel phoneLoginViewmodel;
-    private HomeViewModel homeViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

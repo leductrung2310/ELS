@@ -75,9 +75,9 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingStart="@dimen/mediumPadding"
+            android:paddingStart="@dimen/largePadding"
             android:paddingTop="@dimen/tinyPadding"
-            android:paddingEnd="@dimen/mediumPadding">
+            android:paddingEnd="@dimen/largePadding">
 
             <LinearLayout
                 android:layout_width="match_parent"

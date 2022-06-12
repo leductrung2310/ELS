@@ -15,7 +15,6 @@ public class AccountRepository {
     private FirebaseFirestore db;
     private FirebaseAuth firebaseAuth;
 
-
     public AccountRepository() {
         this.db = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();

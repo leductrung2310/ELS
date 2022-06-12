@@ -11,8 +11,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.els.models.ELSUser;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,10 +23,10 @@ import java.util.Objects;
 
 public class SignUpViewmodel extends AndroidViewModel {
 
-    private Application application;
-    private MutableLiveData<Boolean> isRegisterSuccessLiveData;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseFirestore firebaseFirestore;
+    private final Application application;
+    private final MutableLiveData<Boolean> isRegisterSuccessLiveData;
+    private final FirebaseAuth firebaseAuth;
+    private final FirebaseFirestore firebaseFirestore;
 
     public SignUpViewmodel(@NonNull Application application) {
         super(application);
@@ -72,24 +70,13 @@ public class SignUpViewmodel extends AndroidViewModel {
         String userId = firebaseAuth.getCurrentUser().getUid();
 
         collection.document(userId).set(newUser)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                    }
+                .addOnSuccessListener(unused -> {
                 })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-
-                    }
+                .addOnFailureListener(e -> {
                 });
     }
 
     public MutableLiveData<Boolean> getIsRegisterSuccessLiveData() {
         return isRegisterSuccessLiveData;
-    }
-
-    public interface FirestoreUserCallback {
-        public void onCallBack(boolean isPushUserSuccess);
     }
 }
