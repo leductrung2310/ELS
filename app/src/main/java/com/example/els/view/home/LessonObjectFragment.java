@@ -23,11 +23,14 @@ import com.example.els.component.GeneralInterface;
 import com.example.els.databinding.FragmentLessonObjectBinding;
 import com.example.els.models.Api.Listening;
 import com.example.els.models.Api.ReadingLesson;
+import com.example.els.models.Api.ReadingQuestion;
 import com.example.els.viewmodel.home.HomeViewModel;
 import com.example.els.viewmodel.home.ListeningViewModel;
 import com.example.els.viewmodel.home.ReadingViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 // Instances of this class are fragments representing a single
 // object in our collection.
@@ -169,41 +172,61 @@ public class LessonObjectFragment extends Fragment implements GeneralInterface.O
 
     @Override
     public void onLessonClick(View view, int position) {
-        homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), key -> {
-            switch (key) {
-                case "listening": {
-                    assert getArguments() != null;
-                    listeningViewModel.setPosition(position);
-                    if (getArguments().getInt(POSITION) == 1) {
-                        Log.d("listening", "done");
-                        Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_doneListeningLessonFragment);
-                    } else {
-                        Log.d("listening", "undone");
-                        Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_lessonDetailFragment);
+        homeViewModel.getSkillKey().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                switch (s) {
+                    case "listening": {
+                        assert getArguments() != null;
+                        listeningViewModel.setPosition(position);
+                        if (getArguments().getInt(POSITION) == 1) {
+                            Log.d("listening", "done");
+                            Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_doneListeningLessonFragment);
+                        } else {
+                            Log.d("listening", "undone");
+                            Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_lessonDetailFragment);
+                        }
+                        break;
                     }
-                    break;
-                }
-                case "reading": {
-                    assert getArguments() != null;
-                    readingViewModel.setPosition(position);
-                    if (getArguments().getInt(POSITION) == 1) {
-                        Log.d("reading lesson", "click item done");
-                        readingViewModel.getDoneReadingLesson().observe(getViewLifecycleOwner(), readingLessons -> {
-                            readingViewModel.getReadingQuestionByReadingLesson(readingLessons.get(readingViewModel.getPosition()).getUuid());
-                            readingViewModel.setReadingLesson(readingLessons.get(readingViewModel.getPosition()));
-                        });
-                        readingViewModel.getReadingQuestionsLiveDate().observe(getViewLifecycleOwner(), readingQuestions -> Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_doneReadingLessonragment));
-                    } else {
-                        Log.d("listening", "click item undone");
-                        readingViewModel.getUndoneReadingLesson().observe(getViewLifecycleOwner(), readingLessons -> {
-                            readingViewModel.getReadingQuestionByReadingLesson(readingLessons.get(readingViewModel.getPosition()).getUuid());
-                            readingViewModel.setReadingLesson(readingLessons.get(readingViewModel.getPosition()));
-                        });
-                        readingViewModel.getReadingQuestionsLiveDate().observe(getViewLifecycleOwner(), readingQuestions -> Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_readingQuestionFragment));
-                    }
-                    break;
-                }
+                    case "reading": {
+                        assert getArguments() != null;
+                        readingViewModel.setPosition(position);
+                        if (getArguments().getInt(POSITION) == 1) {
+                            Log.d("reading lesson", "click item done");
 
+                            readingViewModel.getDoneReadingLesson().observe(getViewLifecycleOwner(), new Observer<ArrayList<ReadingLesson>>() {
+                                @Override
+                                public void onChanged(ArrayList<ReadingLesson> readingLessons) {
+                                    readingViewModel.getDoneReadingQuestionByReadingLesson(readingLessons.get(readingViewModel.getPosition()).getUuid());
+                                    readingViewModel.setReadingLesson(readingLessons.get(readingViewModel.getPosition()));
+                                }
+                            });
+                            readingViewModel.getReadingQuestionLiveDataDone().observe(getViewLifecycleOwner(), new Observer<List<ReadingQuestion>>() {
+                                @Override
+                                public void onChanged(List<ReadingQuestion> readingQuestions) {
+                                    Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_doneReadingLessonragment);
+                                }
+                            });
+                        } else {
+                            Log.d("listening", "click item undone");
+                            readingViewModel.getUndoneReadingLesson().observe(getViewLifecycleOwner(), new Observer<ArrayList<ReadingLesson>>() {
+                                @Override
+                                public void onChanged(ArrayList<ReadingLesson> readingLessons) {
+                                    readingViewModel.getReadingQuestionByReadingLesson(readingLessons.get(readingViewModel.getPosition()).getUuid());
+                                    readingViewModel.setReadingLesson(readingLessons.get(readingViewModel.getPosition()));
+                                }
+                            });
+                            readingViewModel.getReadingQuestionsLiveDate().observe(getViewLifecycleOwner(), new Observer<List<ReadingQuestion>>() {
+                                @Override
+                                public void onChanged(List<ReadingQuestion> readingQuestions) {
+                                    Navigation.findNavController(view).navigate(R.id.action_skillsFragment_to_readingQuestionFragment);
+                                }
+                            });
+                        }
+                        break;
+                    }
+
+                }
             }
         });
 

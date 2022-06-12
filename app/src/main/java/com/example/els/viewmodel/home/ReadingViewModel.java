@@ -104,6 +104,8 @@ public class ReadingViewModel extends ViewModel {
     private MutableLiveData<List<ReadingQuestion>> readingQuestionsLiveDate;
     private MutableLiveData<List<ReadingAnswer>> readingAnswerLiveData;
     private ReadingQuestion readingQuestion;
+    private MutableLiveData<List<ReadingQuestion>> readingQuestionLiveDataDone;
+  private MutableLiveData<List<ReadingAnswer>> readingAnswerLiveDataDone;
 
 
     public ReadingViewModel() {
@@ -118,6 +120,8 @@ public class ReadingViewModel extends ViewModel {
         readingQuestionsLiveDate = new MutableLiveData<>();
         readingAnswerLiveData = new MutableLiveData<>();
         readingQuestion = new ReadingQuestion();
+        readingQuestionLiveDataDone = new MutableLiveData<>();
+        readingAnswerLiveDataDone = new MutableLiveData<>();
     }
 
     public void getAllReadingLesson() {
@@ -194,16 +198,33 @@ public class ReadingViewModel extends ViewModel {
         });
     }
 
+    public void getDoneReadingQuestionByReadingLesson(String id) {
+        readingRepository.getReadingQuestionByReadingLesson(id, new ReadingRepository.GetReadingQuestionByReadingLesson() {
+            @Override
+            public void onCallBackResponse(ArrayList<ReadingQuestion> readingLessons) {
+                Log.d("reading question", "reading question " + readingLessons.size());
+                readingQuestionLiveDataDone.setValue(readingLessons);
+            }
+
+            @Override
+            public void onCallBackFailure(ArrayList<ReadingQuestion> readingLessons) {
+                readingQuestionLiveDataDone.setValue(readingLessons);
+            }
+        });
+    }
+
     public void getReadingAnswerByReadingQuestion(String id) {
         readingRepository.getReadingAnswerByReadingQuestion(id, new ReadingRepository.GetReadingAnswerByReadingQuestion() {
             @Override
             public void onCallBackResponse(ArrayList<ReadingAnswer> readingLessons) {
                 readingAnswerLiveData.setValue(readingLessons);
+                readingAnswerLiveDataDone.setValue(readingLessons);
             }
 
             @Override
             public void onCallBackFailure(ArrayList<ReadingAnswer> readingLessons) {
                 readingAnswerLiveData.setValue(readingLessons);
+                readingAnswerLiveDataDone.setValue(readingLessons);
             }
         });
     }
@@ -212,12 +233,12 @@ public class ReadingViewModel extends ViewModel {
         readingRepository.getCorrectReadingAnswerByReadingQuestion(id, new ReadingRepository.GetReadingAnswerByReadingQuestion() {
             @Override
             public void onCallBackResponse(ArrayList<ReadingAnswer> readingLessons) {
-                readingAnswerLiveData.setValue(readingLessons);
+                readingAnswerLiveDataDone.setValue(readingLessons);
             }
 
             @Override
             public void onCallBackFailure(ArrayList<ReadingAnswer> readingLessons) {
-                readingAnswerLiveData.setValue(readingLessons);
+                readingAnswerLiveDataDone.setValue(readingLessons);
             }
         });
     }
@@ -317,5 +338,22 @@ public class ReadingViewModel extends ViewModel {
         this.readingQuestion = readingQuestion;
     }
 
+
+    public MutableLiveData<List<ReadingQuestion>> getReadingQuestionLiveDataDone() {
+        return readingQuestionLiveDataDone;
+    }
+
+    public void setReadingQuestionLiveDataDone(MutableLiveData<List<ReadingQuestion>> readingQuestionLiveDataDone) {
+        this.readingQuestionLiveDataDone = readingQuestionLiveDataDone;
+    }
+
+
+    public MutableLiveData<List<ReadingAnswer>> getReadingAnswerLiveDataDone() {
+        return readingAnswerLiveDataDone;
+    }
+
+    public void setReadingAnswerLiveDataDone(MutableLiveData<List<ReadingAnswer>> readingAnswerLiveDataDone) {
+        this.readingAnswerLiveDataDone = readingAnswerLiveDataDone;
+    }
 
 }

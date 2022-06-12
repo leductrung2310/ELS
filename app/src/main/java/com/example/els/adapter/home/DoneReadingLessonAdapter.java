@@ -1,6 +1,7 @@
 package com.example.els.adapter.home;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class DoneReadingLessonAdapter extends RecyclerView.Adapter<DoneReadingLe
     private ArrayList<ReadingAnswer> readingAnswers = new ArrayList<>();
 
     public DoneReadingLessonAdapter(List<ReadingQuestion> readingQuestions, ArrayList<ReadingAnswer> readingAnswers) {
+        Log.d("done reading adapter",  " " + readingQuestions.size() + readingAnswers.size());
         this.readingQuestions = readingQuestions;
         this.readingAnswers = readingAnswers;
     }
