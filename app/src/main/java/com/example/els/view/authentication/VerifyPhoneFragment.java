@@ -32,7 +32,7 @@ public class VerifyPhoneFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentVerifyPhoneBinding.inflate(getLayoutInflater());
         return binding.getRoot();
@@ -47,19 +47,24 @@ public class VerifyPhoneFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_verifyPhoneFragment_to_homeFragment);
             }
         });
+        phoneLoginViewmodel.getIsOnCodeSent().observe(getViewLifecycleOwner(), isSent -> {
+            if(!isSent) {
+                Navigation.findNavController(view).navigate(R.id.action_verifyPhoneFragment_to_phoneLoginFragment);
+            }
+        });
 
         phoneLoginViewmodel.getPhoneNumber().observe(getViewLifecycleOwner(), s -> {
             binding.phoneNumberVerify.setText(s);
         });
 
-        binding.backButton.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_verifyPhoneFragment_to_phoneLoginFragment));
+        binding.backButton.setOnClickListener(view1 -> phoneLoginViewmodel.getIsOnCodeSent().setValue(false));
 
         setupOTPInputs();
         binding.verifyBtn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.P)
             @Override
             public void onClick(View view) {
-                phoneLoginViewmodel.verifyOtp(getVerificationId(),getActivity().getApplication());
+                phoneLoginViewmodel.verifyOtp(getVerificationId(), requireActivity().getApplication());
             }
         });
     }

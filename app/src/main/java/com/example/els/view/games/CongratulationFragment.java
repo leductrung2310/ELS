@@ -18,7 +18,6 @@ import com.example.els.viewmodel.games.WordQuizViewModel;
 public class CongratulationFragment extends Fragment {
     private FragmentCongratulationBinding binding;
     private WordQuizViewModel quizViewModel;
-    //private HistoryViewModel historyViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,6 @@ public class CongratulationFragment extends Fragment {
 
         // Initialize viewmodel
         quizViewModel = new ViewModelProvider(requireActivity()).get(WordQuizViewModel.class);
-        //historyViewModel = new ViewModelProvider(requireActivity()).get(HistoryViewModel.class);
 
         // Set score
         quizViewModel.currentScore().observe(getViewLifecycleOwner(), score -> binding.tvScore.setText(getString(R.string.score, score)));
@@ -49,26 +47,4 @@ public class CongratulationFragment extends Fragment {
             quizViewModel.clearCurrentProgress();
         });
     }
-
-//    public void completeGameAndPushHistoryData() {
-//        // Define time when user complete the game
-//        Date now = new Date();
-//        // Create a new history item and pass needed arguments to it
-//        History history = new History(
-//                quizViewModel.area().getValue(),
-//                now,
-//                quizViewModel.level().getValue() == null ? 0 : quizViewModel.level().getValue(),
-//                quizViewModel.currentScore().getValue() == null ? 0 : quizViewModel.currentScore().getValue()
-//        );
-//        // Push data to firestore through view model
-//        // if this is not the first time user play update new history
-//        if(historyViewModel.isHistoryExist()) {
-//            Log.d("hisVM", "exist");
-//            historyViewModel.updateHistoryToDB(history);
-//        } // else create new history list field
-//        else {
-//            Log.d("hisVM", "not exist");
-//            historyViewModel.pushHistoryToDB(history);
-//        }
-//    }
 }
