@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.authentication.LoginFragment">
+    tools:context=".view.authentication.LoginFragment">
     
 <!--    <data>-->
 <!--        <variable-->
@@ -114,7 +114,8 @@
             android:textColor="@color/dark"
             android:textSize="18sp"
             android:textStyle="normal"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/loginBtn"

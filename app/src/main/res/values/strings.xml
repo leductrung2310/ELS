@@ -140,5 +140,8 @@
     <string name="grammar">Grammar</string>
     <string name="grammar1">""</string>
     <string name="revise_grammar">Revise grammar</string>
+    <string name="input_your_email_here">Input your email here!</string>
+    <string name="send_request">Send request</string>
+    <string name="send_request2">Send request</string>
 
 </resources>
