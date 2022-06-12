@@ -173,7 +173,7 @@
 
     <style name="Personal_newspaper_content" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/dark</item>
-        <item name="android:textSize">@dimen/bodyText2</item>
+        <item name="android:textSize">@dimen/bodyText1</item>
     </style>
 
     <style name="Meeting_room_title" parent="TextAppearance.AppCompat">

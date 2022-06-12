@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
         // On Card click listener
         binding.listeningCardView.setOnClickListener(view1 -> moveToSkillLearningTab("listening", view1));
         binding.readingCardView.setOnClickListener(view12 -> moveToSkillLearningTab("reading", view12));
-        binding.speakingCardView.setOnClickListener(view13 -> moveToSkillLearningTab("speaking", view13));
+        binding.speakingCardView.setOnClickListener(view13 -> Navigation.findNavController(view13).navigate(R.id.action_homeFragment_to_newspaperFragment));
         binding.writingCardView.setOnClickListener(view14 -> moveToSkillLearningTab("writing", view14));
 
         // On notification button click
