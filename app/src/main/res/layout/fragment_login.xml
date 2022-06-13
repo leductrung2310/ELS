@@ -153,7 +153,6 @@
                 android:layout_height="@dimen/_56sdp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="end"
-                android:layout_marginEnd="@dimen/_56sdp"
                 android:src="@drawable/ic_phone"
                 android:elevation="@dimen/_5sdp"
                 android:background="@drawable/roundedbutton"/>
@@ -166,6 +165,7 @@
                 android:src="@drawable/ic_gg"
                 android:elevation="@dimen/_5sdp"
                 android:background="@drawable/roundedbutton"
+                android:visibility="gone"
                 />
 
         </LinearLayout>
