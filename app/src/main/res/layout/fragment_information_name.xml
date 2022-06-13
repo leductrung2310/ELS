@@ -94,6 +94,7 @@
                     android:drawablePadding="10sp"
                     android:fontFamily="@font/roboto_medium"
                     android:lines="1"
+                    android:maxLines="1"
                     android:maxLength="50"
                     style="@style/Personal_edit_info_content"/>
             </com.google.android.material.textfield.TextInputLayout>

@@ -55,5 +55,12 @@ public class InformationNameFragment extends Fragment {
             }
         });
 
+        binding.personalEditInfoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_informationNameFragment_to_informationFragment);
+            }
+        });
+
     }
 }
