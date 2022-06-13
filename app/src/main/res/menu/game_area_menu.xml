@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/overall"
+        android:title="@string/overall" />
+    <item
+        android:id="@+id/toeic"
+        android:title="@string/toeic" />
+    <item
+        android:id="@+id/ielts"
+        android:title="@string/ielts" />
+    <item
+        android:id="@+id/toefl"
+        android:title="@string/toefl" />
+    <item
+        android:id="@+id/sat"
+        android:title="@string/sat" />
+</menu>

@@ -1,15 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.PersonalFragment">
+    android:background="@color/primary_color"
+    android:orientation="vertical"
+    tools:context=".view.PersonalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/personal_layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/Activity_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/largePadding"
+            android:text="@string/personal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/personal_setting"
+            style="@style/Widget.MaterialComponents.TimePicker.ImageButton"
+            android:layout_width="@dimen/mediumIconSize"
+            android:layout_height="@dimen/mediumIconSize"
+            android:layout_alignParentEnd="true"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/largePadding"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_personal_gear_solid"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Personal"
-        android:textSize="50dp"/>
+        android:background="@drawable/personal_background">
 
-</FrameLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/personal_cv_avatar"
+            android:layout_width="@dimen/_105sdp"
+            android:layout_height="@dimen/_105sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="@dimen/mediumPadding"
+            android:elevation="2dp"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:cardCornerRadius="200dp"
+            app:layout_constraintBottom_toTopOf="@id/personal_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:clickable="true">
+
+            <ImageView
+                android:id="@+id/personal_iv_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/default_avatar"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/personal_name"
+            style="@style/Personal_name"
+            android:paddingBottom="@dimen/_60sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/mediumPadding"
+            android:text="Nguyen Duc Thanh Phat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personal_cv_avatar" />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/personal_card_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personal_name">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginVertical="@dimen/largePadding"
+                android:hardwareAccelerated="true"
+                app:cardBackgroundColor="@color/primary_color"
+                app:cardCornerRadius="@dimen/smallCardCornerRadius"
+                app:cardElevation="@dimen/cardElevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/mediumPadding">
+
+                    <TextView
+                        style="@style/Personal_card_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/career" />
+
+                    <TextView
+                        android:id="@+id/personal_position"
+                        style="@style/Personal_card_body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/smallPadding"
+                        android:text="@string/student" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <View
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_50sdp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginVertical="@dimen/largePadding"
+                android:elevation="@dimen/cardElevation"
+                app:cardBackgroundColor="@color/secondary_color_1"
+                app:cardCornerRadius="@dimen/smallCardCornerRadius"
+                app:cardElevation="@dimen/cardElevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/mediumPadding">
+
+                    <TextView
+                        style="@style/Personal_card_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mobile_number" />
+
+                    <TextView
+                        android:id="@+id/personal_phone_number"
+                        style="@style/Personal_card_body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/smallPadding"
+                        android:text="0783249260" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/personal_background"
+            android:elevation="@dimen/cardElevation"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/personal_card_info">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/personal_tab_setting_1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/personal_tab_setting_iv_1"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:background="@drawable/personal_icon_card_background_1"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_personal_tab_circle_info"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Personal_card_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:text="Information"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/personal_tab_setting_iv_1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_personal_baseline_chevron_right_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_minus1sdp"
+                app:dividerColor="@color/gray"
+                app:dividerInsetEnd="@dimen/largePadding"
+                app:dividerInsetStart="@dimen/largePadding" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/personal_tab_setting_2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/personal_tab_setting_iv_2"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:background="@drawable/personal_icon_card_background_2"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_personal_tab_achievement"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Personal_card_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:text="Achievement"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/personal_tab_setting_iv_2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_personal_baseline_chevron_right_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_minus1sdp"
+                app:dividerColor="@color/gray"
+                app:dividerInsetEnd="@dimen/largePadding"
+                app:dividerInsetStart="@dimen/largePadding" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/personal_tab_setting_3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/personal_tab_setting_iv_3"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:background="@drawable/personal_icon_card_background_3"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_personal_tab_newspaper"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Personal_card_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:text="Newspaper"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/personal_tab_setting_iv_3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_personal_baseline_chevron_right_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_minus1sdp"
+                app:dividerColor="@color/gray"
+                app:dividerInsetEnd="@dimen/largePadding"
+                app:dividerInsetStart="@dimen/largePadding" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/personal_tab_setting_4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/personal_tab_setting_iv_4"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:background="@drawable/personal_icon_card_background_4"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_personal_tab_log_out"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    style="@style/Personal_card_tab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:text="Log out"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/personal_tab_setting_iv_4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/largePadding"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_personal_baseline_chevron_right_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_minus1sdp"
+                app:dividerColor="@color/gray"
+                app:dividerInsetEnd="@dimen/largePadding"
+                app:dividerInsetStart="@dimen/largePadding" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,72 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.HomeFragment">
+    android:background="@color/text_on_p"
+    tools:context=".view.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/text_on_p"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!-- ELS text view -->
         <TextView
             android:id="@+id/els_tv"
-            android:layout_width="70dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mediumPadding"
+            android:layout_marginTop="@dimen/mediumPadding"
             android:fontFamily="@font/pacifico"
             android:text="@string/app_name"
             android:textColor="@color/primary_color"
-            android:textSize="34sp"
+            android:textSize="@dimen/header1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- English Learning Simple text view -->
         <TextView
             android:id="@+id/english_learning_simple_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="@dimen/mediumPadding"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/english_learning_simple"
             android:textColor="@color/s_dark"
-            android:textSize="14sp"
+            android:textSize="@dimen/bodyText2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/els_tv" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/notification_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:backgroundTint="@color/s_light"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            app:cornerRadius="15dp"
-            app:icon="@drawable/ic_notifications"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:iconSize="24dp"
-            app:iconTint="@color/primary_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Learning by playing card view -->
         <androidx.cardview.widget.CardView
             android:id="@+id/learning_by_playing_cardView"
-            android:layout_width="360dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/largePadding"
             android:backgroundTint="@color/primary_color"
-            app:cardCornerRadius="25dp"
-            app:cardElevation="20dp"
+            app:cardCornerRadius="@dimen/mediumCardCornerRadius"
+            app:cardElevation="@dimen/cardElevation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/english_learning_simple_tv">
@@ -79,37 +57,38 @@
                     android:id="@+id/learning_by_playing_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="@dimen/mediumPadding"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/learning_by_n_playing"
                     android:textColor="@color/text_on_p"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/header2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_width="110dp"
-                    android:layout_height="55dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mediumPadding"
+                    android:layout_marginTop="@dimen/tinyPadding"
                     android:backgroundTint="@color/text_on_p"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Why not?"
                     android:textAllCaps="false"
                     android:textColor="@color/text_on_s"
-                    android:textSize="16sp"
-                    app:cornerRadius="30dp"
+                    android:textSize="@dimen/bodyText2"
+                    app:cornerRadius="@dimen/mediumCardCornerRadius"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/learning_by_playing_tv"
                     tools:ignore="HardcodedText" />
 
                 <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginEnd="@dimen/mediumPadding"
                     android:src="@drawable/hands_phone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
@@ -117,195 +96,228 @@
         <!-- Listening card view -->
         <androidx.cardview.widget.CardView
             android:id="@+id/listening_card_view"
-            android:layout_width="165dp"
-            android:layout_height="190dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_marginStart="@dimen/mediumPadding"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/mediumPadding"
             android:backgroundTint="@color/text_on_p"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp"
+            app:cardCornerRadius="@dimen/smallCardCornerRadius"
+            app:cardElevation="@dimen/smallCardCornerRadius"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/learning_by_playing_cardView">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/listening"
-                    android:textColor="@color/text_on_s"
-                    android:textSize="20sp" />
-                <TextView
-                    android:id="@+id/listening_lessons_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="25 lessons"
-                    android:textColor="@color/s_dark"
-                    android:textSize="14sp"
-                    tools:ignore="HardcodedText" />
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
+                    android:id="@+id/img_listening"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/smallPadding"
                     android:src="@drawable/listening"
-                    android:layout_gravity="center_horizontal"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_listening"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/listening"
+                        android:textColor="@color/text_on_s"
+                        android:textSize="@dimen/header3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="10 lessons"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/bodyText2" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/smallIconSize"
+                    android:layout_height="@dimen/smallIconSize"
+                    android:layout_marginEnd="@dimen/smallPadding"
+                    android:src="@drawable/ic_forward"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/text_on_s"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <!-- Reading card view -->
         <androidx.cardview.widget.CardView
             android:id="@+id/reading_card_view"
-            android:layout_width="165dp"
-            android:layout_height="190dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_marginStart="@dimen/mediumPadding"
             android:backgroundTint="@color/text_on_p"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/learning_by_playing_cardView">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/reading"
-                    android:textColor="@color/text_on_s"
-                    android:textSize="20sp" />
-                <TextView
-                    android:id="@+id/reading_lessons_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="25 lessons"
-                    android:textColor="@color/s_dark"
-                    android:textSize="14sp"
-                    tools:ignore="HardcodedText" />
-
-                <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:src="@drawable/reading"
-                    android:layout_gravity="center_horizontal"/>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </androidx.cardview.widget.CardView>
-
-        <!-- Speaking card view -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/Speaking_card_view"
-            android:layout_width="165dp"
-            android:layout_height="190dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/text_on_p"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp"
+            android:layout_marginTop="@dimen/mediumPadding"
+            android:layout_marginEnd="@dimen/mediumPadding"
+            app:cardCornerRadius="@dimen/smallCardCornerRadius"
+            app:cardElevation="@dimen/cardElevation"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/listening_card_view">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listening_card_view">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/speaking"
-                    android:textColor="@color/text_on_s"
-                    android:textSize="20sp" />
-                <TextView
-                    android:id="@+id/speaking_lessons_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="25 lessons"
-                    android:textColor="@color/s_dark"
-                    android:textSize="14sp"
-                    tools:ignore="HardcodedText" />
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_reading"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/reading"
+                        android:textColor="@color/text_on_s"
+                        android:textSize="@dimen/header3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="5 lessons"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/bodyText2" />
+
+                </LinearLayout>
 
                 <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/speaking"
-                    android:layout_gravity="center_horizontal"/>
+                    android:id="@+id/img_reading"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/reading"
+                    android:layout_marginStart="@dimen/smallPadding"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                <ImageView
+                    android:layout_width="@dimen/smallIconSize"
+                    android:layout_height="@dimen/smallIconSize"
+                    android:layout_marginEnd="@dimen/smallPadding"
+                    android:src="@drawable/ic_forward"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/text_on_s"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <!-- Writing card view -->
+        <!-- Grammar card view -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/Writing_card_view"
-            android:layout_width="165dp"
-            android:layout_height="190dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="20dp"
+            android:id="@+id/grammar_card_view"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_marginStart="@dimen/mediumPadding"
+            android:layout_marginTop="@dimen/mediumPadding"
+            android:layout_marginBottom="@dimen/largePadding"
             android:backgroundTint="@color/text_on_p"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp"
+            app:cardCornerRadius="@dimen/smallCardCornerRadius"
+            app:cardElevation="@dimen/cardElevation"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="@dimen/mediumPadding"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/listening_card_view">
+            app:layout_constraintTop_toBottomOf="@id/reading_card_view">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/writing"
-                    android:textColor="@color/text_on_s"
-                    android:textSize="20sp" />
-                <TextView
-                    android:id="@+id/writing_lessons_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="25 lessons"
-                    android:textColor="@color/s_dark"
-                    android:textSize="14sp"
-                    tools:ignore="HardcodedText" />
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/img_grammar"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/grammar"
+                        android:textColor="@color/text_on_s"
+                        android:textSize="@dimen/header3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/smallPadding"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/revise_grammar"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="@dimen/bodyText2" />
+                </LinearLayout>
 
                 <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/writing"
-                    android:layout_gravity="center_horizontal"/>
+                    android:id="@+id/img_grammar"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="@dimen/smallPadding"
+                    android:src="@drawable/speaking"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                <ImageView
+                    android:layout_width="@dimen/smallIconSize"
+                    android:layout_height="@dimen/smallIconSize"
+                    android:layout_marginEnd="@dimen/smallPadding"
+                    android:src="@drawable/ic_forward"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/text_on_s"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="@dimen/smallPadding">
+
+    <TextView
+        android:id="@+id/lesson_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/primary_color"
+        android:textSize="@dimen/header1"
+        android:textStyle="bold"
+        tool:text="01" />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mediumPadding"
+        android:layout_marginEnd="@dimen/mediumPadding"
+        android:layout_weight="5.5"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lesson_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_bold"
+            android:maxLines="1"
+            android:textColor="@color/text_on_s"
+            android:textSize="@dimen/header3"
+            android:textStyle="bold"
+            tool:text="Family life" />
+
+        <TextView
+            android:id="@+id/duration_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/secondary_color"
+            android:textSize="@dimen/bodyText2"
+            android:textStyle="bold"
+            tool:text="12:06 min" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.75">
+
+        <ImageView
+            android:id="@+id/state_img"
+            android:layout_width="@dimen/mediumIconSize"
+            android:layout_height="@dimen/mediumIconSize"
+            android:layout_gravity="center"
+            android:src="@drawable/done_button_background"
+            tool:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/state_ic"
+            android:layout_width="@dimen/smallIconSize"
+            android:layout_height="@dimen/smallIconSize"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_check"
+            tool:ignore="ContentDescription" />
+
+    </FrameLayout>
+
+</LinearLayout>

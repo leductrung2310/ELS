@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/item_lq_1"
+        style="@style/Lesson_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:text="123312" />
+
+    <RadioGroup
+        android:id="@+id/radio_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_lq_1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/lq_answer_1"
+            style="@style/Personal_edit_info_radio_button"
+            android:text="@string/male" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/lq_answer_2"
+            style="@style/Personal_edit_info_radio_button"
+            android:text="@string/female" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/lq_answer_3"
+            style="@style/Personal_edit_info_radio_button"
+            android:text="@string/other" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/lq_answer_4"
+            style="@style/Personal_edit_info_radio_button"
+            android:text="@string/other" />
+    </RadioGroup>
+</RelativeLayout>

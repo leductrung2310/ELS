@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.authentication.SignUpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/ic_sign_up"
+            android:layout_marginTop="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/text_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up2"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/pacifico"
+            android:gravity="center"
+            android:layout_marginTop="20dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="10dp"
+            android:hint="@string/user_name"
+            android:backgroundTint="@color/white"
+            android:textColorHint="@color/dark"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            android:layout_gravity="center"
+            app:startIconTint="@color/dark"
+            app:startIconDrawable="@drawable/ic_person">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/dark"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_gravity="center"
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="10dp"
+            android:hint="@string/email"
+            android:backgroundTint="@color/white"
+            android:textColorHint="@color/dark"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            android:layout_gravity="center"
+            app:startIconTint="@color/dark"
+            app:startIconDrawable="@drawable/ic_email">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/dark"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_gravity="center"
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="10dp"
+            android:hint="@string/password"
+            android:backgroundTint="@color/white"
+            android:textColorHint="@color/dark"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            android:layout_gravity="center"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/dark"
+            app:startIconTint="@color/dark"
+            app:startIconDrawable="@drawable/ic_lock">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/dark"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_gravity="center"
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:paddingTop="10dp"
+            android:hint="@string/confirm_password"
+            android:backgroundTint="@color/white"
+            android:textColorHint="@color/dark"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            app:hintEnabled="true"
+            android:layout_gravity="center"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/dark"
+            app:startIconTint="@color/dark"
+            app:startIconDrawable="@drawable/ic_lock">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/dark"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <View
+            android:layout_gravity="center"
+            android:layout_width="320dp"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="310dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:background="@drawable/background_primary"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/sign_up2"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/viewSignup"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_an_account"
+                android:layout_gravity="center"
+                android:textColor="@color/dark"
+                android:textSize="18sp"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:id="@+id/back_to_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/log_in2"
+                android:layout_gravity="center"
+                android:textColor="@color/primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:onClick="onClick"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
