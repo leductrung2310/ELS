@@ -24,4 +24,5 @@ public class HomeViewModel extends ViewModel {
     public void getAccountInfo() {
         accountRepository.getUserDataFromFirestore();
     }
+
 }

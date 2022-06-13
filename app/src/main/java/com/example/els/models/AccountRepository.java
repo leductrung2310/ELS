@@ -9,15 +9,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class AccountRepository {
 
     private FirebaseFirestore db;
     private FirebaseAuth firebaseAuth;
+    private FirebaseStorage storage;
 
     public AccountRepository() {
         this.db = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
     }
 
     int checkInt(String string) {

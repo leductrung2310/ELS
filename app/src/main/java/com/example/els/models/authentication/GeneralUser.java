@@ -6,6 +6,7 @@ public class GeneralUser {
     String gender;
     String position;
     String phoneNumber;
+    String avatarUrl;
 
     private static final GeneralUser ourInstance = new GeneralUser();
     public static GeneralUser getInstance() {
@@ -50,5 +51,13 @@ public class GeneralUser {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 }
