@@ -55,7 +55,7 @@ public class DictionaryFragment extends Fragment {
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                dictionaryViewmodel.getWord(query);
+                dictionaryViewmodel.getWord(query, getContext());
                 return false;
             }
 
