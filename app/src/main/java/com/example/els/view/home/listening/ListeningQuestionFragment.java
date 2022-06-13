@@ -130,7 +130,7 @@ public class ListeningQuestionFragment extends Fragment implements ListeningQues
                         materialAlertDialogBuilder1.setTitle("Lesson result");
                         materialAlertDialogBuilder1.setMessage("Your score: " + listeningViewModel.getScore().getValue() + " points");
                         materialAlertDialogBuilder1.setPositiveButton("Oke", (dialogInterface1, i1) -> {
-                            listeningViewModel.pushDoneLessonToFirestore();
+                            listeningViewModel.pushDoneLessonToFirestore(answer);
                             Navigation.findNavController(view13).navigate(R.id.action_listeningQuestionFragment_to_skillsFragment);
                         });
                         materialAlertDialogBuilder1.show();

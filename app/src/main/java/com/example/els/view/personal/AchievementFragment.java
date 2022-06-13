@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -32,9 +33,12 @@ public class AchievementFragment extends Fragment {
     private FragmentAchievementBinding binding;
     private ListeningViewModel listeningViewModel;
     private ReadingViewModel readingViewModel;
-    private  ArrayList<Achievement> courseModelArrayList;
+    private ArrayList<Achievement> courseModelArrayList;
     int score = 0;
     int duration = 0;
+    private MutableLiveData<Integer> scoreLiveData = new MutableLiveData<Integer>();
+    private MutableLiveData<Integer> durationLiveData = new MutableLiveData<Integer>();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,9 +100,10 @@ public class AchievementFragment extends Fragment {
         listeningViewModel.getDoneListeningFirebase().observe(getViewLifecycleOwner(), new Observer<ArrayList<ListeningFirebase>>() {
             @Override
             public void onChanged(ArrayList<ListeningFirebase> listeningFirebases) {
-                for (ListeningFirebase _listeningFirebases: listeningFirebases
+                for (ListeningFirebase _listeningFirebases : listeningFirebases
                 ) {
                     score += Integer.parseInt(_listeningFirebases.getScore());
+                    scoreLiveData.setValue(score);
                 }
             }
         });
@@ -106,29 +111,54 @@ public class AchievementFragment extends Fragment {
         readingViewModel.getDoneReadingLessonFromFirebase().observe(getViewLifecycleOwner(), new Observer<ArrayList<ReadingFirebase>>() {
             @Override
             public void onChanged(ArrayList<ReadingFirebase> readingFirebases) {
-                for (ReadingFirebase _readingFirebase: readingFirebases
+                for (ReadingFirebase _readingFirebase : readingFirebases
                 ) {
                     score += Integer.parseInt(_readingFirebase.getScore());
+                    scoreLiveData.setValue(score);
                 }
             }
         });
 
-        if (score >= 10) {
-            courseModelArrayList.add(achievement_three);
-            setAchievement();
-        }
+        scoreLiveData.observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                if (score >= 10) {
+                    if (!courseModelArrayList.contains(achievement_three)) {
+                        courseModelArrayList.add(achievement_three);
+                    }
+                    setAchievement();
+                }
 
-        if (score >= 100) {
-            courseModelArrayList.add(achievement_four);
-            setAchievement();
-        }
+                if (score >= 100) {
+                    if (!courseModelArrayList.contains(achievement_four)) {
+                        courseModelArrayList.add(achievement_four);
+                    }
+                    setAchievement();
+                }
+                AchievementAdapter achievementAdapter = new AchievementAdapter(requireContext(), 0, courseModelArrayList);
+
+                binding.idGVcourses.setAdapter(achievementAdapter);
+                Log.d("achievement", String.valueOf(courseModelArrayList.size()));
+            }
+        });
+
+//        if (score >= 10) {
+//            courseModelArrayList.add(achievement_three);
+//            setAchievement();
+//        }
+//
+//        if (score >= 100) {
+//            courseModelArrayList.add(achievement_four);
+//            setAchievement();
+//        }
 
         listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), new Observer<ArrayList<Listening>>() {
             @Override
             public void onChanged(ArrayList<Listening> listenings) {
-                for (Listening _listeningFirebases: listenings
+                for (Listening _listeningFirebases : listenings
                 ) {
                     duration += _listeningFirebases.getDuration();
+                    durationLiveData.setValue(duration);
                 }
             }
         });
@@ -136,21 +166,35 @@ public class AchievementFragment extends Fragment {
         readingViewModel.getDoneReadingLesson().observe(getViewLifecycleOwner(), new Observer<ArrayList<ReadingLesson>>() {
             @Override
             public void onChanged(ArrayList<ReadingLesson> readingLessons) {
-                for (ReadingLesson _listeningFirebases: readingLessons
+                for (ReadingLesson _listeningFirebases : readingLessons
                 ) {
                     duration += _listeningFirebases.getDuration();
+                    durationLiveData.setValue(duration);
                 }
             }
         });
 
-        if(duration >=50) {
-            courseModelArrayList.add(achievement_seven);
-            setAchievement();
-        }
-        if(duration >=100) {
-            courseModelArrayList.add(achievement_eight);
-            setAchievement();
-        }
+        durationLiveData.observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                if (duration >= 50) {
+                    if (!courseModelArrayList.contains(achievement_seven)) {
+                        courseModelArrayList.add(achievement_seven);
+                    }
+                    setAchievement();
+                }
+                if (duration >= 100) {
+                    if (!courseModelArrayList.contains(achievement_eight)) {
+                        courseModelArrayList.add(achievement_eight);
+                    }
+                    setAchievement();
+                }
+                AchievementAdapter achievementAdapter = new AchievementAdapter(requireContext(), 0, courseModelArrayList);
+
+                binding.idGVcourses.setAdapter(achievementAdapter);
+                Log.d("achievement", String.valueOf(courseModelArrayList.size()));
+            }
+        });
 
         listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), new Observer<ArrayList<Listening>>() {
             @Override
@@ -172,11 +216,10 @@ public class AchievementFragment extends Fragment {
             }
         });
 
-        AchievementAdapter achievementAdapter = new AchievementAdapter(requireContext(),0,courseModelArrayList);
+        AchievementAdapter achievementAdapter = new AchievementAdapter(requireContext(), 0, courseModelArrayList);
 
         binding.idGVcourses.setAdapter(achievementAdapter);
         Log.d("achievement", String.valueOf(courseModelArrayList.size()));
-
 
 
         binding.personalAchievementBack.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_achievementFragment_to_personalFragment));

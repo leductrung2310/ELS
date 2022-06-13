@@ -56,14 +56,9 @@ public class DoneReadingLessonragment extends Fragment {
         binding.backBtn.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(R.id.action_doneReadingLessonragment_to_skillsFragment));
 
 
-        binding.lqAnswer1.setBackgroundResource(R.color.white_3);
-        binding.lqAnswer2.setBackgroundResource(R.color.white_3);
-        binding.lqAnswer3.setBackgroundResource(R.color.white_3);
-        binding.lqAnswer4.setBackgroundResource(R.color.white_3);
         showAnswer(0);
 
         _readingAnswers = new ArrayList<>();
-
 
 
 //        readingViewModel.getReadingAnswerLiveDataDone().observe(getViewLifecycleOwner(), new Observer<List<ReadingAnswer>>() {
@@ -93,7 +88,7 @@ public class DoneReadingLessonragment extends Fragment {
                 if (binding.startButton.getText() == "Finish") {
 
                 }
-                if ( i < readingViewModel.getReadingQuestionLiveDataDone().getValue().size()) {
+                if (i < readingViewModel.getReadingQuestionLiveDataDone().getValue().size()) {
 
                     showAnswer(i);
                     binding.lqAnswer1.setBackgroundResource(R.color.white_3);
@@ -110,9 +105,9 @@ public class DoneReadingLessonragment extends Fragment {
 
 
         readingViewModel.getDoneReadingLessonFromFirebase().observe(getViewLifecycleOwner(), readingFirebases -> {
-            for (ReadingFirebase readingFirebase: readingFirebases) {
-                String firstId =  readingFirebase.getId();
-                String secondId =  Objects.requireNonNull(readingViewModel.getReadingLessonLiveData().getValue()).get(readingViewModel.getPosition()).getUuid();
+            for (ReadingFirebase readingFirebase : readingFirebases) {
+                String firstId = readingFirebase.getId();
+                String secondId = Objects.requireNonNull(readingViewModel.getReadingLessonLiveData().getValue()).get(readingViewModel.getPosition()).getUuid();
                 if (Objects.equals(firstId, secondId)) {
                     binding.score.setText(readingFirebase.getScore());
                 }
@@ -120,19 +115,27 @@ public class DoneReadingLessonragment extends Fragment {
         });
     }
 
+    ReadingFirebase _readingFirebase = new ReadingFirebase();
+
     private void showAnswer(int i) {
         readingViewModel.getReadingQuestionLiveDataDone().observe(getViewLifecycleOwner(), new Observer<List<ReadingQuestion>>() {
             @Override
             public void onChanged(List<ReadingQuestion> readingQuestions) {
+                for (ReadingFirebase readingFirebase : Objects.requireNonNull(readingViewModel.getDoneReadingLessonFromFirebase().getValue())
+                ) {
+                    if (readingFirebase.getId().equals(readingQuestions.get(0).getReadingLessonUuid())) {
+                        _readingFirebase = readingFirebase;
+                    }
+                }
                 readingViewModel.setReadingQuestion(readingQuestions.get(i));
                 readingViewModel.getReadingAnswerByReadingQuestion((readingQuestions.get(i).getUuid()));
                 binding.itemLq1.setText(readingQuestions.get(i).getContent());
+
             }
         });
         readingViewModel.getReadingAnswerLiveDataDone().observe(getViewLifecycleOwner(), new Observer<List<ReadingAnswer>>() {
             @Override
             public void onChanged(List<ReadingAnswer> readingAnswers) {
-                Log.d("string",""+ readingAnswers.size());
                 binding.lqAnswer1.setText(readingAnswers.get(0).getAnswer());
                 binding.lqAnswer2.setText(readingAnswers.get(1).getAnswer());
                 binding.lqAnswer3.setText(readingAnswers.get(2).getAnswer());
@@ -142,7 +145,7 @@ public class DoneReadingLessonragment extends Fragment {
                 binding.lqAnswer3.setBackgroundResource(R.color.white_3);
                 binding.lqAnswer4.setBackgroundResource(R.color.white_3);
                 if (readingAnswers.get(0).isCorrect()) {
-                 binding.lqAnswer1.setBackgroundResource(R.color.primary_color);
+                    binding.lqAnswer1.setBackgroundResource(R.color.primary_color);
                 }
                 if (readingAnswers.get(1).isCorrect()) {
                     binding.lqAnswer2.setBackgroundResource(R.color.primary_color);
@@ -152,6 +155,82 @@ public class DoneReadingLessonragment extends Fragment {
                 }
                 if (readingAnswers.get(3).isCorrect()) {
                     binding.lqAnswer4.setBackgroundResource(R.color.primary_color);
+                }
+                if (_readingFirebase.getAnswer().get(i).equals(readingAnswers.get(0).getAnswer())) {
+                    if (readingAnswers.get(0).isCorrect()) {
+                        binding.lqAnswer1.setBackgroundResource(R.color.green);
+                    } else {
+                        binding.lqAnswer1.setBackgroundResource(R.color.red);
+                        if (readingAnswers.get(0).isCorrect()) {
+                            binding.lqAnswer1.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(1).isCorrect()) {
+                            binding.lqAnswer2.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(2).isCorrect()) {
+                            binding.lqAnswer3.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(3).isCorrect()) {
+                            binding.lqAnswer4.setBackgroundResource(R.color.green);
+                        }
+                    }
+                }
+                if (_readingFirebase.getAnswer().get(i).equals(readingAnswers.get(1).getAnswer())) {
+                    if (readingAnswers.get(1).isCorrect()) {
+                        binding.lqAnswer2.setBackgroundResource(R.color.green);
+                    } else {
+                        binding.lqAnswer2.setBackgroundResource(R.color.red);
+                        if (readingAnswers.get(0).isCorrect()) {
+                            binding.lqAnswer1.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(1).isCorrect()) {
+                            binding.lqAnswer2.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(2).isCorrect()) {
+                            binding.lqAnswer3.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(3).isCorrect()) {
+                            binding.lqAnswer4.setBackgroundResource(R.color.green);
+                        }
+                    }
+                }
+                if (_readingFirebase.getAnswer().get(i).equals(readingAnswers.get(2).getAnswer())) {
+                    if (readingAnswers.get(2).isCorrect()) {
+                        binding.lqAnswer3.setBackgroundResource(R.color.green);
+                    } else {
+                        binding.lqAnswer3.setBackgroundResource(R.color.red);
+                        if (readingAnswers.get(0).isCorrect()) {
+                            binding.lqAnswer1.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(1).isCorrect()) {
+                            binding.lqAnswer2.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(2).isCorrect()) {
+                            binding.lqAnswer3.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(3).isCorrect()) {
+                            binding.lqAnswer4.setBackgroundResource(R.color.green);
+                        }
+                    }
+                }
+                if (_readingFirebase.getAnswer().get(i).equals(readingAnswers.get(3).getAnswer())) {
+                    if (readingAnswers.get(3).isCorrect()) {
+                        binding.lqAnswer4.setBackgroundResource(R.color.green);
+                    } else {
+                        binding.lqAnswer4.setBackgroundResource(R.color.red);
+                        if (readingAnswers.get(0).isCorrect()) {
+                            binding.lqAnswer1.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(1).isCorrect()) {
+                            binding.lqAnswer2.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(2).isCorrect()) {
+                            binding.lqAnswer3.setBackgroundResource(R.color.green);
+                        }
+                        if (readingAnswers.get(3).isCorrect()) {
+                            binding.lqAnswer4.setBackgroundResource(R.color.green);
+                        }
+                    }
                 }
             }
         });

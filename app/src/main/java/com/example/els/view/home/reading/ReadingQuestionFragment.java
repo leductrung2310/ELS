@@ -18,6 +18,7 @@ import com.example.els.databinding.FragmentReadingQuestionBinding;
 import com.example.els.viewmodel.home.ReadingViewModel;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ReadingQuestionFragment extends Fragment {
@@ -25,6 +26,7 @@ public class ReadingQuestionFragment extends Fragment {
     private ReadingViewModel readingViewModel;
     int i = 0;
     int score = 0;
+    private final ArrayList<String> answer = new ArrayList<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +54,14 @@ public class ReadingQuestionFragment extends Fragment {
                 if (selectedId != -1) {
                     // find the radiobutton by returned id
                     RadioButton radioButton = binding.radioButton.findViewById(selectedId);
+                    answer.add(radioButton.getText().toString());
                     Objects.requireNonNull(readingViewModel.getReadingAnswerLiveData().getValue()).forEach(readingAnswer -> {
                         if(radioButton.getText().toString().equals(readingAnswer.getAnswer()) && readingAnswer.isCorrect()) {
                             score+=10;
                         }
                     });
+                } else {
+                    answer.add("answer");
                 }
                 MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(requireContext());
                 materialAlertDialogBuilder.setTitle("Do you want to finish the lesson");
@@ -65,7 +70,7 @@ public class ReadingQuestionFragment extends Fragment {
                     materialAlertDialogBuilder1.setTitle("Lesson result");
                     materialAlertDialogBuilder1.setMessage("Your score: " + score+ " points");
                     materialAlertDialogBuilder1.setPositiveButton("Oke", (dialogInterface1, i1) -> {
-                        readingViewModel.pushDoneReadingLessonToFirestore(score);
+                        readingViewModel.pushDoneReadingLessonToFirestore(score, answer);
                         Navigation.findNavController(view12).navigate(R.id.action_readingQuestionFragment_to_skillsFragment);
                     });
                     materialAlertDialogBuilder1.show();
@@ -79,12 +84,15 @@ public class ReadingQuestionFragment extends Fragment {
                 if (selectedId != -1) {
                     // find the radiobutton by returned id
                     RadioButton radioButton = binding.radioButton.findViewById(selectedId);
+                    answer.add(radioButton.getText().toString());
                     Objects.requireNonNull(readingViewModel.getReadingAnswerLiveData().getValue()).forEach(readingAnswer -> {
                         if(radioButton.getText().toString().equals(readingAnswer.getAnswer()) && readingAnswer.isCorrect()) {
                             Log.d("reading", "dung");
                             score+=10;
                         }
                     });
+                } else {
+                    answer.add("answer");
                 }
 
 

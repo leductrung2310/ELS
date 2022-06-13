@@ -5,7 +5,22 @@
     android:layout_margin="@dimen/_4sdp"
     android:background="@color/white">
     <TextView
-        android:id="@+id/item_done_listening_lesson"
+        android:id="@+id/item_done_listening_lesson_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Lesson_content"/>
+    <TextView
+        android:id="@+id/item_done_listening_lesson_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Lesson_content"/>
+    <TextView
+        android:id="@+id/item_done_listening_lesson_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Lesson_content"/>
+    <TextView
+        android:id="@+id/item_done_listening_lesson_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Lesson_content"/>

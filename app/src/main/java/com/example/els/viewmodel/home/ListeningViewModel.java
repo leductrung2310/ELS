@@ -194,8 +194,8 @@ public class ListeningViewModel extends ViewModel {
 
 
     //pushDoneLessonToFirestore
-    public void pushDoneLessonToFirestore() {
-        ListeningFirebase listeningFirebase = new ListeningFirebase(Objects.requireNonNull(unDoneListening.getValue()).get(position).getUuid(), Integer.toString(score.getValue()));
+    public void pushDoneLessonToFirestore(ArrayList<String> answer) {
+        ListeningFirebase listeningFirebase = new ListeningFirebase(Objects.requireNonNull(unDoneListening.getValue()).get(position).getUuid(), Integer.toString(score.getValue()), answer);
         listeningRepository.pushDoneListeningFromFirestore(listeningFirebase);
     }
 

@@ -21,6 +21,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,7 +106,12 @@ public class ListeningRepository {
                 if (task.isSuccessful()) {
                     ArrayList<ListeningFirebase> listeningFirebases = new ArrayList<>();
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        listeningFirebases.add(new ListeningFirebase(document.getString("id"), document.getString("score")));
+                        listeningFirebases.add(
+                                new ListeningFirebase(
+                                        document.getString("id"),
+                                        document.getString("score"),
+                                        (ArrayList) document.get("answer")
+                                        ));
                     }
                     listeningFromFirestore.onGetDoneListening(listeningFirebases);
                 }

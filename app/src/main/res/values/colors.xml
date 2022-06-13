@@ -32,4 +32,7 @@
 
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#7D73C3</color>
     <color name="ripple_color">#cfd8dc</color>
+
+    <color name="green">#23c552</color>
+    <color name="red">#f84f31</color>
 </resources>

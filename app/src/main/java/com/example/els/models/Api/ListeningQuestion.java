@@ -6,7 +6,7 @@ public class ListeningQuestion {
     @SerializedName("id")
     private String uuid;
 
-    @SerializedName("listeningid")
+    @SerializedName("listeningUuid")
     private String listeningUuid;
 
     @SerializedName("content")
@@ -56,5 +56,15 @@ public class ListeningQuestion {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    @Override
+    public String toString() {
+        return "ListeningQuestion{" +
+                "uuid='" + uuid + '\'' +
+                ", listeningUuid='" + listeningUuid + '\'' +
+                ", content='" + content + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
     }
 }

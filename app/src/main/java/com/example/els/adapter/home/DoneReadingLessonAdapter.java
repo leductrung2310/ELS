@@ -64,7 +64,7 @@ public class DoneReadingLessonAdapter extends RecyclerView.Adapter<DoneReadingLe
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.item_done_listening_lesson);
+            textView = itemView.findViewById(R.id.item_done_listening_lesson_1);
         }
     }
 }

@@ -61,7 +61,7 @@ public class PersonalFragment extends Fragment {
 
         binding.personalTabSetting1.setOnClickListener(view1 -> Navigation.findNavController(view1).navigate(PersonalFragmentDirections.actionPersonalFragmentToInformationFragment()));
         binding.personalTabSetting2.setOnClickListener(view12 -> Navigation.findNavController(view12).navigate(PersonalFragmentDirections.actionPersonalFragmentToAchievementFragment()));
-        binding.personalTabSetting3.setOnClickListener(view13 -> Navigation.findNavController(view13).navigate(PersonalFragmentDirections.actionPersonalFragmentToNewspaperFragment()));
+        //binding.personalTabSetting3.setOnClickListener(view13 -> Navigation.findNavController(view13).navigate(PersonalFragmentDirections.actionPersonalFragmentToNewspaperFragment()));
         binding.personalSetting.setOnClickListener(view14 -> Navigation.findNavController(view14).navigate(PersonalFragmentDirections.actionPersonalFragmentToSettingFragment()));
 
         binding.personalTabSetting4.setOnClickListener(view15 -> {

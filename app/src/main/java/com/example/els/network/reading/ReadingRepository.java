@@ -67,7 +67,12 @@ public class ReadingRepository {
                 if (task.isSuccessful()) {
                     ArrayList<ReadingFirebase> readingFirebases = new ArrayList<>();
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        readingFirebases.add(new ReadingFirebase(document.getString("id"), document.getString("score")));
+                        readingFirebases.add(
+                                new ReadingFirebase(
+                                        document.getString("id"),
+                                        document.getString("score"),
+                                        (ArrayList) document.get("answer")
+                                ));
                     }
                     getDoneListeningFromFirestore.onCallBackResponse(readingFirebases);
                 } else {
@@ -77,7 +82,7 @@ public class ReadingRepository {
         });
     }
 
-    public  void getReadingQuestionByReadingLesson(String id, GetReadingQuestionByReadingLesson getReadingQuestionByReadingLesson){
+    public void getReadingQuestionByReadingLesson(String id, GetReadingQuestionByReadingLesson getReadingQuestionByReadingLesson) {
         Map<String, String> params = new HashMap<String, String>();
         params.put("id", id);
         readingApi.getReadingQuestionByReadingLesson(params).enqueue(new Callback<List<ReadingQuestion>>() {
@@ -98,7 +103,7 @@ public class ReadingRepository {
         });
     }
 
-    public void getReadingAnswerByReadingQuestion(String id, GetReadingAnswerByReadingQuestion getReadingAnswerByReadingQuestion){
+    public void getReadingAnswerByReadingQuestion(String id, GetReadingAnswerByReadingQuestion getReadingAnswerByReadingQuestion) {
         Map<String, String> params = new HashMap<String, String>();
         params.put("id", id);
         readingApi.getReadingAnswerByReadingQuestion(params).enqueue(new Callback<List<ReadingAnswer>>() {
@@ -136,7 +141,7 @@ public class ReadingRepository {
         });
     }
 
-    public void getCorrectReadingAnswerByReadingQuestion(String id, GetReadingAnswerByReadingQuestion getReadingAnswerByReadingQuestion){
+    public void getCorrectReadingAnswerByReadingQuestion(String id, GetReadingAnswerByReadingQuestion getReadingAnswerByReadingQuestion) {
         Map<String, String> params = new HashMap<String, String>();
         params.put("id", id);
         readingApi.getCorrectReadingAnswerByReadingQuestion(params).enqueue(new Callback<List<ReadingAnswer>>() {
@@ -159,21 +164,25 @@ public class ReadingRepository {
 
     public interface GetReadingAnswerByReadingQuestion {
         void onCallBackResponse(ArrayList<ReadingAnswer> readingLessons);
+
         void onCallBackFailure(ArrayList<ReadingAnswer> readingLessons);
     }
 
     public interface GetReadingQuestionByReadingLesson {
         void onCallBackResponse(ArrayList<ReadingQuestion> readingLessons);
+
         void onCallBackFailure(ArrayList<ReadingQuestion> readingLessons);
     }
 
     public interface GetDoneListeningFromFirestore {
         void onCallBackResponse(ArrayList<ReadingFirebase> readingFirebases);
+
         void onCallBackFailure(ArrayList<ReadingFirebase> readingFirebases);
     }
 
     public interface GetAllReadingLesson {
         void onCallBackResponse(ArrayList<ReadingLesson> readingLessons);
+
         void onCallBackFailure(ArrayList<ReadingLesson> readingLessons);
     }
 }

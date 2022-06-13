@@ -244,8 +244,8 @@ public class ReadingViewModel extends ViewModel {
     }
 
     //pushDoneLessonToFirestore
-    public void pushDoneReadingLessonToFirestore(int score) {
-        ReadingFirebase readingFirebase = new ReadingFirebase(undoneReadingLesson.getValue().get(position).getUuid(), Integer.toString(score));
+    public void pushDoneReadingLessonToFirestore(int score, ArrayList<String> answers) {
+        ReadingFirebase readingFirebase = new ReadingFirebase(undoneReadingLesson.getValue().get(position).getUuid(), Integer.toString(score), answers);
         readingRepository.pushDoneReadingLessonFromFirestore(readingFirebase);
     }
 

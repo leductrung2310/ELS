@@ -80,8 +80,15 @@ public class DoneListeningLessonFragment extends Fragment {
         listeningViewModel.getDoneListening().observe(getViewLifecycleOwner(), listObserver);
 
         listeningViewModel.getListeningQuestionLiveData().observe(getViewLifecycleOwner(), listeningQuestions -> {
-            listeningQuestionAdapter = new DoneListeningAdapter(listeningQuestions);
-            binding.rcvListeningQuestion.setAdapter(listeningQuestionAdapter);
+            if (!listeningQuestions.isEmpty()) {
+                for (ListeningFirebase listeningFirebase:
+                        Objects.requireNonNull(listeningViewModel.getDoneListeningFirebase().getValue())) {
+                    if (listeningFirebase.getId().equals(listeningQuestions.get(0).getListeningUuid())) {
+                        listeningQuestionAdapter = new DoneListeningAdapter(listeningQuestions, listeningFirebase);
+                        binding.rcvListeningQuestion.setAdapter(listeningQuestionAdapter);
+                    }
+                }
+            }
         });
         
         listeningViewModel.getDoneListeningFirebase().observe(getViewLifecycleOwner(), listeningFirebases -> {

@@ -14,10 +14,14 @@ import androidx.navigation.Navigation;
 import com.example.els.R;
 import com.example.els.databinding.FragmentHomeBinding;
 import com.example.els.viewmodel.home.HomeViewModel;
+import com.example.els.viewmodel.home.ListeningViewModel;
+import com.example.els.viewmodel.home.ReadingViewModel;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private HomeViewModel homeViewModel;
+    private ListeningViewModel listeningViewModel;
+    private ReadingViewModel readingViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,10 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         // Initialize view model
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+        listeningViewModel = new ViewModelProvider(requireActivity()).get(ListeningViewModel.class);
+        readingViewModel = new ViewModelProvider(requireActivity()).get(ReadingViewModel.class);
+        listeningViewModel.getDataListeningLesson();
+        readingViewModel.getAllReadingLesson();
 
         // On Card click listener
         binding.listeningCardView.setOnClickListener(view1 -> moveToSkillLearningTab("listening", view1));
