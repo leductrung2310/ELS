@@ -6,7 +6,7 @@ CREATE TABLE listeningquestion (
 	listeningid TEXT,
 	content TEXT,
 	answer TEXT
-)
+);
 
 CREATE TABLE listening (
 	id TEXT PRIMARY KEY,
@@ -15,7 +15,7 @@ CREATE TABLE listening (
 	duration INT,
 	audio TEXT,
 	image TEXT
-)
+);
 
 
 create table readinglesson (
@@ -24,18 +24,36 @@ create table readinglesson (
 	duration INT,
 );
 
-create table readingquestion() {
+create table readingquestion(
 	id TEXT PRIMARY KEY,
 	readinglessonid TEXT,
 	content TEXT
-}
+);
 
-create table readinganswer() {
+create table readinganswer(
 	id TEXT PRIMARY KEY,
 	readingquestionid TEXT,
 	answer TEXT,
 	isCorrect boolean
-}
+);
+
+create table ELSUser (
+	id TEXT PRIMARY KEY,
+	name TEXT,
+);
+
+create table listeningfirebase(
+	id TEXT PRIMARY KEY,
+	score TEXT,
+	answer TEXT,
+);
+
+create table readingfirebase(
+	id TEXT PRIMARY KEY,
+	score TEXT,
+	answer TEXT,
+);
+
 INSERT INTO listening VALUES('2e439328-d1c7-11ec-9d64-0242ac120002','The question have one people in a picture','It should be noted that people are the focus. Listen to the description of the dideemer''s characteristics in terms of appearance, character''s movements based on the structure be - Ving','10','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1.mp3?alt=media&token=5bc5192a-7efe-4682-88f3-adceb8a77643','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1_image.jpg?alt=media&token=3925ba3c-2f50-459b-b906-d01ad74507e3');
 INSERT INTO listening VALUES('2e439594-d1c7-11ec-9d64-0242ac120002','The question have many people in a picture','Observe people''s characteristics. Observe people''s different points of view. Locate people and things around people','10','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1.mp3?alt=media&token=5bc5192a-7efe-4682-88f3-adceb8a77644','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1_image.jpg?alt=media&token=3925ba3c-2f50-459b-b906-d01ad74507e4');
 INSERT INTO listening VALUES('2e4396d4-d1c7-11ec-9d64-0242ac120002','The question have object','Guess the structure of the passive voice. Identify similarities and differences between things. Identify positional relationships between objects.','10','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1.mp3?alt=media&token=5bc5192a-7efe-4682-88f3-adceb8a77645','https://firebasestorage.googleapis.com/v0/b/elsimple-4d688.appspot.com/o/lesson_1_image.jpg?alt=media&token=3925ba3c-2f50-459b-b906-d01ad74507e5');
