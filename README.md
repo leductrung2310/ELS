@@ -26,5 +26,5 @@ Contact us through this email: 19522422@gm.uit.edu.vn
 ## Development environment
 - Operating system: Windows 11
 - Database management system: Firebase
-- Technology: Android with Jetpack compose and Java
+- Technology: Android with Jetpack and Java
 - IDE: Android studio
